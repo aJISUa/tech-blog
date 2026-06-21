@@ -77,7 +77,7 @@ On-Care는 캡스톤 START 단계에서 백엔드와 AI 엔진이 완전히 연�
 
 | 구분                    | 링크                      |
 | --------------------- | ----------------------- |
-| 기술블로그 배포 페이지          | Vercel 배포 후 링크 추가       |
+| 기술블로그 배포 페이지          | https://tech-blog-hazel-ten.vercel.app       |
 | On-Care 메인 GitHub 저장소 | 원본 On-Care GitHub 링크 추가 |
 | On-Care 웹 데모          | 웹 데모 링크 추가              |
 | On-Care 데모 영상         | YouTube 데모 영상 링크 추가     |
