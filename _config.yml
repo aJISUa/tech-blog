@@ -82,8 +82,8 @@ footer:
       icon: "fab fa-fw fa-github"
       url: "https://github.com/aJISUa"
 
-atom_feed:
-  path: /feed.xml
+copyright: "aJISUa Tech Blog"
+copyright_url: "https://ajisua.github.io/tech-blog/"
 
 analytics:
   provider: false
