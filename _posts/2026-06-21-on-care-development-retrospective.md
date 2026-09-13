@@ -1,11 +1,13 @@
 ---
 title: "On-Care 개발기 — 한 학기, 기획부터 Flutter MVP까지"
 date: 2026-06-21 17:19:00 +0900
+course: "이화여자대학교 캡스톤디자인과창업프로젝트"
 categories:
-  - 프로젝트
+  - 강의
 tags:
   - Flutter
   - 캡스톤
+  - 프로젝트
   - drift
   - AI
 excerpt: "2030 만성질환 위험군을 위한 AI 헬스케어 플랫폼 On-Care를 기획하고 구현한 한 학기의 기록입니다."
