@@ -1,0 +1,89 @@
+remote_theme: "mmistakes/minimal-mistakes@4.28.0"
+minimal_mistakes_skin: "air"
+
+locale: "ko-KR"
+title: "aJISUa Tech Blog"
+title_separator: "·"
+subtitle: "배우고 만들며 남기는 개발 기록"
+name: "최지수"
+description: "강의별 학습 기록과 프로젝트 개발 경험을 일자별로 정리하는 기술 블로그"
+url: "https://ajisua.github.io"
+baseurl: "/tech-blog"
+repository: "aJISUa/tech-blog"
+timezone: "Asia/Seoul"
+
+author:
+  name: "최지수"
+  bio: "배운 것을 기록하고, 만든 것을 설명합니다."
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/aJISUa"
+
+search: true
+search_full_content: true
+search_provider: lunr
+lunr:
+  search_within_pages: true
+
+permalink: /:categories/:title/
+paginate: 8
+paginate_path: /page:num/
+words_per_minute: 200
+enable_copy_code_button: true
+
+plugins:
+  - jekyll-include-cache
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-sitemap
+
+include:
+  - _pages
+
+exclude:
+  - README.md
+  - templates
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+
+category_archive:
+  type: liquid
+  path: /categories/
+
+tag_archive:
+  type: liquid
+  path: /tags/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      show_date: true
+      share: false
+      related: true
+      toc: true
+      toc_sticky: true
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: false
+
+footer:
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/aJISUa"
+
+atom_feed:
+  path: /feed.xml
+
+analytics:
+  provider: false

@@ -1,0 +1,180 @@
+---
+# Jekyll이 이 파일을 처리하기 위해 필요한 빈 Front Matter입니다.
+---
+
+@charset "utf-8";
+
+@import "minimal-mistakes";
+
+:root {
+  --blog-ink: #182019;
+  --blog-muted: #647068;
+  --blog-paper: #fbfcf9;
+  --blog-accent: #2f6b4f;
+  --blog-accent-soft: #e7f0e9;
+  --blog-line: #dfe7df;
+}
+
+html {
+  font-size: 17px;
+}
+
+body {
+  background: var(--blog-paper);
+  color: var(--blog-ink);
+}
+
+.masthead {
+  border-bottom: 1px solid var(--blog-line);
+}
+
+.greedy-nav,
+.masthead,
+.page__footer {
+  background: var(--blog-paper);
+}
+
+.greedy-nav a.site-title,
+.greedy-nav .visible-links a,
+.page__title,
+.archive__item-title {
+  color: var(--blog-ink);
+}
+
+.greedy-nav .visible-links a::before {
+  background: var(--blog-accent);
+}
+
+.page__content a:not(.btn),
+.archive a:not(.btn) {
+  color: var(--blog-accent);
+}
+
+.home-intro {
+  position: relative;
+  overflow: hidden;
+  margin: 0 0 3rem;
+  padding: clamp(2rem, 6vw, 4.5rem);
+  border: 1px solid var(--blog-line);
+  border-radius: 1.25rem;
+  background:
+    radial-gradient(circle at 92% 10%, rgba(47, 107, 79, 0.18), transparent 32%),
+    linear-gradient(140deg, #f7faf5 0%, #edf4ee 100%);
+}
+
+.home-intro .eyebrow {
+  margin-bottom: 0.75rem;
+  color: var(--blog-accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.home-intro h2 {
+  max-width: 760px;
+  margin: 0 0 1rem;
+  color: var(--blog-ink);
+  font-size: clamp(1.8rem, 4.5vw, 3.4rem);
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+}
+
+.home-intro > p:not(.eyebrow) {
+  max-width: 660px;
+  color: var(--blog-muted);
+  font-size: 1.05rem;
+}
+
+.home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.5rem;
+}
+
+.home-actions .btn--primary {
+  background: var(--blog-accent);
+}
+
+.home-actions .btn--inverse {
+  border: 1px solid var(--blog-accent);
+  background: transparent;
+  color: var(--blog-accent);
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.course-card {
+  padding: 1.4rem;
+  border: 1px solid var(--blog-line);
+  border-radius: 0.9rem;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(31, 52, 40, 0.04);
+}
+
+.course-card__count {
+  margin: 0;
+  color: var(--blog-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.course-card h2 {
+  margin: 0.35rem 0 1rem;
+  font-size: 1.25rem;
+}
+
+.course-card__posts {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.course-card__posts li {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--blog-line);
+}
+
+.course-card__posts a {
+  color: var(--blog-ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.course-card__posts a span {
+  display: inline-block;
+  margin-right: 0.35rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 999px;
+  background: var(--blog-accent-soft);
+  color: var(--blog-accent);
+  font-size: 0.72rem;
+}
+
+.course-card__posts time {
+  color: var(--blog-muted);
+  font-size: 0.75rem;
+}
+
+.page__footer {
+  border-top: 1px solid var(--blog-line);
+  color: var(--blog-muted);
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 16px;
+  }
+
+  .home-intro {
+    padding: 1.6rem;
+    border-radius: 0.9rem;
+  }
+}

@@ -1,154 +1,72 @@
-# tech-blog
+# aJISUa Tech Blog
 
-> 2026 이화여자대학교 컴퓨터공학전공 캡스톤디자인과창업프로젝트
-> Team Sudo — AI 헬스케어 플랫폼 **On-Care** 개발 회고 기술블로그
+강의별 학습 기록과 프로젝트 개발 경험을 일자별로 정리하는 Jekyll 기술 블로그입니다.
 
-<br />
+- 테마: [Minimal Mistakes](https://github.com/mmistakes/minimal-mistakes)
+- 배포: GitHub Pages
+- 블로그 주소: <https://ajisua.github.io/tech-blog/>
 
-## Overview
+## 글 작성 방법
 
-이 저장소는 **On-Care 캡스톤디자인 프로젝트의 한 학기 개발 과정을 정리한 기술블로그**를 배포하기 위한 저장소입니다.
-
-On-Care는 불규칙한 생활을 하는 2030세대, 특히 고혈압·당뇨 위험군 사용자가 식단, 운동, 건강 지표, 일정, 오프라인 건강 관리를 하나의 흐름 안에서 관리할 수 있도록 기획한 AI 헬스케어 플랫폼입니다.
-
-본 기술블로그는 단순한 결과물 소개가 아니라, 실제 캡스톤 프로젝트를 진행하며 겪은 문제 정의, 기술 스택 전환, 로컬 백엔드 설계 과정을 중심으로 작성되었습니다.
-
-<br />
-
-## Blog Topic
-
-이 글은 다음 세 가지 흐름을 중심으로 On-Care의 개발 과정을 정리합니다.
-
-1. **사용자 인터뷰를 통한 문제 정의**
-
-   * 2030세대 만성질환 위험군 사용자가 건강관리를 지속하기 어려운 이유를 인터뷰로 확인
-   * 식단 기록의 번거로움, 개인화 부족, 앱 간 기능 파편화 문제 도출
-   * 인터뷰 결과를 기능 우선순위로 연결
-
-2. **React 프로토타입에서 Flutter MVP로의 전환**
-
-   * 초기 React 기반 프로토타입을 통해 서비스 흐름 검증
-   * 모바일 중심 사용자 경험을 위해 Flutter 구조로 재구성
-   * 홈, 식단, 운동, 건강 지표, 일정, AI 코치 화면을 하나의 앱 흐름으로 통합
-
-3. **백엔드 완성 전 실제 서비스처럼 동작하는 로컬 백엔드 설계**
-
-   * `drift` 기반 로컬 데이터베이스 설계
-   * `LocalApiInterceptor`를 활용한 API 요청 가로채기 구조 구현
-   * `USE_MOCK_API` 플래그를 통해 mock API와 실서버 API 전환 가능성을 열어 둔 구조 설계
-   * 백엔드 개발 전에도 앱이 실제 서비스처럼 동작하도록 만든 과정 정리
-
-<br />
-
-## Main Focus
-
-이 기술블로그에서 가장 깊게 다루는 부분은 **로컬 백엔드 설계**입니다.
-
-On-Care는 캡스톤 START 단계에서 백엔드와 AI 엔진이 완전히 연동되기 전에도, 사용자가 앱을 직접 사용해보는 것처럼 보이는 MVP가 필요했습니다.
-
-이를 위해 프론트엔드 내부에 다음 구조를 설계했습니다.
-
-| 구분          | 내용                                              |
-| ----------- | ----------------------------------------------- |
-| Local DB    | `drift`를 활용한 로컬 데이터 저장 구조                       |
-| Mock API    | 실제 API 요청처럼 동작하는 로컬 응답 구조                       |
-| Interceptor | `LocalApiInterceptor`로 요청을 가로채 mock response 반환 |
-| 전환 설계       | `USE_MOCK_API` 플래그를 통해 실서버 전환 경로 확보             |
-| 목적          | 백엔드 완성 전에도 실제 서비스 흐름과 유사한 MVP 구현                |
-
-<br />
-
-## Related Capstone Project
-
-본 기술블로그는 아래 캡스톤디자인 프로젝트와 직접 연결됩니다.
-
-| 항목          | 내용                                                                                    |
-| ----------- | ------------------------------------------------------------------------------------- |
-| 프로젝트명       | On-Care                                                                               |
-| 팀명          | Team Sudo                                                                             |
-| 과정          | 2026 이화여자대학교 컴퓨터공학전공 캡스톤디자인과창업프로젝트                                                    |
-| 주제          | 불규칙한 생활 속 2030을 위한 고혈압·당뇨 위험군 대상 AI 헬스케어 플랫폼                                          |
-| 주요 기술       | Flutter, Dart, Riverpod, drift, LocalApiInterceptor, FastAPI 설계, Vision AI 설계, RAG 설계 |
-| 기술블로그 작성 목적 | 캡스톤 프로젝트의 실제 개발 과정과 기술적 의사결정 회고                                                       |
-
-<br />
-
-## Project Links
-
-| 구분                    | 링크                      |
-| --------------------- | ----------------------- |
-| 기술블로그 배포 페이지          | https://tech-blog-hazel-ten.vercel.app       |
-| On-Care 메인 GitHub 저장소 | 원본 On-Care GitHub 링크 추가 |
-| On-Care 웹 데모          | 웹 데모 링크 추가              |
-| On-Care 데모 영상         | YouTube 데모 영상 링크 추가     |
-
-<br />
-
-## Repository Structure
+`templates/course-daily-post.md`를 복사해 `_posts` 아래에 저장합니다.
 
 ```text
-.
-├── index.html      # 기술블로그 본문 페이지
-└── README.md       # 저장소 및 기술블로그 소개 문서
+_posts/<강의-슬러그>/YYYY-MM-DD-<글-슬러그>.md
 ```
 
-<br />
-
-## Deployment
-
-이 저장소는 `index.html` 기반의 정적 페이지로 구성되어 있으며, Vercel을 통해 배포합니다.
-
-배포 후에는 아래 링크에서 기술블로그를 확인할 수 있습니다.
+예를 들어 Python 기초 강의 3일차 글은 다음처럼 저장할 수 있습니다.
 
 ```text
-Vercel 배포 URL 추가
+_posts/python-basic/2026-09-13-functions.md
 ```
 
-<br />
+글 상단의 Front Matter에서 `course` 값이 같은 글들은 **강의** 페이지에 자동으로 묶입니다.
 
-## How to Run Locally
+```yaml
+---
+title: "함수와 매개변수"
+date: 2026-09-13 20:00:00 +0900
+course: "Python 기초"
+day: 3
+categories:
+  - 강의
+tags:
+  - Python
+  - 함수
+excerpt: "Python 함수 선언과 매개변수 전달 방식을 정리합니다."
+toc: true
+---
+```
 
-별도의 빌드 과정 없이 브라우저에서 `index.html` 파일을 열어 확인할 수 있습니다.
+강의가 다섯 개라면 각 글의 `course`에 다섯 강의명 중 하나를 적기만 하면 됩니다. 별도의 강의 페이지를 직접 만들 필요는 없습니다.
+
+## 주요 경로
+
+| 경로 | 용도 |
+| --- | --- |
+| `_posts/` | 공개되는 학습 기록과 프로젝트 글 |
+| `templates/course-daily-post.md` | 일자별 강의 글 템플릿 |
+| `_pages/courses.html` | 강의별 글 자동 모아보기 |
+| `_data/navigation.yml` | 상단 메뉴 |
+| `_config.yml` | 블로그 이름, 주소, 테마 설정 |
+| `on-care.html` | 기존 On-Care 전체 개발 회고 |
+| `assets/css/main.scss` | 테마 위에 적용하는 블로그 디자인 |
+
+## 기존 On-Care 글
+
+기존 단일 페이지는 삭제하지 않고 `/on-care/` 경로에 그대로 보존했습니다. 블로그 홈에는 이 글로 이동하는 프로젝트 글이 표시됩니다.
+
+## 로컬 실행
+
+Ruby와 Bundler가 설치된 환경에서 다음 명령을 실행합니다.
 
 ```bash
-open index.html
+bundle install
+bundle exec jekyll serve
 ```
 
-또는 간단한 로컬 서버를 실행할 수 있습니다.
+브라우저에서 <http://localhost:4000/tech-blog/>를 엽니다.
 
-```bash
-python3 -m http.server 3000
-```
+## 배포
 
-실행 후 브라우저에서 아래 주소로 접속합니다.
-
-```text
-http://localhost:3000
-```
-
-<br />
-
-## Why This Blog Matters
-
-이 글은 On-Care의 최종 결과물만 소개하는 글이 아니라, 캡스톤 프로젝트 과정에서 실제로 마주한 개발 문제와 해결 방식을 정리한 기술 회고입니다.
-
-특히 백엔드가 아직 완성되지 않은 상황에서도 사용 가능한 MVP를 만들기 위해, 프론트엔드 내부에서 mock API, 로컬 DB, API interceptor 구조를 설계한 과정은 캡스톤 프로젝트의 실제 개발 단계와 직접적으로 연결됩니다.
-
-따라서 본 저장소는 다음 목적을 가집니다.
-
-* 캡스톤 프로젝트 산출물과 기술블로그 연결
-* On-Care 개발 과정 기록
-* 로컬 백엔드 설계 경험 정리
-* 향후 실서버 전환을 고려한 MVP 설계 사례 공유
-
-<br />
-
-## Author
-
-본 글은 2026 이화여자대학교 컴퓨터공학전공 캡스톤디자인과창업프로젝트에서 Team Sudo가 진행한 On-Care 프로젝트의 팀원으로서 작성한 기술 회고입니다.
-
-<br />
-
-## License
-
-이 저장소의 글과 코드는 캡스톤 프로젝트 기술 회고 및 포트폴리오 목적으로 공개됩니다.
+`main` 브랜치에 변경 사항을 올리면 `.github/workflows/pages.yml`이 사이트를 빌드하고 GitHub Pages에 배포합니다. 저장소의 **Settings → Pages → Build and deployment → Source**는 **GitHub Actions**로 설정해야 합니다.
