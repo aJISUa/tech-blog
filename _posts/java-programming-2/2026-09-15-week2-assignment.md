@@ -247,7 +247,7 @@ Scanner랑 `nextLine()`도 지워서 엔터 안 쳐도 끝까지 돌아간다. �
 
 ![리팩토링 후 Vehicle-Driver 클래스 다이어그램]({{ '/assets/images/java-programming-2/vd-refactor-uml.png' | relative_url }})
 
-원본 다이어그램이랑 비교해보면 차이가 바로 보인다. Driveable에 `drive(m: Moveable)`, `drive(ms: Moveable[])`가 추가됐고, Driver는 Scanner 없이 drive 메소드가 2개로 줄었다. Vehicle은 빈 생성자와 setter가 사라지고 `MOVE_UNIT_KM`, `EPSILON` 상수가 생겼다. 버스, 비행기, 탱크는 생성자랑 `소리내기()`만 남았다.
+원본 다이어그램이랑 비교해보면 차이가 바로 보인다. Driveable에 `drive(m: Moveable)`, `drive(ms: Moveable[])`가 추가됐고, Driver는 Scanner 없이 drive 메소드가 2개로 줄었다. Vehicle은 빈 생성자와 setter가 사라지고 `MOVE_UNIT_KM`, `EPSILON` 상수가 생겼다. 버스, 비행기는 생성자랑 `소리내기()`만 남았고, 탱크는 여기에 `포탄쓰기()`가 더 있다.
 
 ![RefactorCheck 실행 결과]({{ '/assets/images/java-programming-2/vd-refactor-check-console.png' | relative_url }})
 
