@@ -8,10 +8,10 @@ permalink: /on-care/
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>On-Care 개발기 — 한 학기, 기획부터 Flutter MVP까지</title>
+  <title>On-Care 개발기 - 한 학기, 기획부터 Flutter MVP까지</title>
   <meta name="description"
     content="이화여대 캡스톤디자인 프로젝트 On-Care의 한 학기 개발 회고. 문제 정의와 인터뷰, 브랜드 설계, React 프로토타입의 Flutter 재구성, drift 기반 로컬 백엔드, 웹 배포, Vision·RAG AI 파이프라인 설계, GitHub 협업까지 단계별로 정리했습니다." />
-  <meta property="og:title" content="On-Care 개발기 — 한 학기, 기획부터 Flutter MVP까지" />
+  <meta property="og:title" content="On-Care 개발기 - 한 학기, 기획부터 Flutter MVP까지" />
   <meta property="og:description"
     content="2030 만성질환 위험군을 위한 AI 헬스케어 플랫폼 On-Care를, 한 학기 동안 기획·설계·구현·배포·협업으로 쌓아 올린 기록." />
   <meta property="og:type" content="article" />
@@ -34,7 +34,7 @@ permalink: /on-care/
       --paper:      #f6f4ee;
       --card:       #fffdf8;
       --card-2:     #faf8f2;
-      --accent:     #8a6d3b;     /* muted bronze — calm, considered */
+      --accent:     #8a6d3b;     /* muted bronze - calm, considered */
       --accent-dim: #b29463;
       --ok:         #4f6b3e;
       --ok-bg:      #eef1e7;
@@ -377,7 +377,7 @@ permalink: /on-care/
 
     .article ul.dash { list-style: none; margin: 14px 0; display: grid; gap: 9px; }
     .article ul.dash li { position: relative; padding-left: 20px; font-size: 0.95rem; line-height: 1.7; }
-    .article ul.dash li::before { content: '—'; position: absolute; left: 0; color: var(--faint); }
+    .article ul.dash li::before { content: '-'; position: absolute; left: 0; color: var(--faint); }
 
     /* ───────── team ───────── */
     .team {
@@ -438,7 +438,7 @@ permalink: /on-care/
       <p class="hero-lead">
         2030 만성질환 위험군을 위한 AI 헬스케어 플랫폼 On-Care를, 한 학기 동안 단계별로
         설계하고 구현하고 배포한 회고입니다. 문제 정의부터 브랜드, 크로스플랫폼 앱,
-        로컬 백엔드, 협업 체계까지 — 우리가 어떤 순서로 무엇을 결정했는지 정리했습니다.
+        로컬 백엔드, 협업 체계까지 - 우리가 어떤 순서로 무엇을 결정했는지 정리했습니다.
       </p>
       <div class="hero-byline">
         <span class="who">글쓴이 · 최지수</span>
@@ -454,14 +454,14 @@ permalink: /on-care/
     <nav class="toc" aria-label="목차">
       <div class="toc-h">목차</div>
       <ol>
-        <li><a href="#intro"><span>들어가며 — 한 학기의 설계도</span><span class="dots"></span><span class="pg">§1</span></a></li>
-        <li><a href="#problem"><span>문제 정의 — 인터뷰가 방향을 잡다</span><span class="dots"></span><span class="pg">§2</span></a></li>
-        <li><a href="#brand"><span>브랜드와 팀 규칙 — 토대 만들기</span><span class="dots"></span><span class="pg">§3</span></a></li>
+        <li><a href="#intro"><span>들어가며 - 한 학기의 설계도</span><span class="dots"></span><span class="pg">§1</span></a></li>
+        <li><a href="#problem"><span>문제 정의 - 인터뷰가 방향을 잡다</span><span class="dots"></span><span class="pg">§2</span></a></li>
+        <li><a href="#brand"><span>브랜드와 팀 규칙 - 토대 만들기</span><span class="dots"></span><span class="pg">§3</span></a></li>
         <li><a href="#mvp"><span>React 프로토타입을 Flutter로 재구성</span><span class="dots"></span><span class="pg">§4</span></a></li>
         <li><a href="#design-system"><span>디자인 시스템과 화면 구현</span><span class="dots"></span><span class="pg">§5</span></a></li>
-        <li><a href="#local-backend"><span>로컬 백엔드 — drift와 인터셉터</span><span class="dots"></span><span class="pg">§6</span></a></li>
+        <li><a href="#local-backend"><span>로컬 백엔드 - drift와 인터셉터</span><span class="dots"></span><span class="pg">§6</span></a></li>
         <li><a href="#deploy"><span>테스트와 웹 배포</span><span class="dots"></span><span class="pg">§7</span></a></li>
-        <li><a href="#ai"><span>AI 파이프라인 — PoC와 설계</span><span class="dots"></span><span class="pg">§8</span></a></li>
+        <li><a href="#ai"><span>AI 파이프라인 - PoC와 설계</span><span class="dots"></span><span class="pg">§8</span></a></li>
         <li><a href="#collab"><span>협업과 저장소 정비</span><span class="dots"></span><span class="pg">§9</span></a></li>
         <li><a href="#status"><span>지금까지의 위치, 그리고 다음</span><span class="dots"></span><span class="pg">§10</span></a></li>
       </ol>
@@ -470,7 +470,7 @@ permalink: /on-care/
     <article class="article">
       <!-- 1. INTRO -->
       <section id="intro">
-        <span class="sec-no">01 — 들어가며</span>
+        <span class="sec-no">01 - 들어가며</span>
         <h2>한 학기의 설계도</h2>
         <p class="lede dropcap">
           캡스톤은 좋은 아이디어 하나로 끝나지 않습니다. 그 아이디어를 한 학기 안에
@@ -485,7 +485,7 @@ permalink: /on-care/
         <p>
           처음부터 단계는 분명했습니다. 사용자 문제를 인터뷰로 검증하고, 브랜드와 협업 규칙으로
           토대를 다진 뒤, 크로스플랫폼 앱을 구현하고, 백엔드가 준비되기 전에도 앱이 온전히
-          동작하도록 로컬 백엔드를 두고, 마지막으로 AI 파이프라인을 설계해 두는 것 —
+          동작하도록 로컬 백엔드를 두고, 마지막으로 AI 파이프라인을 설계해 두는 것 -
           이 글은 그 <span class="u">로드맵을 따라 실제로 무엇을 결정하고 만들었는지</span>를
           순서대로 풀어낸 기록입니다.
         </p>
@@ -521,13 +521,13 @@ permalink: /on-care/
               </g>
             </svg>
           </div>
-          <figcaption><span class="fno">FIG 1</span> · 한 학기 로드맵 — 기획에서 출발해 MVP·배포까지 완성, AI는 검증·설계로 토대 마련</figcaption>
+          <figcaption><span class="fno">FIG 1</span> · 한 학기 로드맵 - 기획에서 출발해 MVP·배포까지 완성, AI는 검증·설계로 토대 마련</figcaption>
         </figure>
       </section>
 
       <!-- 2. PROBLEM -->
       <section id="problem">
-        <span class="sec-no">02 — 문제 정의</span>
+        <span class="sec-no">02 - 문제 정의</span>
         <h2>인터뷰가 방향을 잡아 주었다</h2>
         <p>
           첫 단계는 코드가 아니라 사용자였습니다. 2030 만성질환 위험군의 유병률은 구조적으로
@@ -537,7 +537,7 @@ permalink: /on-care/
           인터뷰로 검증했습니다.
         </p>
         <p>
-          세 분 모두 같은 지점을 짚었습니다 — 건강 관리의 필요성은 알지만, 매끼 식단을 일일이
+          세 분 모두 같은 지점을 짚었습니다 - 건강 관리의 필요성은 알지만, 매끼 식단을 일일이
           검색하고 입력하는 과정에서 지쳐 결국 앱을 떠난다는 것이었죠. 이 한 문장이 프로젝트의
           무게중심을 “기능을 더 넣자”가 아니라 “<span class="u">기록 마찰을 줄이고 행동 변화로
           잇자</span>”로 잡아 주었습니다.
@@ -564,14 +564,14 @@ permalink: /on-care/
 
       <!-- 3. BRAND -->
       <section id="brand">
-        <span class="sec-no">03 — 토대</span>
+        <span class="sec-no">03 - 토대</span>
         <h2>브랜드와 팀 규칙으로 토대를 다지다</h2>
         <p>
           방향이 정해지자, 본격적인 구현에 앞서 두 가지 토대를 먼저 만들었습니다.
           하나는 서비스의 정체성, 다른 하나는 팀의 일하는 방식이었습니다.
         </p>
 
-        <h3>브랜드 — 이름, 로고, 그리고 ‘온이’</h3>
+        <h3>브랜드 - 이름, 로고, 그리고 ‘온이’</h3>
         <p>
           서비스명 On-Care와 배너·로고를 직접 디자인하고, 사용자에게 피드백을 건네는 AI 캐릭터
           ‘온이’의 말투와 톤까지 정했습니다. 화면마다 색과 여백이 제각각이면 완성도가 낮아
@@ -594,11 +594,11 @@ permalink: /on-care/
 
       <!-- 4. MVP / migration -->
       <section id="mvp">
-        <span class="sec-no">04 — 프론트엔드</span>
+        <span class="sec-no">04 - 프론트엔드</span>
         <h2>React 프로토타입을, 의도적으로 Flutter로 재구성하다</h2>
         <p>
           On-Care의 첫 형태는 React + TypeScript + Vite로 만든 웹 프로토타입이었습니다.
-          핵심 UX 흐름 — 홈 대시보드, 식단 기록, 운동, 내 건강 — 을 빠르게 검증하기에는
+          핵심 UX 흐름 - 홈 대시보드, 식단 기록, 운동, 내 건강 - 을 빠르게 검증하기에는
           좋았지만, 모바일까지 하나의 코드로 가져가려면 구조적인 결정이 필요했습니다.
           그래서 <strong>iOS·Android·Web을 단일 코드베이스로 제공하는 Flutter</strong>로
           재구성하기로 했습니다.
@@ -664,7 +664,7 @@ permalink: /on-care/
 
       <!-- 5. design system + screens -->
       <section id="design-system">
-        <span class="sec-no">05 — 디자인 시스템</span>
+        <span class="sec-no">05 - 디자인 시스템</span>
         <h2>일관된 화면은 ‘일관된 속도’에서 온다</h2>
         <p>
           화면을 여러 개 만들다 보면 카드·버튼·여백·색이 제각각으로 흐르기 쉽습니다. 그래서
@@ -712,7 +712,7 @@ permalink: /on-care/
 
       <!-- 6. local backend -->
       <section id="local-backend">
-        <span class="sec-no">06 — 로컬 백엔드</span>
+        <span class="sec-no">06 - 로컬 백엔드</span>
         <h2>백엔드 전에도 온전히 동작하는 앱</h2>
         <p class="lede">
           이 부분은 같은 고민을 하는 팀이라면 그대로 가져다 쓸 수 있는, 이 글에서 가장
@@ -779,12 +779,12 @@ permalink: /on-care/
     <span class="t">final</span> route = (options.method, options.path);
 
     <span class="t">switch</span> (route) {
-      <span class="g">// GET /diet/days/today — 오늘 끼니를 합산해 반환</span>
+      <span class="g">// GET /diet/days/today - 오늘 끼니를 합산해 반환</span>
       <span class="t">case</span> (<span class="s">'GET'</span>, <span class="s">'/diet/days/today'</span>):
         <span class="t">final</span> entries = <span class="t">await</span> _db.dietForDay(DateTime.<span class="f">now</span>());
         <span class="t">return</span> handler.<span class="f">resolve</span>(<span class="f">_ok</span>(options, DietDay.<span class="f">from</span>(entries)));
 
-      <span class="g">// POST /diet/entries — 기록을 추가하고 저장된 행을 반환</span>
+      <span class="g">// POST /diet/entries - 기록을 추가하고 저장된 행을 반환</span>
       <span class="t">case</span> (<span class="s">'POST'</span>, <span class="s">'/diet/entries'</span>):
         <span class="t">final</span> saved = <span class="t">await</span> _db.<span class="f">insertDiet</span>(DietEntry.<span class="f">fromJson</span>(options.data));
         <span class="t">return</span> handler.<span class="f">resolve</span>(<span class="f">_ok</span>(options, saved, status: <span class="n">201</span>));
@@ -834,7 +834,7 @@ permalink: /on-care/
         </p>
         <div class="code">
           <div class="code-tab">lib/core/storage/tables.dart</div>
-<pre><span class="g">// 식단 기록 — 끼니별 영양소를 그대로 컬럼으로</span>
+<pre><span class="g">// 식단 기록 - 끼니별 영양소를 그대로 컬럼으로</span>
 <span class="t">class</span> <span class="f">DietEntries</span> <span class="t">extends</span> Table {
   IntColumn <span class="t">get</span> id =&gt; <span class="f">integer</span>().<span class="f">autoIncrement</span>()();
   DateTimeColumn <span class="t">get</span> date =&gt; <span class="f">dateTime</span>()();
@@ -844,7 +844,7 @@ permalink: /on-care/
   IntColumn <span class="t">get</span> sodiumMg =&gt; <span class="f">integer</span>()();      <span class="g">// 고혈압 추적 핵심</span>
 }
 
-<span class="g">// 생체 지표 — 체중·혈압·혈당을 한 테이블에 시계열로</span>
+<span class="g">// 생체 지표 - 체중·혈압·혈당을 한 테이블에 시계열로</span>
 <span class="t">class</span> <span class="f">Vitals</span> <span class="t">extends</span> Table {
   IntColumn <span class="t">get</span> id =&gt; <span class="f">integer</span>().<span class="f">autoIncrement</span>()();
   TextColumn <span class="t">get</span> kind =&gt; <span class="f">text</span>()();            <span class="g">// weight | bp | glucose</span>
@@ -876,17 +876,17 @@ permalink: /on-care/
         </p>
         <div class="code">
           <div class="code-tab">모드 전환</div>
-<pre><span class="g"># 평소 — 시연·개발 (기본값)</span>
+<pre><span class="g"># 평소 - 시연·개발 (기본값)</span>
 flutter run -d chrome
 
-<span class="g"># 실 서버 연동 시 — path는 그대로, 인터셉터만 off</span>
+<span class="g"># 실 서버 연동 시 - path는 그대로, 인터셉터만 off</span>
 flutter run -d chrome \
   --dart-define=<span class="k">USE_MOCK_API=false</span> \
   --dart-define=API_BASE_URL=<span class="s">&lt;your-api&gt;</span></pre>
         </div>
         <p>
           이 플래그는 컴파일타임에 읽혀, DioClient를 조립할 때 인터셉터를 붙일지 말지를
-          가릅니다. 앱 코드의 나머지는 모드를 전혀 몰라도 됩니다 — 그냥 <code>dio.get('/diet/days/today')</code>를
+          가릅니다. 앱 코드의 나머지는 모드를 전혀 몰라도 됩니다 - 그냥 <code>dio.get('/diet/days/today')</code>를
           부를 뿐이고, 응답이 로컬 drift에서 왔는지 실서버에서 왔는지는 신경 쓰지 않습니다.
         </p>
         <div class="code">
@@ -907,14 +907,14 @@ Dio <span class="f">buildDio</span>(AppDatabase db) {
         <p>
           덕분에 백엔드 없이도 대시보드·식단·운동·건강 지표·일정 화면을 하나의 앱처럼 시연할 수
           있었고, 실서버가 준비되면 전환 비용은 거의 들지 않도록 길을 열어 두었습니다.
-          한 줄 요약하면 — <span class="u">모드는 부트스트랩에서 한 번 결정되고, 그 위의 모든
+          한 줄 요약하면 - <span class="u">모드는 부트스트랩에서 한 번 결정되고, 그 위의 모든
           코드는 모드에 무지하게 동작</span>합니다.
         </p>
       </section>
 
       <!-- 7. deploy -->
       <section id="deploy">
-        <span class="sec-no">07 — 테스트·배포</span>
+        <span class="sec-no">07 - 테스트·배포</span>
         <h2>같은 링크로 누구나 볼 수 있도록</h2>
         <p>
           로컬에서만 도는 앱으로는 부족했습니다. 평가자와 팀원이 같은 링크로 접속할 수 있도록
@@ -954,7 +954,7 @@ Dio <span class="f">buildDio</span>(AppDatabase db) {
 
       <!-- 8. AI -->
       <section id="ai">
-        <span class="sec-no">08 — AI 파이프라인</span>
+        <span class="sec-no">08 - AI 파이프라인</span>
         <h2>AI는 검증된 만큼, 설계는 설계대로</h2>
         <p>
           AI 기능은 이번 학기에 앱과 완전히 통합하는 대신, <strong>가능성을 검증한 PoC</strong>와
@@ -966,7 +966,7 @@ Dio <span class="f">buildDio</span>(AppDatabase db) {
         <p>
           <code>backend/services/gemini_service.py</code>에 Gemini Vision을 실제로 호출하는 독립
           스크립트를 만들었습니다. 음식 사진을 넣으면 음식명을 나열하고, 음식별·총 칼로리를
-          추정하며, <span class="u">고혈압 관점의 식단평</span>까지 한국어로 돌려줍니다 — 나트륨이
+          추정하며, <span class="u">고혈압 관점의 식단평</span>까지 한국어로 돌려줍니다 - 나트륨이
           높은 음식을 짚고, DASH 식단 기준 장단점과 개선안을 제시하도록 프롬프트를 서비스
           도메인에 맞춰 설계했습니다.
         </p>
@@ -1039,7 +1039,7 @@ Dio <span class="f">buildDio</span>(AppDatabase db) {
         <p>
           앞단의 값싼 필터(YOLOv8)로 비음식 이미지에 대한 Gemini 호출을 줄이고, AI가 추정한
           값은 그대로 쓰지 않고 공공데이터 식품영양성분 DB와 매핑해 한국 음식 정확도를
-          보완합니다. 마지막에는 사용자가 수정해 저장하도록 했습니다 — 한국 음식은 조리·양념
+          보완합니다. 마지막에는 사용자가 수정해 저장하도록 했습니다 - 한국 음식은 조리·양념
           편차가 커서 이 수정 단계가 꼭 필요했습니다.
         </p>
 
@@ -1068,7 +1068,7 @@ Dio <span class="f">buildDio</span>(AppDatabase db) {
 
       <!-- 9. collab -->
       <section id="collab">
-        <span class="sec-no">09 — 협업</span>
+        <span class="sec-no">09 - 협업</span>
         <h2>GitHub를 협업의 기록으로 남기다</h2>
         <p>
           모든 변경은 PR 단위로 관리했습니다. 기능·문서·배포·버그 수정까지 전부 Pull Request를
@@ -1078,7 +1078,7 @@ Dio <span class="f">buildDio</span>(AppDatabase db) {
         </p>
         <p>
           여기에 <strong>CodeRabbit</strong> AI 코드 리뷰를 연동해 자동 리뷰 흔적을 남기고,
-          공개 저장소로서 갖출 것을 갖췄습니다 — <code>LICENSE</code>, <code>CONTRIBUTING.md</code>,
+          공개 저장소로서 갖출 것을 갖췄습니다 - <code>LICENSE</code>, <code>CONTRIBUTING.md</code>,
           <code>SECURITY.md</code>, <code>CODE_OF_CONDUCT.md</code>, <code>CITATION.cff</code>,
           그리고 시연 흐름을 정리한 <code>self_demo.md</code>까지요. 설계·계획 문서
           (PLAN·STRUCTURE·API_CATALOG·DUMMY_BACKEND)도 저장소에 함께 두어, 의사결정의 근거가
@@ -1095,7 +1095,7 @@ Dio <span class="f">buildDio</span>(AppDatabase db) {
 
       <!-- 10. status & next -->
       <section id="status">
-        <span class="sec-no">10 — 현재와 다음</span>
+        <span class="sec-no">10 - 현재와 다음</span>
         <h2>지금까지의 위치, 그리고 다음</h2>
         <p>
           한 학기를 정리하며, “지금 무엇이 동작하고 무엇이 설계 단계인지”를 한눈에 보이도록
@@ -1162,7 +1162,7 @@ Dio <span class="f">buildDio</span>(AppDatabase db) {
         <a href="https://ewhasudo.zapto.org/frontend/#/dashboard" target="_blank" rel="noopener">웹 데모</a>
         <a href="https://youtu.be/C4ivM_dlAww" target="_blank" rel="noopener">데모 영상</a>
       </div>
-      <div class="foot-copy">© 2026 Team Sudo — Jisu Choi · Seoyeon Park · Subin Shin · MIT License</div>
+      <div class="foot-copy">© 2026 Team Sudo - Jisu Choi · Seoyeon Park · Subin Shin · MIT License</div>
     </div>
   </footer>
 </body>

@@ -1,0 +1,51 @@
+---
+title: "기록"
+permalink: /records/
+redirect_from:
+  - /courses/
+layout: archive
+author_profile: false
+---
+
+{% include record-categories.html %}
+
+<p>수업, 동아리, 프로젝트 같은 활동별로 글을 날짜순으로 모았습니다.</p>
+
+{% for category in record_categories %}
+  {% assign category_posts = site.categories[category] %}
+  <section class="record-category" id="{{ category | slugify }}">
+    <h2 class="record-category__title">{{ category }}</h2>
+
+    {% assign series_posts = category_posts | where_exp: "post", "post.series != nil" %}
+    {% assign series_groups = series_posts | group_by: "series" | sort: "name" %}
+    {% for series in series_groups %}
+      <div class="record-series" id="{{ series.name | slugify }}">
+        <h3 class="record-series__title">{{ series.name }}<small>{{ series.items.size }}</small></h3>
+        <ul class="post-rows">
+          {% assign ordered_posts = series.items | sort: "date" %}
+          {% for post in ordered_posts %}
+            <li>
+              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+
+    {% assign single_posts = category_posts | where_exp: "post", "post.series == nil" | sort: "date" %}
+    {% if single_posts.size > 0 %}
+      <div class="record-series">
+        {% if series_groups.size > 0 %}<h3 class="record-series__title">그 밖의 글<small>{{ single_posts.size }}</small></h3>{% endif %}
+        <ul class="post-rows">
+          {% for post in single_posts %}
+            <li>
+              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  </section>
+{% endfor %}

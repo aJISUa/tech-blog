@@ -1,8 +1,8 @@
 main:
   - title: "홈"
     url: /
-  - title: "강의"
-    url: /courses/
+  - title: "기록"
+    url: /records/
   - title: "카테고리"
     url: /categories/
   - title: "태그"

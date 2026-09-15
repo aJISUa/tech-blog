@@ -1,19 +1,30 @@
 ---
 layout: home
 author_profile: true
-classes: wide
-title: "배움이 쌓이는 기술 블로그"
-excerpt: "강의별 학습 기록과 프로젝트 개발 경험을 날짜순으로 정리합니다."
 ---
 
-<div class="home-intro">
-  <p class="eyebrow">LEARN · BUILD · RECORD</p>
-  <h2>오늘 배운 것을<br>내일 다시 꺼내 볼 수 있도록</h2>
-  <p>강의별 일자 기록, 문제 해결 과정, 프로젝트 회고를 한곳에 쌓습니다.</p>
-  <div class="home-actions">
-    <a href="{{ '/courses/' | relative_url }}" class="btn btn--primary">강의별 기록 보기</a>
-    <a href="{{ '/on-care/' | relative_url }}" class="btn btn--inverse">On-Care 개발기</a>
-  </div>
-</div>
+{% include record-categories.html %}
 
-<h2>최근 기록</h2>
+<p class="home-lead">수업, 동아리, 프로젝트에서 배우고 만든 것들을 정리하고 있습니다.</p>
+
+<h2 class="home-section-title">기록</h2>
+<ul class="record-index">
+  {% for category in record_categories %}
+    {% assign category_posts = site.categories[category] %}
+    {% assign series_posts = category_posts | where_exp: "post", "post.series != nil" %}
+    {% assign series_groups = series_posts | group_by: "series" | sort: "name" %}
+    {% for series in series_groups %}
+      <li>
+        <a href="{{ '/records/' | relative_url }}#{{ series.name | slugify }}"><span class="record-index__category">{{ category }}</span>{{ series.name }}</a>
+        <span class="record-index__count">글 {{ series.items.size }}개</span>
+      </li>
+    {% endfor %}
+    {% assign single_posts = category_posts | where_exp: "post", "post.series == nil" %}
+    {% if single_posts.size > 0 %}
+      <li>
+        <a href="{{ '/records/' | relative_url }}#{{ category | slugify }}"><span class="record-index__category">{{ category }}</span>{% if series_groups.size > 0 %}그 밖의 글{% else %}전체 글{% endif %}</a>
+        <span class="record-index__count">글 {{ single_posts.size }}개</span>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>

@@ -1,20 +1,20 @@
 remote_theme: "mmistakes/minimal-mistakes@4.28.0"
-minimal_mistakes_skin: "air"
+minimal_mistakes_skin: "default"
 
 locale: "ko-KR"
 title: "aJISUa Tech Blog"
 title_separator: "·"
-subtitle: "배우고 만들며 남기는 개발 기록"
 name: "최지수"
-description: "강의별 학습 기록과 프로젝트 개발 경험을 일자별로 정리하는 기술 블로그"
+description: "수업, 동아리, 프로젝트에서 배우고 만든 것들을 정리하는 블로그"
 url: "https://ajisua.github.io"
 baseurl: "/tech-blog"
 repository: "aJISUa/tech-blog"
 timezone: "Asia/Seoul"
+date_format: "%Y.%m.%d"
 
 author:
   name: "최지수"
-  bio: "배운 것을 기록하고, 만든 것을 설명합니다."
+  bio: "이화여자대학교 컴퓨터공학전공"
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
@@ -27,7 +27,7 @@ lunr:
   search_within_pages: true
 
 permalink: /:categories/:title/
-paginate: 8
+paginate: 10
 paginate_path: /page:num/
 words_per_minute: 200
 enable_copy_code_button: true
@@ -37,6 +37,7 @@ plugins:
   - jekyll-paginate
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-redirect-from
 
 include:
   - _pages
@@ -63,7 +64,7 @@ defaults:
     values:
       layout: single
       author_profile: true
-      read_time: true
+      read_time: false
       show_date: true
       share: false
       related: true
@@ -82,8 +83,8 @@ footer:
       icon: "fab fa-fw fa-github"
       url: "https://github.com/aJISUa"
 
-copyright: "aJISUa Tech Blog"
-copyright_url: "https://ajisua.github.io/tech-blog/"
+copyright: "최지수"
+copyright_url: "https://github.com/aJISUa"
 
 analytics:
   provider: false
