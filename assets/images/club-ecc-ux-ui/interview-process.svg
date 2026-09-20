@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 528" width="640" height="528" role="img">
+  <title>인터뷰의 전체 절차</title>
+  <style>
+    text { font-family: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; }
+    .stage { font-size: 11px; fill: #8a8a8a; letter-spacing: 0.06em; }
+    .step  { font-size: 14px; fill: #222; font-weight: 600; }
+    .note  { font-size: 12px; fill: #8a8a8a; }
+    .key   { font-size: 14px; fill: #2b5797; font-weight: 700; }
+    .keynote { font-size: 12px; fill: #2b5797; }
+    .box   { fill: #ffffff; stroke: #d8d8d8; stroke-width: 1; }
+    .boxsoft { fill: #f7f7f5; stroke: #d8d8d8; stroke-width: 1; }
+    .boxdash { fill: #ffffff; stroke: #d8d8d8; stroke-width: 1; stroke-dasharray: 4 3; }
+    .boxkey  { fill: #eef3fb; stroke: #2b5797; stroke-width: 1.5; }
+    .arrow { stroke: #c8c8c8; stroke-width: 1.5; }
+  </style>
+
+  <rect x="0" y="0" width="640" height="528" fill="#ffffff"/>
+
+  <text class="stage" x="16" y="18">준비 단계</text>
+  <rect class="boxsoft" x="16" y="28" width="220" height="40" rx="5"/>
+  <text class="step" x="126" y="48" text-anchor="middle" dominant-baseline="middle">준비</text>
+  <text class="note" x="254" y="48" dominant-baseline="middle">계획 수립과 일정 짜기 — 참가자 모집이 가장 중요</text>
+  <line class="arrow" x1="126" y1="68" x2="126" y2="86"/>
+  <path class="arrow" d="M121 81 L126 87 L131 81" fill="none"/>
+
+  <text class="stage" x="16" y="108">본 인터뷰</text>
+  <rect class="box" x="16" y="118" width="220" height="40" rx="5"/>
+  <text class="step" x="126" y="138" text-anchor="middle" dominant-baseline="middle">도입</text>
+  <text class="note" x="254" y="138" dominant-baseline="middle">목적·개요 전달, 촬영·녹음 동의 절차</text>
+  <line class="arrow" x1="126" y1="158" x2="126" y2="166"/>
+
+  <rect class="boxdash" x="16" y="170" width="220" height="40" rx="5"/>
+  <text class="step" x="126" y="190" text-anchor="middle" dominant-baseline="middle">분위기 형성</text>
+  <text class="note" x="254" y="190" dominant-baseline="middle">라포르 형성 — 상황에 따라 생략 가능</text>
+  <line class="arrow" x1="126" y1="210" x2="126" y2="218"/>
+
+  <rect class="box" x="16" y="222" width="220" height="40" rx="5"/>
+  <text class="step" x="126" y="242" text-anchor="middle" dominant-baseline="middle">일반적 질문</text>
+  <text class="note" x="254" y="242" dominant-baseline="middle">주제 전반을 묻는다. 구조화된 질문일 가능성이 높다</text>
+  <line class="arrow" x1="126" y1="262" x2="126" y2="270"/>
+
+  <rect class="boxkey" x="16" y="274" width="220" height="40" rx="5"/>
+  <text class="key" x="126" y="294" text-anchor="middle" dominant-baseline="middle">집중 질문</text>
+  <text class="keynote" x="254" y="294" dominant-baseline="middle">가장 핵심적인 단계. 비구조화된 질문이 나온다</text>
+  <line class="arrow" x1="126" y1="314" x2="126" y2="322"/>
+
+  <rect class="box" x="16" y="326" width="220" height="40" rx="5"/>
+  <text class="step" x="126" y="346" text-anchor="middle" dominant-baseline="middle">확인</text>
+  <text class="note" x="254" y="346" dominant-baseline="middle">들은 내용 확인, 추가 논의 사항 점검</text>
+  <line class="arrow" x1="126" y1="366" x2="126" y2="374"/>
+
+  <rect class="box" x="16" y="378" width="220" height="40" rx="5"/>
+  <text class="step" x="126" y="398" text-anchor="middle" dominant-baseline="middle">정리</text>
+  <text class="note" x="254" y="398" dominant-baseline="middle">마무리 인사, 사례, 추가 인터뷰·자료 약속</text>
+  <line class="arrow" x1="126" y1="418" x2="126" y2="436"/>
+  <path class="arrow" d="M121 431 L126 437 L131 431" fill="none"/>
+
+  <text class="stage" x="16" y="458">분석 단계</text>
+  <rect class="boxsoft" x="16" y="468" width="220" height="40" rx="5"/>
+  <text class="step" x="126" y="488" text-anchor="middle" dominant-baseline="middle">분석</text>
+  <text class="note" x="254" y="488" dominant-baseline="middle">녹취 파일 전사, 본격적인 분석과 해석</text>
+</svg>
