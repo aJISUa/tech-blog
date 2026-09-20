@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 292" width="560" height="292" role="img">
+  <title>인터뷰 방식에 따라 담기는 정보</title>
+  <style>
+    text { font-family: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; }
+    .head { font-size: 12px; fill: #8a8a8a; }
+    .row  { font-size: 13px; fill: #222; }
+    .cap  { font-size: 12px; fill: #8a8a8a; }
+    .sep  { stroke: #ececec; stroke-width: 1; }
+    .on   { fill: #e8eff9; stroke: #2b5797; stroke-width: 1; }
+    .off  { fill: #ffffff; stroke: #dcdcdc; stroke-width: 1; stroke-dasharray: 3 3; }
+  </style>
+
+  <rect x="0" y="0" width="560" height="292" fill="#ffffff"/>
+
+  <text class="head" x="256" y="26" text-anchor="middle">글(문어)</text>
+  <text class="head" x="348" y="26" text-anchor="middle">말(구어)</text>
+  <text class="head" x="431" y="26" text-anchor="middle">비언어</text>
+  <text class="head" x="501" y="26" text-anchor="middle">행동</text>
+  <line class="sep" x1="14" y1="38" x2="546" y2="38"/>
+
+  <text class="row" x="14" y="72" dominant-baseline="middle">서면 인터뷰</text>
+  <rect class="on"  x="214" y="57" width="84" height="30" rx="4"/>
+  <rect class="off" x="306" y="57" width="84" height="30" rx="4"/>
+  <rect class="off" x="398" y="57" width="66" height="30" rx="4"/>
+  <rect class="off" x="472" y="57" width="58" height="30" rx="4"/>
+  <line class="sep" x1="14" y1="99" x2="546" y2="99"/>
+
+  <text class="row" x="14" y="126" dominant-baseline="middle">기본 인터뷰</text>
+  <rect class="off" x="214" y="111" width="84" height="30" rx="4"/>
+  <rect class="on"  x="306" y="111" width="84" height="30" rx="4"/>
+  <rect class="on"  x="398" y="111" width="66" height="30" rx="4"/>
+  <rect class="off" x="472" y="111" width="58" height="30" rx="4"/>
+  <line class="sep" x1="14" y1="153" x2="546" y2="153"/>
+
+  <text class="row" x="14" y="180" dominant-baseline="middle">사전 서면 질의서 포함</text>
+  <rect class="on" x="214" y="165" width="84" height="30" rx="4"/>
+  <rect class="on" x="306" y="165" width="84" height="30" rx="4"/>
+  <rect class="on" x="398" y="165" width="66" height="30" rx="4"/>
+  <rect class="off" x="472" y="165" width="58" height="30" rx="4"/>
+  <line class="sep" x1="14" y1="207" x2="546" y2="207"/>
+
+  <text class="row" x="14" y="234" dominant-baseline="middle">맥락적 질문법 적용</text>
+  <rect class="on" x="214" y="219" width="84" height="30" rx="4"/>
+  <rect class="on" x="306" y="219" width="84" height="30" rx="4"/>
+  <rect class="on" x="398" y="219" width="66" height="30" rx="4"/>
+  <rect class="on" x="472" y="219" width="58" height="30" rx="4"/>
+  <line class="sep" x1="14" y1="261" x2="546" y2="261"/>
+
+  <text class="cap" x="14" y="282">아래로 갈수록 담기는 정보가 늘고, 그만큼 풍부한 분석이 가능하다</text>
+</svg>

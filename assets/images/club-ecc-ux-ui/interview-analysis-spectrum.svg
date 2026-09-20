@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 232" width="700" height="232" role="img">
+  <title>인터뷰 정리 방법 여섯 가지와 정성·정량 축</title>
+  <style>
+    text { font-family: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; }
+    .num  { font-size: 15px; fill: #2b5797; font-weight: 700; }
+    .name { font-size: 12px; fill: #222; }
+    .tag  { font-size: 11px; fill: #8a8a8a; }
+    .axis { font-size: 12px; fill: #8a8a8a; }
+    .cap  { font-size: 12px; fill: #8a8a8a; }
+    .box  { fill: #ffffff; stroke: #d8d8d8; stroke-width: 1; }
+    .boxoff { fill: #fafafa; stroke: #dcdcdc; stroke-width: 1; stroke-dasharray: 4 3; }
+    .chip { fill: #f0f4fa; }
+    .line { stroke: #c8c8c8; stroke-width: 1.5; }
+  </style>
+
+  <rect x="0" y="0" width="700" height="232" fill="#ffffff"/>
+
+  <rect class="boxoff" x="25" y="24" width="100" height="72" rx="5"/>
+  <text class="num"  x="75" y="48" text-anchor="middle">①</text>
+  <text class="name" x="75" y="72" text-anchor="middle" fill="#8a8a8a">Black-box</text>
+
+  <rect class="box" x="135" y="24" width="100" height="72" rx="5"/>
+  <text class="num"  x="185" y="48" text-anchor="middle">②</text>
+  <text class="name" x="185" y="70" text-anchor="middle">어피니티</text>
+  <text class="name" x="185" y="86" text-anchor="middle">다이어그램</text>
+  <rect class="chip" x="152" y="106" width="66" height="20" rx="10"/>
+  <text class="tag" x="185" y="120" text-anchor="middle">상향식</text>
+
+  <rect class="box" x="245" y="24" width="100" height="72" rx="5"/>
+  <text class="num"  x="295" y="48" text-anchor="middle">③</text>
+  <text class="name" x="295" y="70" text-anchor="middle">토픽별</text>
+  <text class="name" x="295" y="86" text-anchor="middle">정리</text>
+  <rect class="chip" x="262" y="106" width="66" height="20" rx="10"/>
+  <text class="tag" x="295" y="120" text-anchor="middle">하향식</text>
+
+  <rect class="box" x="355" y="24" width="100" height="72" rx="5"/>
+  <text class="num"  x="405" y="48" text-anchor="middle">④</text>
+  <text class="name" x="405" y="72" text-anchor="middle">코딩 스킴</text>
+  <rect class="chip" x="372" y="106" width="66" height="20" rx="10"/>
+  <text class="tag" x="405" y="120" text-anchor="middle">중간</text>
+
+  <rect class="box" x="465" y="24" width="100" height="72" rx="5"/>
+  <text class="num"  x="515" y="48" text-anchor="middle">⑤</text>
+  <text class="name" x="515" y="72" text-anchor="middle">근거 이론</text>
+  <rect class="chip" x="482" y="106" width="66" height="20" rx="10"/>
+  <text class="tag" x="515" y="120" text-anchor="middle">상향식</text>
+
+  <rect class="box" x="575" y="24" width="100" height="72" rx="5"/>
+  <text class="num"  x="625" y="48" text-anchor="middle">⑥</text>
+  <text class="name" x="625" y="72" text-anchor="middle">통계 처리</text>
+
+  <line class="line" x1="25" y1="158" x2="668" y2="158"/>
+  <path class="line" d="M663 153 L669 158 L663 163" fill="none"/>
+  <text class="axis" x="25" y="182">정성적</text>
+  <text class="axis" x="668" y="182" text-anchor="end">정량적</text>
+
+  <text class="cap" x="25" y="214">번호가 클수록 정량적이다. ①은 아무 처리 없이 결론을 적는 방식이라 권장되지 않는다.</text>
+</svg>
