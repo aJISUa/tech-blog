@@ -39,7 +39,7 @@ toc_sticky: true
 
 ### 클래스 이름을 ArrayList로 지었더니
 
-수업 때 `generic` 패키지에 ArrayList 연습용 클래스를 만들면서 이름을 그냥 `ArrayList`로 지었다.
+금요일 수업 때 `generic` 패키지에 ArrayList 연습용 클래스를 만들면서 이름을 그냥 `ArrayList`로 지었다.
 
 ```java
 package generic;
@@ -63,7 +63,7 @@ import를 지워도 문제다. 그러면 `new ArrayList<>()`가 내가 만든 `g
 
 ### (ArrayList) Arrays.asList(...)로 캐스팅했더니
 
-같은 날 만든 `ListTest`에서는 배열을 리스트로 바꾸려고 이렇게 썼다.
+그보다 앞서 수요일 수업 때 만든 `ListTest`에서는 배열을 리스트로 바꾸려고 이렇게 썼다.
 
 ```java
 String[] str = {"aa", "bd"};
