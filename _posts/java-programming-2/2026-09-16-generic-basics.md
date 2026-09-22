@@ -17,7 +17,7 @@ toc_sticky: true
 
 3주차부터는 복습이 끝나고 새로운 내용이다. 이번 주 주제는 제네릭(Generic)과 컬렉션(Collection)인데, 이 글은 제네릭 부분이다. 와일드카드는 [와일드카드와 PECS 글]({{ site.baseurl }}{% post_url java-programming-2/2026-09-18-wildcard-pecs %})에, List, Set, Map은 [컬렉션 프레임워크 글]({{ site.baseurl }}{% post_url java-programming-2/2026-09-18-collection-framework %})에 따로 정리했다.
 
-수업 시작하면서 교수님이 "제네릭과 컬렉션을 해본 적 없다, 배웠는데 까먹었다" 하는 사람 손 들어보라고 하셨다. 생각보다 많이 들었다. 자바에서 ArrayList를 써봤으면 제네릭을 안 썼을 리가 없는데, 기억이 안 나는 거다. 나도 `List<String>`은 많이 써봤지만 `<T>`가 정확히 뭘 하는 건지 설명하라고 하면 막혔을 것 같다.
+수업 시작하면서 교수님께서 "제네릭과 컬렉션을 해본 적 없다, 배웠는데 까먹었다" 하는 사람 손 들어보라고 하셨다. 생각보다 많이 들었다. 자바에서 ArrayList를 써봤으면 제네릭을 안 썼을 리가 없는데, 기억이 안 나는 거다. 나도 `List<String>`은 많이 써봤지만 `<T>`가 정확히 뭘 하는 건지 설명하라고 하면 막혔을 것 같다.
 
 이번 주 목표는 제네릭을 완벽하게 이해하는 게 아니라 이 두 가지라고 하셨다.
 
@@ -75,7 +75,7 @@ public class Main_Generic {
 }
 ```
 
-Integer, Double, String, 강아지, 고양이, 자동차까지 다 넣을 수 있으니까 좋아 보이는데, 교수님이 "좋아할 게 아니라니까"라고 하셨다. 문자열 넣었다가 숫자 넣었다가, 꺼내서 Integer로 바꿨다가 다시 String으로 바꿨다가. 이런 동작을 허용하는 것 자체가 정신없는 거다.
+Integer, Double, String, 강아지, 고양이, 자동차까지 다 넣을 수 있으니까 좋아 보이는데, 교수님께서 "좋아할 게 아니라니까"라고 하셨다. 문자열 넣었다가 숫자 넣었다가, 꺼내서 Integer로 바꿨다가 다시 String으로 바꿨다가. 이런 동작을 허용하는 것 자체가 정신없는 거다.
 
 마지막 줄이 핵심이다. 박스에는 5678(Integer)이 들어 있는데 String으로 형변환해서 꺼낸다. 문법은 맞으니까 컴파일러는 통과시켜주는데, 실행하다가 `ClassCastException`으로 죽는다. 이런 일이 비일비재하다고 하셨다.
 
@@ -146,7 +146,7 @@ public class ColorDice  { String[] value = new String[10]; }
 public class NumberDice { int[] value = new int[10]; }
 ```
 
-제네릭을 쓰면 `MyDice<T>` 하나면 된다. 그런데 여기서 교수님이 일부러 주석 처리해두신 줄이 있었다.
+제네릭을 쓰면 `MyDice<T>` 하나면 된다. 그런데 여기서 교수님께서 일부러 주석 처리해두신 줄이 있었다.
 
 ```java
 public class MyDice<T> {
@@ -158,7 +158,7 @@ public class MyDice<T> {
 
 `T[]`로 선언까지는 되는데 `new T[10]`으로 만들 수가 없다. 직접 해보니까 `generic array creation`이라는 에러가 났다. 그래서 제네릭은 거의 항상 컬렉션이랑 같이 쓰인다고 하셨다. 배열이 익숙하고 쉽다고 제네릭 안에서 배열을 쓰면 안 된다.
 
-주사위는 필수 실습이라 직접 만들어봤고, [3주차 과제 글]({{ site.baseurl }}{% post_url java-programming-2/2026-09-20-week3-assignment %})에 정리했다.
+주사위는 직접 만들어봤고, [3주차 과제 글]({{ site.baseurl }}{% post_url java-programming-2/2026-09-20-week3-assignment %})에 정리했다.
 
 ## 멀티 타입 파라미터
 
