@@ -10,7 +10,7 @@ tags:
   - 컬렉션
   - 다형성
   - 과제
-excerpt: "Lab#1 제네릭 주사위, Lab#5 HashSet, Lab#6 HashMap, 필수인 Lab#8 PrettyPrinter를 직접 만들고 돌려봤다. 수업 때 ArrayList 이름을 잘못 지어서 난 에러도 같이 정리했다."
+excerpt: "Lab#1 제네릭 주사위, Lab#5 HashSet, Lab#6 HashMap, Lab#8 PrettyPrinter를 직접 만들고 돌려봤다. 수업 때 ArrayList 이름을 잘못 지어서 난 에러도 같이 정리했다."
 toc: true
 toc_sticky: true
 ---
@@ -18,7 +18,7 @@ toc_sticky: true
 이번 주 과제는 세 가지였다.
 
 1. Generic + Collection 이론 정리
-2. 실습: Lab#1~#8 중 3개 이상. Lab#8(제네릭 + 컬렉션 + 다형성)은 필수. 실습마다 목표, 코드, 결과 캡처, 후기
+2. 실습: Lab#1~#8 중 3개 이상. 실습마다 목표, 코드, 결과 캡처, 후기
 3. 퀴즈 만들고 풀어보기 3개 이상
 
 이론은 주제별로 나눠서 [제네릭 기초]({{ site.baseurl }}{% post_url java-programming-2/2026-09-16-generic-basics %}), [와일드카드와 PECS]({{ site.baseurl }}{% post_url java-programming-2/2026-09-18-wildcard-pecs %}), [컬렉션 프레임워크]({{ site.baseurl }}{% post_url java-programming-2/2026-09-18-collection-framework %})에 정리했고, 퀴즈는 [3주차 퀴즈 글]({{ site.baseurl }}{% post_url java-programming-2/2026-09-20-generic-collection-quiz %})에 따로 썼다. 이 글은 실습 부분이다.
@@ -28,10 +28,10 @@ toc_sticky: true
 | 실습 | 내용 | 고른 이유 |
 | --- | --- | --- |
 | 수업 때 한 것 | ArrayList, 순회 방법, 배열 → 리스트 | 수업 때 에러가 나서 다시 해봐야 했다 |
-| Lab#1 | 색깔 주사위와 숫자 주사위 | 교수님이 필수라고 하신 것 |
+| Lab#1 | 색깔 주사위와 숫자 주사위 | 제네릭 클래스 하나로 여러 타입을 다루는 걸 직접 해보고 싶었다 |
 | Lab#5 | HashSet 집합 연산 | 수업 때 한 게 결과가 이상하게 나왔다 |
 | Lab#6 | HashMap | keySet, values, entrySet 연습 |
-| Lab#8 | PrettyPrinter 만들기 | 과제 필수 |
+| Lab#8 | PrettyPrinter 만들기 | 제네릭, 컬렉션, 다형성을 한 번에 써볼 수 있다 |
 
 코드는 전부 이클립스 `JAVA2` 프로젝트에 패키지를 나눠서 만들었다. 노션에 코드가 있어도 복붙하지 말고 손으로 쳐보라고 하셔서 직접 쳤고, 로직은 주석으로 내 말로 설명해뒀다.
 
@@ -352,7 +352,7 @@ public static void main(String[] args) {
 }
 ```
 
-`show` 메소드에 static을 붙인 건 금요일에 교수님이 설명해주신 부분이다. main이 static이니까 main에서 `new Main()` 없이 바로 부르려면 이 메소드도 static이어야 한다.
+`show` 메소드에 static을 붙인 건 금요일에 교수님께서 설명해주신 부분이다. main이 static이니까 main에서 `new Main()` 없이 바로 부르려면 이 메소드도 static이어야 한다.
 
 #### 실행 전에 예상한 것
 
@@ -367,7 +367,7 @@ public static void main(String[] args) {
 
 전부 예상대로 나왔다. 복사본으로 계산하니까 수업 때처럼 이상한 값이 안 나온다.
 
-하나 신기했던 건 숫자 HashSet이다. 순서를 안 지킨다고 했는데 1 2 3 4 5, 1 2 3 4 5 6 7처럼 작은 순서대로 나왔다. 찾아보니까 Integer의 hashCode는 그 숫자 자체라서, 작은 숫자들은 해시 테이블에서 번호 순서대로 칸에 들어가서 우연히 정렬된 것처럼 보이는 거였다. 교수님이 "재수가 좋으면 순서대로 나올 수도 있다"고 하신 게 이거였다. 문자열로 넣으니까 HashSet은 banana apple cherry kiwi mango처럼 넣은 순서도, 알파벳 순서도 아닌 순서로 나왔다.
+하나 신기했던 건 숫자 HashSet이다. 순서를 안 지킨다고 했는데 1 2 3 4 5, 1 2 3 4 5 6 7처럼 작은 순서대로 나왔다. 찾아보니까 Integer의 hashCode는 그 숫자 자체라서, 작은 숫자들은 해시 테이블에서 번호 순서대로 칸에 들어가서 우연히 정렬된 것처럼 보이는 거였다. 교수님께서 "재수가 좋으면 순서대로 나올 수도 있다"고 하신 게 이거였다. 문자열로 넣으니까 HashSet은 banana apple cherry kiwi mango처럼 넣은 순서도, 알파벳 순서도 아닌 순서로 나왔다.
 
 ### 실습 후기
 
@@ -447,7 +447,7 @@ LinkedHashMap에서 menu#5를 아이스티로 바꿨더니 맨 뒤로 가지 않
 - keySet은 Set, values는 Collection으로 리턴 타입이 다르다. 키는 중복이 안 되고 값은 될 수 있어서다.
 - 람다식 `forEach((k, v) -> ...)`가 제일 편했다. entrySet으로 도는 것보다 훨씬 짧다.
 
-## 4. Lab#8: PrettyPrinter 만들기 (필수)
+## 4. Lab#8: PrettyPrinter 만들기
 
 ### 실습 목표
 
