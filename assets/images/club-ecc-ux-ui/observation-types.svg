@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 480" width="760" height="480" role="img">
+  <title>관찰 유형의 분류</title>
+  <style>
+    text { font-family: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; }
+    .t   { font-size: 13px; fill: #222; }
+    .sm  { font-size: 11px; fill: #8a8a8a; }
+    .en  { font-size: 10px; fill: #8a8a8a; }
+    .ac  { font-size: 13px; fill: #2b5797; font-weight: 600; }
+    .cap { font-size: 12px; fill: #8a8a8a; }
+    .box { fill: #ffffff; stroke: #d8d8d8; stroke-width: 1; }
+    .bxa { fill: #eef3fb; stroke: #2b5797; stroke-width: 1.2; }
+    .ax  { stroke: #b8b8b8; stroke-width: 1.2; fill: none; }
+    .ln  { stroke: #d8d8d8; stroke-width: 1; fill: none; }
+    .dsh { stroke: #c9d6ea; stroke-width: 1; stroke-dasharray: 4 3; fill: none; }
+  </style>
+  <rect x="0" y="0" width="760" height="480" fill="#ffffff"/>
+  <text class="sm" x="20" y="22">관찰 대상 · 관찰자의 통합</text>
+  <rect x="20" y="30" width="210" height="96" rx="5" fill="#f4f7fb" stroke="#c9d6ea" stroke-width="1" stroke-dasharray="4 3"/>
+  <rect class="box" x="32" y="40" width="186" height="36" rx="5"/>
+  <text class="t" x="125" y="56" text-anchor="middle">몰입 조사</text>
+  <text class="en" x="125" y="72" text-anchor="middle">Immersive Research</text>
+  <rect class="box" x="32" y="84" width="186" height="36" rx="5"/>
+  <text class="t" x="125" y="100" text-anchor="middle">유저 다이어리</text>
+  <text class="en" x="125" y="116" text-anchor="middle">User Diary</text>
+  <path class="dsh" d="M232 122 L298 178"/>
+  <rect x="150" y="140" width="470" height="300" rx="4" fill="#fbfbfa" stroke="#ececec" stroke-width="1"/>
+  <text class="sm" x="158" y="432">관찰 대상 · 관찰자의 분리</text>
+  <line class="ax" x1="158" y1="290" x2="612" y2="290"/>
+  <path class="ax" d="M607 285 L613 290 L607 295"/>
+  <path class="ax" d="M163 285 L157 290 L163 295"/>
+  <line class="ax" x1="385" y1="148" x2="385" y2="432"/>
+  <path class="ax" d="M380 153 L385 147 L390 153"/>
+  <path class="ax" d="M380 427 L385 433 L390 427"/>
+  <text class="sm" x="385" y="128" text-anchor="middle">관찰 대상에게 비개입</text>
+  <text class="sm" x="385" y="460" text-anchor="middle">관찰 대상에게 개입</text>
+  <text class="sm" x="142" y="284" text-anchor="end">관찰 행위 은폐</text>
+  <text class="sm" x="142" y="300" text-anchor="end">(대상자로 봄)</text>
+  <text class="sm" x="628" y="284">관찰 행위 노출</text>
+  <text class="sm" x="628" y="300">(참가자로 봄)</text>
+  <rect class="box" x="200" y="182" width="150" height="46" rx="5"/>
+  <text class="t" x="275" y="203" text-anchor="middle">몰래 관찰</text>
+  <text class="en" x="275" y="219" text-anchor="middle">Fly on the Wall</text>
+  <rect class="box" x="440" y="205" width="150" height="46" rx="5"/>
+  <text class="t" x="515" y="226" text-anchor="middle">동행 관찰</text>
+  <text class="en" x="515" y="242" text-anchor="middle">Shadowing</text>
+  <rect class="box" x="435" y="302" width="160" height="46" rx="5"/>
+  <text class="t" x="515" y="323" text-anchor="middle">맥락적 질문법</text>
+  <text class="en" x="515" y="339" text-anchor="middle">Contextual Inquiry</text>
+  <rect class="box" x="220" y="372" width="160" height="46" rx="5"/>
+  <text class="t" x="300" y="393" text-anchor="middle">잠입 조사</text>
+  <text class="en" x="300" y="409" text-anchor="middle">Undercover Agent</text>
+  <text class="t" x="520" y="392" fill="#8a8a8a">사용성 테스트</text>
+</svg>

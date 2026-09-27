@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 220" width="700" height="220" role="img">
+  <title>관찰의 진행 절차</title>
+  <style>
+    text { font-family: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; }
+    .t   { font-size: 13px; fill: #222; }
+    .sm  { font-size: 11px; fill: #8a8a8a; }
+    .en  { font-size: 10px; fill: #8a8a8a; }
+    .ac  { font-size: 13px; fill: #2b5797; font-weight: 600; }
+    .cap { font-size: 12px; fill: #8a8a8a; }
+    .box { fill: #ffffff; stroke: #d8d8d8; stroke-width: 1; }
+    .bxa { fill: #eef3fb; stroke: #2b5797; stroke-width: 1.2; }
+    .ax  { stroke: #b8b8b8; stroke-width: 1.2; fill: none; }
+    .ln  { stroke: #d8d8d8; stroke-width: 1; fill: none; }
+    .dsh { stroke: #c9d6ea; stroke-width: 1; stroke-dasharray: 4 3; fill: none; }
+  </style>
+  <rect x="0" y="0" width="700" height="220" fill="#ffffff"/>
+  <rect class="box" x="20" y="40" width="200" height="132" rx="5"/>
+  <text class="ac" x="120" y="66" text-anchor="middle">사전</text>
+  <text class="sm" x="120" y="86" text-anchor="middle">관찰 전 · 데스크</text>
+  <line class="ln" x1="36" y1="98" x2="204" y2="98"/>
+  <text class="t" x="36" y="120" font-size="12">· 목표(Aim) 설정</text>
+  <text class="t" x="36" y="140" font-size="12">· 누구 · 무엇 · 어디</text>
+  <text class="t" x="36" y="160" font-size="12">· 방법과 관찰 툴킷 준비</text>
+  <rect class="box" x="250" y="40" width="200" height="132" rx="5"/>
+  <text class="ac" x="350" y="66" text-anchor="middle">진행</text>
+  <text class="sm" x="350" y="86" text-anchor="middle">관찰 중 · 현장</text>
+  <line class="ln" x1="266" y1="98" x2="434" y2="98"/>
+  <text class="t" x="266" y="120" font-size="12">· 관찰하고 기록한다</text>
+  <text class="t" x="266" y="140" font-size="12">· 왜, 어떻게를 생각한다</text>
+  <text class="t" x="266" y="160" font-size="12">· 개입 가능하면 질문도</text>
+  <rect class="box" x="480" y="40" width="200" height="132" rx="5"/>
+  <text class="ac" x="580" y="66" text-anchor="middle">분석</text>
+  <text class="sm" x="580" y="86" text-anchor="middle">관찰 후 · 데스크</text>
+  <line class="ln" x1="496" y1="98" x2="664" y2="98"/>
+  <text class="t" x="496" y="120" font-size="12">· 사진 정리, 녹음 전사</text>
+  <text class="t" x="496" y="140" font-size="12">· 의미를 논의한다</text>
+  <text class="t" x="496" y="160" font-size="12">· 분석하고 해석한다</text>
+  <line class="ax" x1="230" y1="106" x2="244" y2="106"/>
+  <path class="ax" d="M239 101 L245 106 L239 111"/>
+  <line class="ax" x1="460" y1="106" x2="474" y2="106"/>
+  <path class="ax" d="M469 101 L475 106 L469 111"/>
+  <text class="cap" x="20" y="200">분석은 되도록 신속하게. 정성 리서치의 인상과 통찰은 시간이 지나면 잊힌다.</text>
+</svg>

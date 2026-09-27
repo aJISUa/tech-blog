@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 326" width="700" height="326" role="img">
+  <title>데이터의 유형과 척도</title>
+  <style>
+    text { font-family: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; }
+    .t   { font-size: 13px; fill: #222; }
+    .sm  { font-size: 11px; fill: #8a8a8a; }
+    .en  { font-size: 10px; fill: #8a8a8a; }
+    .ac  { font-size: 13px; fill: #2b5797; font-weight: 600; }
+    .cap { font-size: 12px; fill: #8a8a8a; }
+    .box { fill: #ffffff; stroke: #d8d8d8; stroke-width: 1; }
+    .bxa { fill: #eef3fb; stroke: #2b5797; stroke-width: 1.2; }
+    .ax  { stroke: #b8b8b8; stroke-width: 1.2; fill: none; }
+    .ln  { stroke: #d8d8d8; stroke-width: 1; fill: none; }
+    .dsh { stroke: #c9d6ea; stroke-width: 1; stroke-dasharray: 4 3; fill: none; }
+  </style>
+  <rect x="0" y="0" width="700" height="326" fill="#ffffff"/>
+  <rect class="bxa" x="420" y="40" width="200" height="48" rx="5"/>
+  <text class="ac" x="520" y="62" text-anchor="middle">명목(명명) 데이터</text>
+  <text class="en" x="520" y="78" text-anchor="middle">Nominal Data</text>
+  <rect class="box" x="420" y="104" width="200" height="48" rx="5"/>
+  <text class="t" x="520" y="126" text-anchor="middle">순서(서열) 데이터</text>
+  <text class="en" x="520" y="142" text-anchor="middle">Ordinal Data</text>
+  <rect class="bxa" x="420" y="168" width="200" height="48" rx="5"/>
+  <text class="ac" x="520" y="190" text-anchor="middle">간격(등간) 데이터</text>
+  <text class="en" x="520" y="206" text-anchor="middle">Interval Data</text>
+  <rect class="bxa" x="420" y="232" width="200" height="48" rx="5"/>
+  <text class="ac" x="520" y="254" text-anchor="middle">비율(비례) 데이터</text>
+  <text class="en" x="520" y="270" text-anchor="middle">Ratio Data</text>
+  <rect class="box" x="40" y="40" width="150" height="48" rx="5"/>
+  <text class="t" x="115" y="62" text-anchor="middle">범주형 데이터</text>
+  <text class="en" x="115" y="78" text-anchor="middle">Categorical Data</text>
+  <rect class="box" x="40" y="168" width="150" height="48" rx="5"/>
+  <text class="t" x="115" y="190" text-anchor="middle">수치형 데이터</text>
+  <text class="en" x="115" y="206" text-anchor="middle">Numerical Data</text>
+  <rect class="box" x="230" y="104" width="150" height="48" rx="5"/>
+  <text class="t" x="305" y="126" text-anchor="middle">이산형 데이터</text>
+  <text class="en" x="305" y="142" text-anchor="middle">Discrete Data</text>
+  <rect class="box" x="230" y="232" width="150" height="48" rx="5"/>
+  <text class="t" x="305" y="254" text-anchor="middle">연속형 데이터</text>
+  <text class="en" x="305" y="270" text-anchor="middle">Continuous Data</text>
+  <line class="ln" x1="190" y1="64" x2="420" y2="64"/>
+  <path class="ln" d="M190 192 H210 V128 H230"/>
+  <path class="ln" d="M190 192 H210 V256 H230"/>
+  <path class="ln" d="M380 128 H420"/>
+  <path class="ln" d="M400 128 V192 H420"/>
+  <line class="ln" x1="380" y1="256" x2="420" y2="256"/>
+  <text class="cap" x="40" y="306">파란 칸이 실제 통계 처리에 쓰이는 유형이다. 순서 데이터는 거의 쓰지 않고, 간격과 비율은 통계에서 구별하지 않는다.</text>
+</svg>
