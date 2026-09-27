@@ -1,6 +1,6 @@
 ---
 title: "[ECC UX/UI] 2주차: 관찰, 그리고 설문과 통계"
-date: 2026-09-27 21:00:00 +0900
+date: 2026-09-27 18:00:00 +0900
 series: "ECC UX/UI"
 categories:
   - 동아리
