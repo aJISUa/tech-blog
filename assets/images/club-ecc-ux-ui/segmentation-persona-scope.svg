@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" width="760" height="340" role="img">
+  <title>시장 세분화와 퍼소나의 범위</title>
+  <style>
+    text { font-family: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; }
+  </style>
+  <rect x="0" y="0" width="760" height="340" fill="#ffffff"/>
+  <text font-size="13" fill="#222" font-weight="600" x="305" y="30" text-anchor="middle">시장 세분화</text>
+  <rect fill="#f7f7f5" stroke="#ececec" stroke-width="1" x="80" y="42" width="450" height="44" rx="4"/>
+  <text font-size="13" fill="#2b5797" font-weight="600" x="455" y="322" text-anchor="middle">퍼소나</text>
+  <rect fill="#eef3fb" stroke="#2b5797" stroke-width="1.2" x="230" y="254" width="450" height="44" rx="4"/>
+  <text font-size="12" fill="#3a3a3a" x="155" y="69" text-anchor="middle">포함 가능</text>
+  <text font-size="12" fill="#3a3a3a" x="305" y="69" text-anchor="middle">항상 포함</text>
+  <text font-size="12" fill="#3a3a3a" x="455" y="69" text-anchor="middle">포함 가능</text>
+  <text font-size="12" fill="#3a3a3a" x="305" y="281" text-anchor="middle">포함 가능</text>
+  <text font-size="12" fill="#3a3a3a" x="455" y="281" text-anchor="middle">항상 포함</text>
+  <text font-size="12" fill="#3a3a3a" x="605" y="281" text-anchor="middle">항상 포함</text>
+  <line stroke="#b8b8b8" stroke-width="1" stroke-dasharray="4 3" fill="none" x1="230" y1="42" x2="230" y2="298"/>
+  <line stroke="#b8b8b8" stroke-width="1" stroke-dasharray="4 3" fill="none" x1="380" y1="42" x2="380" y2="298"/>
+  <line stroke="#b8b8b8" stroke-width="1" stroke-dasharray="4 3" fill="none" x1="530" y1="42" x2="530" y2="298"/>
+  <line stroke="#b8b8b8" stroke-width="1" stroke-dasharray="4 3" fill="none" x1="80" y1="86" x2="80" y2="254"/>
+  <line stroke="#b8b8b8" stroke-width="1" stroke-dasharray="4 3" fill="none" x1="680" y1="86" x2="680" y2="254"/>
+  <circle fill="#ffffff" stroke="#d8d8d8" stroke-width="1" cx="155" cy="170" r="64"/>
+  <text font-size="13" fill="#222" x="155" y="166" text-anchor="middle">세분화 규모</text>
+  <text font-size="13" fill="#222" x="155" y="184" text-anchor="middle">및 가치</text>
+  <circle fill="#ffffff" stroke="#d8d8d8" stroke-width="1" cx="305" cy="170" r="64"/>
+  <text font-size="13" fill="#222" x="305" y="166" text-anchor="middle">인구통계학</text>
+  <text font-size="13" fill="#222" x="305" y="184" text-anchor="middle">분석</text>
+  <circle fill="#ffffff" stroke="#d8d8d8" stroke-width="1" cx="455" cy="170" r="64"/>
+  <text font-size="13" fill="#222" x="455" y="157" text-anchor="middle">능력,</text>
+  <text font-size="13" fill="#222" x="455" y="175" text-anchor="middle">사고방식,</text>
+  <text font-size="13" fill="#222" x="455" y="193" text-anchor="middle">행동</text>
+  <circle fill="#eef3fb" stroke="#2b5797" stroke-width="1.2" cx="605" cy="170" r="64"/>
+  <text font-size="13" fill="#2b5797" font-weight="600" x="605" y="166" text-anchor="middle">심성 모형</text>
+  <text font-size="13" fill="#2b5797" font-weight="600" x="605" y="184" text-anchor="middle">및 목적</text>
+  <text font-size="11" fill="#8a8a8a" x="155" y="262" text-anchor="middle">시장 세분화에만</text>
+  <text font-size="11" fill="#8a8a8a" x="605" y="78" text-anchor="middle">퍼소나에만</text>
+</svg>

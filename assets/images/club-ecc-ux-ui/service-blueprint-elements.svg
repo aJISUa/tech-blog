@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 470" width="760" height="470" role="img">
+  <title>서비스 블루프린트의 구성 요소</title>
+  <style>
+    text { font-family: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; }
+  </style>
+  <rect x="0" y="0" width="760" height="470" fill="#ffffff"/>
+  <text font-size="11" fill="#8a8a8a" x="204" y="26" text-anchor="start">시간의 흐름</text>
+  <line stroke="#b8b8b8" stroke-width="1.2" fill="none" x1="270" y1="22" x2="736" y2="22"/>
+  <path stroke="#b8b8b8" stroke-width="1.2" fill="none" d="M730 18 L736 22 L730 26"/>
+  <rect fill="#f7f7f5" stroke="#ececec" stroke-width="1" x="20" y="40" width="172" height="58" rx="5"/>
+  <text font-size="13" fill="#222" font-weight="600" x="106.0" y="66" text-anchor="middle">물리적 증거물</text>
+  <text font-size="10" fill="#8a8a8a" x="106.0" y="83" text-anchor="middle">Physical Evidences</text>
+  <rect x="204" y="40" width="536" height="58" rx="5" fill="#fbfbfa" stroke="#ececec" stroke-width="1"/>
+  <rect fill="#eef3fb" stroke="#2b5797" stroke-width="1.2" x="20" y="106" width="172" height="58" rx="5"/>
+  <text font-size="13" fill="#2b5797" font-weight="600" x="106.0" y="132" text-anchor="middle">고객 행동</text>
+  <text font-size="10" fill="#8a8a8a" x="106.0" y="149" text-anchor="middle">Customer Action</text>
+  <rect x="204" y="106" width="536" height="58" rx="5" fill="#fbfbfa" stroke="#ececec" stroke-width="1"/>
+  <rect fill="#f7f7f5" stroke="#ececec" stroke-width="1" x="20" y="196" width="172" height="58" rx="5"/>
+  <text font-size="13" fill="#222" font-weight="600" x="106.0" y="222" text-anchor="middle">전방 영역 종업원 활동</text>
+  <text font-size="10" fill="#8a8a8a" x="106.0" y="239" text-anchor="middle">Frontstage Employee Action</text>
+  <rect x="204" y="196" width="536" height="58" rx="5" fill="#fbfbfa" stroke="#ececec" stroke-width="1"/>
+  <rect fill="#f7f7f5" stroke="#ececec" stroke-width="1" x="20" y="286" width="172" height="58" rx="5"/>
+  <text font-size="13" fill="#222" font-weight="600" x="106.0" y="312" text-anchor="middle">후방 영역 종업원 활동</text>
+  <text font-size="10" fill="#8a8a8a" x="106.0" y="329" text-anchor="middle">Backstage Employee Action</text>
+  <rect x="204" y="286" width="536" height="58" rx="5" fill="#fbfbfa" stroke="#ececec" stroke-width="1"/>
+  <rect fill="#f7f7f5" stroke="#ececec" stroke-width="1" x="20" y="376" width="172" height="58" rx="5"/>
+  <text font-size="13" fill="#222" font-weight="600" x="106.0" y="402" text-anchor="middle">지원 절차</text>
+  <text font-size="10" fill="#8a8a8a" x="106.0" y="419" text-anchor="middle">Support Process</text>
+  <rect x="204" y="376" width="536" height="58" rx="5" fill="#fbfbfa" stroke="#ececec" stroke-width="1"/>
+  <rect fill="#ffffff" stroke="#d8d8d8" stroke-width="1" x="222.0" y="53.0" width="108" height="32" rx="4"/>
+  <text font-size="12" fill="#3a3a3a" x="276" y="73.0" text-anchor="middle">메뉴판</text>
+  <rect fill="#ffffff" stroke="#d8d8d8" stroke-width="1" x="352.0" y="53.0" width="108" height="32" rx="4"/>
+  <text font-size="12" fill="#3a3a3a" x="406" y="73.0" text-anchor="middle">식탁과 의자</text>
+  <rect fill="#ffffff" stroke="#d8d8d8" stroke-width="1" x="482.0" y="53.0" width="108" height="32" rx="4"/>
+  <text font-size="12" fill="#3a3a3a" x="536" y="73.0" text-anchor="middle">쟁반</text>
+  <rect fill="#ffffff" stroke="#d8d8d8" stroke-width="1" x="612.0" y="53.0" width="108" height="32" rx="4"/>
+  <text font-size="12" fill="#3a3a3a" x="666" y="73.0" text-anchor="middle">반환대</text>
+  <rect fill="#eef3fb" stroke="#2b5797" stroke-width="1.2" x="222.0" y="119.0" width="108" height="32" rx="4"/>
+  <text font-size="12" fill="#3a3a3a" x="276" y="139.0" text-anchor="middle">주문</text>
+  <rect fill="#eef3fb" stroke="#2b5797" stroke-width="1.2" x="352.0" y="119.0" width="108" height="32" rx="4"/>
+  <text font-size="12" fill="#3a3a3a" x="406" y="139.0" text-anchor="middle">대기</text>
+  <rect fill="#eef3fb" stroke="#2b5797" stroke-width="1.2" x="482.0" y="119.0" width="108" height="32" rx="4"/>
+  <text font-size="12" fill="#3a3a3a" x="536" y="139.0" text-anchor="middle">식사</text>
+  <rect fill="#eef3fb" stroke="#2b5797" stroke-width="1.2" x="612.0" y="119.0" width="108" height="32" rx="4"/>
+  <text font-size="12" fill="#3a3a3a" x="666" y="139.0" text-anchor="middle">자리를 뜸</text>
+  <line stroke="#2b5797" stroke-width="1.4" fill="none" x1="333.0" y1="135.0" x2="349.0" y2="135.0"/>
+  <path stroke="#2b5797" stroke-width="1.4" fill="none" d="M343.0 131.0 L349.0 135.0 L343.0 139.0"/>
+  <line stroke="#2b5797" stroke-width="1.4" fill="none" x1="463.0" y1="135.0" x2="479.0" y2="135.0"/>
+  <path stroke="#2b5797" stroke-width="1.4" fill="none" d="M473.0 131.0 L479.0 135.0 L473.0 139.0"/>
+  <line stroke="#2b5797" stroke-width="1.4" fill="none" x1="593.0" y1="135.0" x2="609.0" y2="135.0"/>
+  <path stroke="#2b5797" stroke-width="1.4" fill="none" d="M603.0 131.0 L609.0 135.0 L603.0 139.0"/>
+  <rect fill="#ffffff" stroke="#d8d8d8" stroke-width="1" x="222.0" y="209.0" width="108" height="32" rx="4"/>
+  <text font-size="12" fill="#3a3a3a" x="276" y="229.0" text-anchor="middle">주문을 받는다</text>
+  <rect fill="#ffffff" stroke="#d8d8d8" stroke-width="1" x="352.0" y="209.0" width="108" height="32" rx="4"/>
+  <text font-size="12" fill="#3a3a3a" x="406" y="229.0" text-anchor="middle">음식을 내준다</text>
+  <rect fill="#ffffff" stroke="#d8d8d8" stroke-width="1" x="222.0" y="299.0" width="108" height="32" rx="4"/>
+  <text font-size="12" fill="#3a3a3a" x="276" y="319.0" text-anchor="middle">감자를 튀긴다</text>
+  <rect fill="#ffffff" stroke="#d8d8d8" stroke-width="1" x="222.0" y="389.0" width="108" height="32" rx="4"/>
+  <text font-size="12" fill="#3a3a3a" x="276" y="409.0" text-anchor="middle">냉동 패티 공급</text>
+  <rect fill="#ffffff" stroke="#d8d8d8" stroke-width="1" x="344" y="389.0" width="124" height="32" rx="4"/>
+  <text font-size="12" fill="#3a3a3a" x="406" y="409.0" text-anchor="middle">유니폼 세탁 · 공급</text>
+  <line stroke="#b8b8b8" stroke-width="1" stroke-dasharray="4 3" fill="none" x1="20" y1="180" x2="740" y2="180"/>
+  <rect x="567.0" y="171" width="179.0" height="18" fill="#ffffff"/>
+  <text font-size="11" fill="#8a8a8a" x="638.0" y="184" text-anchor="end">상호작용선</text>
+  <text font-size="10" fill="#8a8a8a" x="736" y="184" text-anchor="end">Line of Interactions</text>
+  <line stroke="#2b5797" stroke-width="1.4" stroke-dasharray="6 4" fill="none" x1="20" y1="270" x2="740" y2="270"/>
+  <rect x="598.0" y="261" width="148.0" height="18" fill="#ffffff"/>
+  <text font-size="11" fill="#2b5797" font-weight="600" x="647.0" y="274" text-anchor="end">가시선</text>
+  <text font-size="10" fill="#8a8a8a" x="736" y="274" text-anchor="end">Line of Visibility</text>
+  <line stroke="#b8b8b8" stroke-width="1" stroke-dasharray="4 3" fill="none" x1="20" y1="360" x2="740" y2="360"/>
+  <rect x="493.5" y="351" width="252.5" height="18" fill="#ffffff"/>
+  <text font-size="11" fill="#8a8a8a" x="597.5" y="364" text-anchor="end">내부 상호작용선</text>
+  <text font-size="10" fill="#8a8a8a" x="736" y="364" text-anchor="end">Line of internal Interactions</text>
+  <text font-size="11" fill="#8a8a8a" x="20" y="456" text-anchor="start">상자 안은 교재가 든 맥도날드 레스토랑의 예. 가시선 아래는 고객의 눈에 보이지 않는다.</text>
+</svg>
