@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" width="760" height="400" role="img">
+  <title>페인포인트와 UX 전략 도출</title>
+  <style>
+    text { font-family: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; }
+    .t   { font-size: 13px; fill: #222; }
+    .t12 { font-size: 12px; fill: #3a3a3a; }
+    .sm  { font-size: 11px; fill: #8a8a8a; }
+    .en  { font-size: 10px; fill: #8a8a8a; }
+    .ac  { font-size: 13px; fill: #2b5797; font-weight: 600; }
+    .acs { font-size: 11px; fill: #2b5797; font-weight: 600; }
+    .b   { font-size: 13px; fill: #222; font-weight: 600; }
+    .cap { font-size: 12px; fill: #8a8a8a; }
+    .box { fill: #ffffff; stroke: #d8d8d8; stroke-width: 1; }
+    .sft { fill: #f7f7f5; stroke: #ececec; stroke-width: 1; }
+    .bxa { fill: #eef3fb; stroke: #2b5797; stroke-width: 1.2; }
+    .ax  { stroke: #b8b8b8; stroke-width: 1.2; fill: none; }
+    .ln  { stroke: #d8d8d8; stroke-width: 1; fill: none; }
+    .dsh { stroke: #b8b8b8; stroke-width: 1; stroke-dasharray: 4 3; fill: none; }
+  </style>
+  <rect x="0" y="0" width="760" height="400" fill="#ffffff"/>
+  <rect x="24" y="14" width="332" height="318" rx="6" fill="#ffffff" stroke="#ececec"/>
+  <rect x="414" y="14" width="322" height="318" rx="6" fill="#ffffff" stroke="#ececec"/>
+  <text class="b" x="40" y="38" text-anchor="start">디자인 문제 발견</text>
+  <text class="sm" x="340" y="38" text-anchor="end">Finding · 정의 단계의 마지막</text>
+  <text class="b" x="430" y="38" text-anchor="start">디자인 문제 해결</text>
+  <text class="sm" x="720" y="38" text-anchor="end">Solving · 발전 단계의 시작</text>
+  <rect class="sft" x="40" y="92" width="120" height="22" rx="3"/>
+  <rect class="sft" x="40" y="122" width="120" height="22" rx="3"/>
+  <rect class="sft" x="40" y="152" width="120" height="22" rx="3"/>
+  <rect class="sft" x="40" y="182" width="120" height="22" rx="3"/>
+  <rect class="sft" x="40" y="212" width="120" height="22" rx="3"/>
+  <rect class="sft" x="40" y="242" width="120" height="22" rx="3"/>
+  <rect class="sft" x="40" y="272" width="120" height="22" rx="3"/>
+  <rect class="sft" x="40" y="302" width="120" height="22" rx="3"/>
+  <rect class="sft" x="220" y="92" width="120" height="22" rx="3"/>
+  <rect class="sft" x="220" y="122" width="120" height="22" rx="3"/>
+  <rect class="sft" x="220" y="152" width="120" height="22" rx="3"/>
+  <rect class="sft" x="220" y="182" width="120" height="22" rx="3"/>
+  <rect class="sft" x="220" y="246" width="120" height="22" rx="3"/>
+  <rect class="sft" x="220" y="276" width="120" height="22" rx="3"/>
+  <rect class="bxa" x="430" y="92" width="120" height="22" rx="3"/>
+  <rect class="bxa" x="430" y="122" width="120" height="22" rx="3"/>
+  <rect class="bxa" x="430" y="152" width="120" height="22" rx="3"/>
+  <rect class="bxa" x="430" y="182" width="120" height="22" rx="3"/>
+  <rect class="sft" x="600" y="92" width="120" height="22" rx="3"/>
+  <rect class="sft" x="600" y="122" width="120" height="22" rx="3"/>
+  <rect class="sft" x="600" y="152" width="120" height="22" rx="3"/>
+  <rect class="sft" x="600" y="182" width="120" height="22" rx="3"/>
+  <rect class="sft" x="600" y="212" width="120" height="22" rx="3"/>
+  <rect class="sft" x="600" y="242" width="120" height="22" rx="3"/>
+  <rect class="sft" x="600" y="272" width="120" height="22" rx="3"/>
+  <rect class="sft" x="600" y="302" width="120" height="22" rx="3"/>
+  <text class="t12" x="100.0" y="64" text-anchor="middle">리서치로부터</text>
+  <text class="t12" x="100.0" y="80" text-anchor="middle">얻은 발견점</text>
+  <text class="t12" x="280.0" y="80" text-anchor="middle">페인포인트</text>
+  <text class="t12" x="280.0" y="236" text-anchor="middle">기회 요인</text>
+  <text class="ac" x="490.0" y="80" text-anchor="middle">UX 전략</text>
+  <text class="t12" x="660.0" y="80" text-anchor="middle">아이디어</text>
+  <line x1="160" y1="103.0" x2="220" y2="103.0" stroke="#b8b8b8" stroke-width="1"/>
+  <line x1="160" y1="133.0" x2="220" y2="103.0" stroke="#b8b8b8" stroke-width="1"/>
+  <line x1="160" y1="133.0" x2="220" y2="133.0" stroke="#b8b8b8" stroke-width="1"/>
+  <line x1="160" y1="163.0" x2="220" y2="163.0" stroke="#b8b8b8" stroke-width="1"/>
+  <line x1="160" y1="163.0" x2="220" y2="193.0" stroke="#b8b8b8" stroke-width="1"/>
+  <line x1="160" y1="193.0" x2="220" y2="257.0" stroke="#b8b8b8" stroke-width="1"/>
+  <line x1="340" y1="103.0" x2="430" y2="103.0" stroke="#b8b8b8" stroke-width="1"/>
+  <line x1="340" y1="133.0" x2="430" y2="103.0" stroke="#b8b8b8" stroke-width="1"/>
+  <line x1="340" y1="133.0" x2="430" y2="163.0" stroke="#b8b8b8" stroke-width="1"/>
+  <line x1="340" y1="163.0" x2="430" y2="133.0" stroke="#b8b8b8" stroke-width="1"/>
+  <line x1="340" y1="193.0" x2="430" y2="193.0" stroke="#b8b8b8" stroke-width="1"/>
+  <line x1="340" y1="257.0" x2="430" y2="163.0" stroke="#b8b8b8" stroke-width="1"/>
+  <line x1="340" y1="257.0" x2="430" y2="193.0" stroke="#b8b8b8" stroke-width="1"/>
+  <line x1="340" y1="287.0" x2="430" y2="193.0" stroke="#b8b8b8" stroke-width="1"/>
+  <line x1="550" y1="103.0" x2="600" y2="103.0" stroke="#b8b8b8" stroke-width="1"/>
+  <line x1="550" y1="103.0" x2="600" y2="133.0" stroke="#b8b8b8" stroke-width="1"/>
+  <line x1="550" y1="133.0" x2="600" y2="133.0" stroke="#b8b8b8" stroke-width="1"/>
+  <line x1="550" y1="133.0" x2="600" y2="223.0" stroke="#b8b8b8" stroke-width="1"/>
+  <line x1="550" y1="163.0" x2="600" y2="223.0" stroke="#b8b8b8" stroke-width="1"/>
+  <line x1="550" y1="163.0" x2="600" y2="253.0" stroke="#b8b8b8" stroke-width="1"/>
+  <line x1="550" y1="193.0" x2="600" y2="253.0" stroke="#b8b8b8" stroke-width="1"/>
+  <line x1="550" y1="193.0" x2="600" y2="283.0" stroke="#b8b8b8" stroke-width="1"/>
+  <line x1="550" y1="193.0" x2="600" y2="313.0" stroke="#b8b8b8" stroke-width="1"/>
+  <text class="cap" x="24" y="358" text-anchor="start">페인포인트는 현재의 사용자 경험에 대한 상향식 리서치에서, 기회 요인은 시스템과 기술에 대한 하향식 조망에서</text>
+  <text class="cap" x="24" y="376" text-anchor="start">나올 가능성이 높다. UX 전략의 상당수는 페인포인트에서, 일부는 기회 요인에서 도출된다.</text>
+</svg>

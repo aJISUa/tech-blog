@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 470" width="760" height="470" role="img">
+  <title>쏘카 프로젝트 퍼소나의 행동 변수와 행동 패턴</title>
+  <style>
+    text { font-family: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; }
+    .t   { font-size: 13px; fill: #222; }
+    .t12 { font-size: 12px; fill: #3a3a3a; }
+    .sm  { font-size: 11px; fill: #8a8a8a; }
+    .en  { font-size: 10px; fill: #8a8a8a; }
+    .ac  { font-size: 13px; fill: #2b5797; font-weight: 600; }
+    .acs { font-size: 11px; fill: #2b5797; font-weight: 600; }
+    .b   { font-size: 13px; fill: #222; font-weight: 600; }
+    .cap { font-size: 12px; fill: #8a8a8a; }
+    .box { fill: #ffffff; stroke: #d8d8d8; stroke-width: 1; }
+    .sft { fill: #f7f7f5; stroke: #ececec; stroke-width: 1; }
+    .bxa { fill: #eef3fb; stroke: #2b5797; stroke-width: 1.2; }
+    .ax  { stroke: #b8b8b8; stroke-width: 1.2; fill: none; }
+    .ln  { stroke: #d8d8d8; stroke-width: 1; fill: none; }
+    .dsh { stroke: #b8b8b8; stroke-width: 1; stroke-dasharray: 4 3; fill: none; }
+  </style>
+  <rect x="0" y="0" width="760" height="470" fill="#ffffff"/>
+  <text class="b" x="374" y="28" text-anchor="end">행동 패턴 매핑</text>
+  <text class="sm" x="382" y="28" text-anchor="start" font-size="12">Behavior Pattern Mapping</text>
+  <rect class="sft" x="24" y="52" width="196" height="44" rx="5"/>
+  <rect class="sft" x="540" y="52" width="196" height="44" rx="5"/>
+  <text class="t12" x="122" y="71" text-anchor="middle">애플리케이션을 이용해</text>
+  <text class="t12" x="122" y="87" text-anchor="middle">숙련도가 높은</text>
+  <text class="t12" x="638" y="71" text-anchor="middle">애플리케이션을 이용해</text>
+  <text class="t12" x="638" y="87" text-anchor="middle">숙련도가 낮은</text>
+  <line class="ln" x1="240" y1="74" x2="520" y2="74"/>
+  <line class="ln" x1="250" y1="69" x2="250" y2="79"/>
+  <line class="ln" x1="302" y1="69" x2="302" y2="79"/>
+  <line class="ln" x1="354" y1="69" x2="354" y2="79"/>
+  <line class="ln" x1="406" y1="69" x2="406" y2="79"/>
+  <line class="ln" x1="458" y1="69" x2="458" y2="79"/>
+  <line class="ln" x1="510" y1="69" x2="510" y2="79"/>
+  <rect class="sft" x="24" y="112" width="196" height="44" rx="5"/>
+  <rect class="sft" x="540" y="112" width="196" height="44" rx="5"/>
+  <text class="t12" x="122" y="131" text-anchor="middle">서비스에서 요청하는 정보의</text>
+  <text class="t12" x="122" y="147" text-anchor="middle">양이 많아도 개의치 않는</text>
+  <text class="t12" x="638" y="131" text-anchor="middle">서비스에서 요청하는 정보의</text>
+  <text class="t12" x="638" y="147" text-anchor="middle">양이 많아 불편한</text>
+  <line class="ln" x1="240" y1="134" x2="520" y2="134"/>
+  <line class="ln" x1="250" y1="129" x2="250" y2="139"/>
+  <line class="ln" x1="302" y1="129" x2="302" y2="139"/>
+  <line class="ln" x1="354" y1="129" x2="354" y2="139"/>
+  <line class="ln" x1="406" y1="129" x2="406" y2="139"/>
+  <line class="ln" x1="458" y1="129" x2="458" y2="139"/>
+  <line class="ln" x1="510" y1="129" x2="510" y2="139"/>
+  <rect class="sft" x="24" y="172" width="196" height="44" rx="5"/>
+  <rect class="sft" x="540" y="172" width="196" height="44" rx="5"/>
+  <text class="t12" x="122" y="191" text-anchor="middle">꼼꼼하게 서비스</text>
+  <text class="t12" x="122" y="207" text-anchor="middle">정보를 읽어보고 이해하는</text>
+  <text class="t12" x="638" y="191" text-anchor="middle">서비스에서 제공하는 정보를</text>
+  <text class="t12" x="638" y="207" text-anchor="middle">꼼꼼하게 읽지 않고 넘기는</text>
+  <line class="ln" x1="240" y1="194" x2="520" y2="194"/>
+  <line class="ln" x1="250" y1="189" x2="250" y2="199"/>
+  <line class="ln" x1="302" y1="189" x2="302" y2="199"/>
+  <line class="ln" x1="354" y1="189" x2="354" y2="199"/>
+  <line class="ln" x1="406" y1="189" x2="406" y2="199"/>
+  <line class="ln" x1="458" y1="189" x2="458" y2="199"/>
+  <line class="ln" x1="510" y1="189" x2="510" y2="199"/>
+  <rect class="sft" x="24" y="232" width="196" height="44" rx="5"/>
+  <rect class="sft" x="540" y="232" width="196" height="44" rx="5"/>
+  <text class="t12" x="122" y="251" text-anchor="middle">추가적인 금액이 발생함을</text>
+  <text class="t12" x="122" y="267" text-anchor="middle">개의치 않는</text>
+  <text class="t12" x="638" y="251" text-anchor="middle">추가적인 금액이 발생함을</text>
+  <text class="t12" x="638" y="267" text-anchor="middle">지속적으로 신경 쓰는</text>
+  <line class="ln" x1="240" y1="254" x2="520" y2="254"/>
+  <line class="ln" x1="250" y1="249" x2="250" y2="259"/>
+  <line class="ln" x1="302" y1="249" x2="302" y2="259"/>
+  <line class="ln" x1="354" y1="249" x2="354" y2="259"/>
+  <line class="ln" x1="406" y1="249" x2="406" y2="259"/>
+  <line class="ln" x1="458" y1="249" x2="458" y2="259"/>
+  <line class="ln" x1="510" y1="249" x2="510" y2="259"/>
+  <rect class="sft" x="24" y="292" width="196" height="44" rx="5"/>
+  <rect class="sft" x="540" y="292" width="196" height="44" rx="5"/>
+  <text class="t12" x="122" y="311" text-anchor="middle">쏘카존 내 차량을 최대한</text>
+  <text class="t12" x="122" y="327" text-anchor="middle">빠르게 찾고자 하는</text>
+  <text class="t12" x="638" y="311" text-anchor="middle">쏘카존 내 차량을</text>
+  <text class="t12" x="638" y="327" text-anchor="middle">천천히 찾아도 크게 무관한</text>
+  <line class="ln" x1="240" y1="314" x2="520" y2="314"/>
+  <line class="ln" x1="250" y1="309" x2="250" y2="319"/>
+  <line class="ln" x1="302" y1="309" x2="302" y2="319"/>
+  <line class="ln" x1="354" y1="309" x2="354" y2="319"/>
+  <line class="ln" x1="406" y1="309" x2="406" y2="319"/>
+  <line class="ln" x1="458" y1="309" x2="458" y2="319"/>
+  <line class="ln" x1="510" y1="309" x2="510" y2="319"/>
+  <rect class="sft" x="24" y="352" width="196" height="44" rx="5"/>
+  <rect class="sft" x="540" y="352" width="196" height="44" rx="5"/>
+  <text class="t12" x="122" y="371" text-anchor="middle">새로운 자동차를 타더라도</text>
+  <text class="t12" x="122" y="387" text-anchor="middle">쉽게 작동법을 이해하는</text>
+  <text class="t12" x="638" y="371" text-anchor="middle">새로운 자동차를 탈 경우</text>
+  <text class="t12" x="638" y="387" text-anchor="middle">작동법을 이해하기 힘든</text>
+  <line class="ln" x1="240" y1="374" x2="520" y2="374"/>
+  <line class="ln" x1="250" y1="369" x2="250" y2="379"/>
+  <line class="ln" x1="302" y1="369" x2="302" y2="379"/>
+  <line class="ln" x1="354" y1="369" x2="354" y2="379"/>
+  <line class="ln" x1="406" y1="369" x2="406" y2="379"/>
+  <line class="ln" x1="458" y1="369" x2="458" y2="379"/>
+  <line class="ln" x1="510" y1="369" x2="510" y2="379"/>
+  <polyline points="302,74 354,134 302,194 510,254 302,314 458,374" fill="none" stroke="#2b5797" stroke-width="1.4"/>
+  <polyline points="458,74 510,134 510,194 354,254 406,314 302,374" fill="none" stroke="#8a8a8a" stroke-width="1.4"/>
+  <polyline points="250,74 250,134 250,194 302,254 250,314 250,374" fill="none" stroke="#2b5797" stroke-width="1.4" stroke-dasharray="4 3"/>
+  <polyline points="406,74 484.0,134 458,194 458,254 458,314 406,374" fill="none" stroke="#8a8a8a" stroke-width="1.4" stroke-dasharray="4 3"/>
+  <circle cx="302" cy="74" r="6" fill="#2b5797" stroke="#ffffff" stroke-width="1.5"/>
+  <circle cx="354" cy="134" r="6" fill="#2b5797" stroke="#ffffff" stroke-width="1.5"/>
+  <circle cx="302" cy="194" r="6" fill="#2b5797" stroke="#ffffff" stroke-width="1.5"/>
+  <circle cx="510" cy="254" r="6" fill="#2b5797" stroke="#ffffff" stroke-width="1.5"/>
+  <circle cx="302" cy="314" r="6" fill="#2b5797" stroke="#ffffff" stroke-width="1.5"/>
+  <circle cx="458" cy="374" r="6" fill="#2b5797" stroke="#ffffff" stroke-width="1.5"/>
+  <circle cx="458" cy="74" r="6" fill="#8a8a8a" stroke="#ffffff" stroke-width="1.5"/>
+  <circle cx="510" cy="134" r="6" fill="#8a8a8a" stroke="#ffffff" stroke-width="1.5"/>
+  <circle cx="510" cy="194" r="6" fill="#8a8a8a" stroke="#ffffff" stroke-width="1.5"/>
+  <circle cx="354" cy="254" r="6" fill="#8a8a8a" stroke="#ffffff" stroke-width="1.5"/>
+  <circle cx="406" cy="314" r="6" fill="#8a8a8a" stroke="#ffffff" stroke-width="1.5"/>
+  <circle cx="302" cy="374" r="6" fill="#8a8a8a" stroke="#ffffff" stroke-width="1.5"/>
+  <path d="M250 67 L257 74 L250 81 L243 74 Z" fill="#2b5797" stroke="#ffffff" stroke-width="1.5"/>
+  <path d="M250 127 L257 134 L250 141 L243 134 Z" fill="#2b5797" stroke="#ffffff" stroke-width="1.5"/>
+  <path d="M250 187 L257 194 L250 201 L243 194 Z" fill="#2b5797" stroke="#ffffff" stroke-width="1.5"/>
+  <path d="M302 247 L309 254 L302 261 L295 254 Z" fill="#2b5797" stroke="#ffffff" stroke-width="1.5"/>
+  <path d="M250 307 L257 314 L250 321 L243 314 Z" fill="#2b5797" stroke="#ffffff" stroke-width="1.5"/>
+  <path d="M250 367 L257 374 L250 381 L243 374 Z" fill="#2b5797" stroke="#ffffff" stroke-width="1.5"/>
+  <path d="M406 67 L413 74 L406 81 L399 74 Z" fill="#8a8a8a" stroke="#ffffff" stroke-width="1.5"/>
+  <path d="M484.0 127 L491.0 134 L484.0 141 L477.0 134 Z" fill="#8a8a8a" stroke="#ffffff" stroke-width="1.5"/>
+  <path d="M458 187 L465 194 L458 201 L451 194 Z" fill="#8a8a8a" stroke="#ffffff" stroke-width="1.5"/>
+  <path d="M458 247 L465 254 L458 261 L451 254 Z" fill="#8a8a8a" stroke="#ffffff" stroke-width="1.5"/>
+  <path d="M458 307 L465 314 L458 321 L451 314 Z" fill="#8a8a8a" stroke="#ffffff" stroke-width="1.5"/>
+  <path d="M406 367 L413 374 L406 381 L399 374 Z" fill="#8a8a8a" stroke="#ffffff" stroke-width="1.5"/>
+  <line x1="134" y1="432" x2="166" y2="432" stroke="#2b5797" stroke-width="1.4"/>
+  <circle cx="150" cy="432" r="6" fill="#2b5797" stroke="#ffffff" stroke-width="1.5"/>
+  <text class="t12" x="176" y="436" text-anchor="start">가성비가 최고인 초보 운전자</text>
+  <line x1="134" y1="456" x2="166" y2="456" stroke="#8a8a8a" stroke-width="1.4"/>
+  <circle cx="150" cy="456" r="6" fill="#8a8a8a" stroke="#ffffff" stroke-width="1.5"/>
+  <text class="t12" x="176" y="460" text-anchor="start">귀찮은 게 최악인 드라이빙 마스터</text>
+  <line x1="414" y1="432" x2="446" y2="432" stroke="#2b5797" stroke-width="1.4" stroke-dasharray="4 3"/>
+  <path d="M430 425 L437 432 L430 439 L423 432 Z" fill="#2b5797" stroke="#ffffff" stroke-width="1.5"/>
+  <text class="t12" x="456" y="436" text-anchor="start">카셰어링 마스터 헤비 유저</text>
+  <line x1="414" y1="456" x2="446" y2="456" stroke="#8a8a8a" stroke-width="1.4" stroke-dasharray="4 3"/>
+  <path d="M430 449 L437 456 L430 463 L423 456 Z" fill="#8a8a8a" stroke="#ffffff" stroke-width="1.5"/>
+  <text class="t12" x="456" y="460" text-anchor="start">자유로운 영혼 안티 유저</text>
+</svg>

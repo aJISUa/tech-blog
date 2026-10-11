@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 372" width="760" height="372" role="img">
+  <title>사용자의 요청, 페인포인트, 문제</title>
+  <style>
+    text { font-family: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; }
+    .t   { font-size: 13px; fill: #222; }
+    .t12 { font-size: 12px; fill: #3a3a3a; }
+    .sm  { font-size: 11px; fill: #8a8a8a; }
+    .en  { font-size: 10px; fill: #8a8a8a; }
+    .ac  { font-size: 13px; fill: #2b5797; font-weight: 600; }
+    .acs { font-size: 11px; fill: #2b5797; font-weight: 600; }
+    .b   { font-size: 13px; fill: #222; font-weight: 600; }
+    .cap { font-size: 12px; fill: #8a8a8a; }
+    .box { fill: #ffffff; stroke: #d8d8d8; stroke-width: 1; }
+    .sft { fill: #f7f7f5; stroke: #ececec; stroke-width: 1; }
+    .bxa { fill: #eef3fb; stroke: #2b5797; stroke-width: 1.2; }
+    .ax  { stroke: #b8b8b8; stroke-width: 1.2; fill: none; }
+    .ln  { stroke: #d8d8d8; stroke-width: 1; fill: none; }
+    .dsh { stroke: #b8b8b8; stroke-width: 1; stroke-dasharray: 4 3; fill: none; }
+  </style>
+  <rect x="0" y="0" width="760" height="372" fill="#ffffff"/>
+  <circle cx="68" cy="84" r="54" fill="#f7f7f5" stroke="#d8d8d8"/>
+  <text class="t12" x="68" y="70" text-anchor="middle" font-weight="600">사용자의 요청</text>
+  <text class="sm" x="68" y="86" text-anchor="middle">/</text>
+  <text class="sm" x="68" y="102" text-anchor="middle">디자이너의</text>
+  <text class="sm" x="68" y="116" text-anchor="middle">첫 아이디어</text>
+  <circle cx="692" cy="84" r="54" fill="#eef3fb" stroke="#2b5797" stroke-width="1.2"/>
+  <text class="acs" x="692" y="72" text-anchor="middle" font-size="12">숙성된</text>
+  <text class="acs" x="692" y="89" text-anchor="middle" font-weight="400">(프로세스 후기의)</text>
+  <text class="acs" x="692" y="106" text-anchor="middle" font-size="12">아이디어</text>
+  <rect class="box" x="140" y="18" width="150" height="132" rx="5"/>
+  <text class="sm" x="215.0" y="38" text-anchor="middle">공강 시간에 피곤하다.</text>
+  <text class="sm" x="215.0" y="53" text-anchor="middle">복도에 벤치를 설치하자.</text>
+  <line class="ln" x1="154" y1="101" x2="276" y2="101"/>
+  <text class="t" x="215.0" y="121" text-anchor="middle" font-weight="600">피상적이고 뻔한</text>
+  <text class="t" x="215.0" y="138" text-anchor="middle" font-weight="600">요청 들어주기</text>
+  <rect class="box" x="305" y="18" width="150" height="132" rx="5"/>
+  <text class="sm" x="380.0" y="38" text-anchor="middle">휴식이 필요하구나!</text>
+  <text class="sm" x="380.0" y="53" text-anchor="middle">쪽잠을 잘 수 있는</text>
+  <text class="sm" x="380.0" y="68" text-anchor="middle">텐트는 어떨까?</text>
+  <line class="ln" x1="319" y1="101" x2="441" y2="101"/>
+  <text class="t" x="380.0" y="121" text-anchor="middle" font-weight="600">잠재된 요구를</text>
+  <text class="t" x="380.0" y="138" text-anchor="middle" font-weight="600">파악하기</text>
+  <rect class="box" x="470" y="18" width="150" height="132" rx="5"/>
+  <text class="sm" x="545.0" y="38" text-anchor="middle">공강 시간을</text>
+  <text class="sm" x="545.0" y="53" text-anchor="middle">최소화할 수 없을까?</text>
+  <text class="sm" x="545.0" y="68" text-anchor="middle">수강 시스템을 바꾸면?</text>
+  <line class="ln" x1="484" y1="84" x2="606" y2="84"/>
+  <text class="t" x="545.0" y="104" text-anchor="middle" font-weight="600">문제를 다른 각도에서</text>
+  <text class="t" x="545.0" y="121" text-anchor="middle" font-weight="600">바라보고 진짜 문제를</text>
+  <text class="t" x="545.0" y="138" text-anchor="middle" font-weight="600">발견하기</text>
+  <line class="ax" x1="293" y1="84" x2="301" y2="84"/>
+  <path class="ax" d="M298 80 L302 84 L298 88"/>
+  <line class="ax" x1="458" y1="84" x2="466" y2="84"/>
+  <path class="ax" d="M463 80 L467 84 L463 88"/>
+  <rect class="box" x="240" y="206" width="150" height="36" rx="4"/>
+  <text class="b" x="315.0" y="229" text-anchor="middle">요구</text>
+  <rect class="box" x="240" y="252" width="150" height="36" rx="4"/>
+  <text class="b" x="315.0" y="275" text-anchor="middle">페인포인트</text>
+  <rect class="bxa" x="240" y="298" width="150" height="36" rx="4"/>
+  <text class="ac" x="315.0" y="321" text-anchor="middle">문제</text>
+  <line class="dsh" x1="190" y1="150" x2="237" y2="222"/>
+  <path d="M230.1 217.9 L237 222 L236.0 214.1" stroke="#b8b8b8" stroke-width="1" fill="none"/>
+  <line class="dsh" x1="430" y1="150" x2="393" y2="268"/>
+  <path d="M391.8 260.1 L393 268 L398.5 262.2" stroke="#b8b8b8" stroke-width="1" fill="none"/>
+  <line class="dsh" x1="560" y1="150" x2="393" y2="316"/>
+  <path d="M395.7 308.5 L393 316 L400.6 313.4" stroke="#b8b8b8" stroke-width="1" fill="none"/>
+  <text class="b" x="24" y="220" text-anchor="start">문제 해결</text>
+  <text class="sm" x="24" y="237" text-anchor="start">명시적인 요구</text>
+  <text class="b" x="24" y="312" text-anchor="start">문제 발견</text>
+  <text class="sm" x="24" y="329" text-anchor="start">충족되지 않은 요구</text>
+  <text class="cap" x="24" y="358" text-anchor="start">요구에 머물지 않고 페인포인트를, 페인포인트를 낳은 문제를 볼수록 대안이 늘고 해결책이 근본적이 된다.</text>
+</svg>

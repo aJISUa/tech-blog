@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" width="760" height="400" role="img">
+  <title>고객 여정 지도의 표현 형식</title>
+  <style>
+    text { font-family: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; }
+    .t   { font-size: 13px; fill: #222; }
+    .t12 { font-size: 12px; fill: #3a3a3a; }
+    .sm  { font-size: 11px; fill: #8a8a8a; }
+    .en  { font-size: 10px; fill: #8a8a8a; }
+    .ac  { font-size: 13px; fill: #2b5797; font-weight: 600; }
+    .acs { font-size: 11px; fill: #2b5797; font-weight: 600; }
+    .b   { font-size: 13px; fill: #222; font-weight: 600; }
+    .cap { font-size: 12px; fill: #8a8a8a; }
+    .box { fill: #ffffff; stroke: #d8d8d8; stroke-width: 1; }
+    .sft { fill: #f7f7f5; stroke: #ececec; stroke-width: 1; }
+    .bxa { fill: #eef3fb; stroke: #2b5797; stroke-width: 1.2; }
+    .ax  { stroke: #b8b8b8; stroke-width: 1.2; fill: none; }
+    .ln  { stroke: #d8d8d8; stroke-width: 1; fill: none; }
+    .dsh { stroke: #b8b8b8; stroke-width: 1; stroke-dasharray: 4 3; fill: none; }
+  </style>
+  <rect x="0" y="0" width="760" height="400" fill="#ffffff"/>
+  <text class="t12" x="24" y="30" text-anchor="start">퍼소나:</text>
+  <line class="ax" x1="72" y1="32" x2="330" y2="32"/>
+  <text class="t12" x="400" y="30" text-anchor="start">목표:</text>
+  <line class="ax" x1="436" y1="32" x2="736" y2="32"/>
+  <rect x="24" y="50" width="146" height="298" fill="#f7f7f5"/>
+  <rect x="24" y="50" width="712" height="298" fill="none" stroke="#d8d8d8"/>
+  <text class="t" x="97.0" y="72.0" text-anchor="middle" font-size="12">단계</text>
+  <line class="ln" x1="24" y1="86" x2="736" y2="86"/>
+  <text class="b" x="40" y="155.0" text-anchor="start" font-size="12">감정</text>
+  <line class="ln" x1="24" y1="216" x2="736" y2="216"/>
+  <text class="t" x="97.0" y="242.0" text-anchor="middle" font-size="12">고객의 니즈와 행동</text>
+  <line class="ln" x1="24" y1="260" x2="736" y2="260"/>
+  <text class="t" x="97.0" y="286.0" text-anchor="middle" font-size="12">고객의 기대</text>
+  <line class="ln" x1="24" y1="304" x2="736" y2="304"/>
+  <text class="t" x="97.0" y="330.0" text-anchor="middle" font-size="12">기회 요소</text>
+  <line class="ln" x1="170.0" y1="50" x2="170.0" y2="348"/>
+  <text class="t" x="217.2" y="73" text-anchor="middle">1</text>
+  <line class="ln" x1="264.3" y1="50" x2="264.3" y2="348"/>
+  <text class="t" x="311.5" y="73" text-anchor="middle">2</text>
+  <line class="ln" x1="358.7" y1="50" x2="358.7" y2="348"/>
+  <text class="t" x="405.8" y="73" text-anchor="middle">3</text>
+  <line class="ln" x1="453.0" y1="50" x2="453.0" y2="348"/>
+  <text class="t" x="500.2" y="73" text-anchor="middle">4</text>
+  <line class="ln" x1="547.3" y1="50" x2="547.3" y2="348"/>
+  <text class="t" x="594.5" y="73" text-anchor="middle">5</text>
+  <line class="ln" x1="641.7" y1="50" x2="641.7" y2="348"/>
+  <text class="t" x="688.8" y="73" text-anchor="middle">6</text>
+  <text class="en" x="162" y="112" text-anchor="end">만족</text>
+  <text class="en" x="162" y="155.0" text-anchor="end">중립</text>
+  <text class="en" x="162" y="198" text-anchor="end">불만족</text>
+  <line x1="170" y1="151.0" x2="736" y2="151.0" stroke="#e2e2e2" stroke-width="1" stroke-dasharray="4 3"/>
+  <polyline points="217.2,155.0 311.5,114.0 405.8,153.0 500.2,192.0 594.5,104.0 688.8,124.0" fill="none" stroke="#8a8a8a" stroke-width="1.3"/>
+  <circle cx="217.2" cy="155.0" r="4" fill="#ffffff" stroke="#8a8a8a" stroke-width="1.3"/>
+  <circle cx="311.5" cy="114.0" r="4" fill="#ffffff" stroke="#8a8a8a" stroke-width="1.3"/>
+  <circle cx="405.8" cy="153.0" r="4" fill="#ffffff" stroke="#8a8a8a" stroke-width="1.3"/>
+  <circle cx="500.2" cy="192.0" r="4" fill="#ffffff" stroke="#8a8a8a" stroke-width="1.3"/>
+  <circle cx="594.5" cy="104.0" r="4" fill="#ffffff" stroke="#8a8a8a" stroke-width="1.3"/>
+  <circle cx="688.8" cy="124.0" r="4" fill="#ffffff" stroke="#8a8a8a" stroke-width="1.3"/>
+  <path d="M500.2 185.0 L496.2 177.0 A5 5 0 1 1 504.2 177.0 Z" fill="#2b5797"/>
+  <path d="M688.8 117.0 L684.8 109.0 A5 5 0 1 1 692.8 109.0 Z" fill="#2b5797"/>
+  <text class="acs" x="512.2" y="180.0" text-anchor="start">페인포인트</text>
+  <line x1="285.5" y1="98" x2="285.5" y2="204" stroke="#2b5797" stroke-width="3"/>
+  <path d="M278.5 105 L285.5 96 L292.5 105" fill="none" stroke="#2b5797" stroke-width="3"/>
+  <path d="M278.5 197 L285.5 206 L292.5 197" fill="none" stroke="#2b5797" stroke-width="3"/>
+  <rect class="bxa" x="319.5" y="176" width="78" height="24" rx="12"/>
+  <text class="acs" x="358.5" y="192" text-anchor="middle">감정/느낌</text>
+  <line x1="176" y1="238.0" x2="726" y2="238.0" stroke="#2b5797" stroke-width="3"/>
+  <path d="M718 231.0 L727 238.0 L718 245.0" fill="none" stroke="#2b5797" stroke-width="3"/>
+  <rect class="bxa" x="604.5" y="270.0" width="88" height="24" rx="12"/>
+  <text class="acs" x="648.5" y="286.0" text-anchor="middle">시간의 흐름</text>
+  <text class="cap" x="24" y="376" text-anchor="start">어떤 양식에도 감정선은 빠지지 않는다. 감정선의 중요 지점에 페인포인트를 표시한다.</text>
+</svg>
