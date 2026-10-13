@@ -57,7 +57,7 @@ V1의 문제를 하나씩 보면서 어떤 패턴이 맞을지 골랐다.
 | ④ 조립 순서를 main이 다 앎 | "Latte"라는 이름만 주면 조립된 커피를 돌려주는 공장 | **팩토리**, SRP |
 | ⑥ 메뉴, 주문, 결제가 없음 | Menu(가격표), Order(주문서)를 따로 두고, 카드, 현금, 포인트가 Payment 인터페이스를 구현 | **전략**, OCP, DIP |
 | ① 출력과 반환이 섞임 | Coffee는 이름과 레시피 문자열만 돌려주고, 커피를 내보내는 출력은 CoffeeMaker가 맡는다 | SRP |
-| ③ setter 주입 | Manager는 필요한 것을 전부 생성자로 받고, CoffeeMaker는 만들 커피를 메소드 매개변수로 받는다 | DI |
+| ③ setter 주입 | Manager는 계속 쓰는 Menu, CoffeeFactory, CoffeeMaker를 생성자로 받고, 주문마다 바뀌는 Order와 Payment는 메소드 매개변수로 받는다. CoffeeMaker도 만들 커피를 메소드 매개변수로 받는다 | DI |
 
 슬라이드의 V2 예시도 팩토리와 데코레이터를 썼다. 다만 예시의 CoffeeFactory는 switch문이라 메뉴가 늘면 Factory를 고쳐야 했다. [디자인 패턴 글]({{ site.baseurl }}{% post_url java-programming-2/2026-10-07-design-pattern-basics %})을 정리하면서 이게 걸려서, V2에서는 레시피를 밖에서 등록받는 방식으로 바꿨다. 교수님께서도 노션 코드는 "솔루션 중 하나"일 뿐이라고 하셨다.
 
@@ -93,7 +93,7 @@ After는 V2다.
 
 ![V2 클래스 다이어그램]({{ '/assets/images/java-programming-2/coffee2-after-uml.png' | relative_url }})
 
-다이어그램 기준으로(인터페이스 포함, 테스트 제외) 9개에서 23개로 늘었다. 대신 화살표 방향이 정리됐다. Manager는 Order, Menu, CoffeeFactory, CoffeeMaker와 Payment 인터페이스만 알고, 음료 쪽은 모두 Coffee 인터페이스로 모인다. 구체 클래스에 직접 기대는 곳은 Manager가 쓰는 Menu, CoffeeFactory, CoffeeMaker와 Latte의 MilkFrother 정도다. 이 넷은 아직 인터페이스로 빼지 않았다.
+다이어그램 기준으로(인터페이스 포함, 테스트 제외) 9개에서 23개로 늘었다. 대신 화살표 방향이 정리됐다. Manager는 Order, Menu, CoffeeFactory, CoffeeMaker와 Payment 인터페이스만 알고, 음료 쪽은 모두 Coffee 인터페이스로 모인다. 주문 내용을 담는 Order를 빼면, 구체 클래스에 직접 기대는 곳은 Manager가 쓰는 Menu, CoffeeFactory, CoffeeMaker와 Latte의 MilkFrother 정도다. 이 넷은 아직 인터페이스로 빼지 않았다.
 
 ## 3. Before / After 핵심 코드
 
@@ -107,7 +107,7 @@ public interface Coffee {
 
 // After (V2)
 // V2의 Coffee는 "이름"과 "레시피"만 돌려준다
-// V1에서는 prepare()가 화면 출력까지 해서 라떼 줄이 뒤섞였다 -> 출력은 CoffeeMaker가 맡는다(SRP)
+// V1에서는 prepare()가 화면 출력까지 해서 라떼 줄이 뒤섞였다 -> 커피를 내보내는 출력은 CoffeeMaker가 맡는다(SRP)
 public interface Coffee {
 	String name();
 	String prepare();
@@ -239,7 +239,7 @@ public class CoffeeFactory {
 
 `Supplier<Coffee>`는 "부르면 커피를 하나 만들어주는 것", `UnaryOperator<Coffee>`는 "커피를 받아서 커피를 돌려주는 것"이다. 둘 다 추상 메소드가 하나뿐인 함수형 인터페이스라 [람다식]({{ site.baseurl }}{% post_url java-programming-2/2026-09-11-lambda-expression %})으로 등록할 수 있다. 특히 `UnaryOperator<Coffee>`는 "커피를 받아 커피를 돌려준다"는 점에서 데코레이터 자체를 함수로 표현한 것과 같다. [클린코드 글]({{ site.baseurl }}{% post_url java-programming-2/2026-10-02-clean-code-refactoring %})의 "if문 줄이기 3단계: Map에 동작 등록하기"를 팩토리에 적용했다.
 
-### CoffeeMaker와 Manager: setter 대신 생성자(③)
+### CoffeeMaker와 Manager: setter 주입 없애기(③)
 
 ```java
 // Before (V1): 커피가 없어도 만들어진다
@@ -252,7 +252,7 @@ public class CoffeeMaker {
 
 ```java
 // After (V2)
-// 커피를 "내보내는" 담당. 화면 출력은 여기서만 한다
+// 커피를 "내보내는" 담당. 완성된 커피를 화면에 찍는 일은 여기서만 한다
 public class CoffeeMaker {
 	public void make(Coffee coffee) {
 		System.out.println("  [제조] " + coffee.name() + " : " + coffee.prepare());
@@ -285,7 +285,7 @@ public class Manager {
 }
 ```
 
-CoffeeMaker는 이제 커피를 필드로 들고 있지 않고, 만들 커피를 매번 매개변수로 받는다. 그러니 "커피를 안 넣고 만들기"가 아예 불가능하다. Manager가 쓰는 세 객체는 `final`로 생성자에서만 받는다. Manager는 결제 수단이 카드인지 현금인지 모르고 `pay()`만 부른다.
+CoffeeMaker는 이제 커피를 필드로 들고 있지 않고, 만들 커피를 매번 매개변수로 받는다. 그러니 커피를 빼먹고 `make()`를 부르면 컴파일이 안 된다. 일부러 null을 넘기는 것까지 막아주지는 않는다. Manager가 쓰는 세 객체는 `final`로 생성자에서만 받는다. Manager는 결제 수단이 카드인지 현금인지 모르고 `pay()`만 부른다.
 
 결제는 전략 패턴이다. Payment 인터페이스에 `boolean pay(int amount)` 하나만 두고, 현금은 낸 돈이 모자라면 실패하고 남으면 거스름돈을 주고, 포인트는 쓸 때마다 잔액이 줄어드는 식으로 각자 구현했다. 결제에 실패하면 커피를 만들지 않도록 성공 여부를 돌려받게 했다.
 
@@ -371,7 +371,7 @@ VanillaLatte는 새 클래스 없이 `Syrup(Latte(Espresso))`를 조합하고 Na
 
 ### 실습 후기
 
-- V1에서 적어둔 ①~⑥은 일단 다 손을 댔다. 특히 ⑤ 클래스 폭발이 사라진 게 컸다. 샷, 바닐라, 얼음 세 클래스로 조합 8가지(2의 3제곱)를 다 만들 수 있다.
+- 1절에서 정리한 ①~⑥은 일단 다 손을 댔다. 특히 ⑤ 클래스 폭발이 사라진 게 컸다. 샷, 바닐라, 얼음 세 클래스로 조합 8가지(2의 3제곱)를 다 만들 수 있다.
 - 결제 실패 시 커피를 안 만드는 흐름을 넣으면서, Manager가 "순서를 지휘하는 역할"이라는 게 실감 났다. 결제 방식이 뭐든 Manager의 흐름은 똑같다.
 
 ## 5. OCP 검증: 기존 코드를 안 고치고 확장하기
@@ -472,7 +472,7 @@ public class CafeExtensionTest {
 
 ![OCP 검증 실행 결과]({{ '/assets/images/java-programming-2/coffee2-extension.png' | relative_url }})
 
-예상대로 세 주문이 다 됐다. 처음 V2 테스트에서 "휘핑 옵션은 없습니다"로 거절됐던 주문이, 파일 하나 추가하고 등록 두 줄(레시피와 가격)을 넣자 바로 됐다. 바뀐 파일을 정리하면 이렇다.
+예상대로 세 주문이 다 됐다. 처음 V2 테스트에서 "휘핑 옵션은 없습니다"로 거절됐던 주문이, 파일 하나 추가하고 등록 두 줄(옵션과 가격)을 넣자 바로 됐다. 바뀐 파일을 정리하면 이렇다.
 
 | 요구사항 | 새로 만든 것 | 고친 기존 파일 |
 | --- | --- | --- |
@@ -486,7 +486,7 @@ Manager, CoffeeFactory, Menu, Coffee 쪽 어느 파일도 열지 않았다. V1�
 
 ![AmaterasUML로 그린 확장 후 coffee2 패키지]({{ '/assets/images/java-programming-2/coffee2-amateras.png' | relative_url }})
 
-WhippedCream은 CoffeeDecorator 아래에, CouponPayment는 Payment 아래에 붙었다. 2절의 After 그림과 비교하면 새 상자 두 개가 CoffeeDecorator와 Payment 밑에 매달렸을 뿐이고(테스트 클래스 둘은 따로 떠 있다), Manager, CoffeeFactory, Menu로 가는 선은 그대로다. CouponPayment와 Payment 사이의 선은 하나로 겹쳐 보이는데, 위쪽 끝은 삼각형(구현), 아래쪽 끝은 마름모(품고 있음)다.
+WhippedCream은 CoffeeDecorator의 하위 클래스로, CouponPayment는 Payment의 구현 클래스로 붙었다. 2절의 After 그림과 비교하면 새 상자 두 개가 CoffeeDecorator와 Payment에 선 하나씩으로 연결됐을 뿐이고(테스트 클래스 둘은 따로 떠 있다), Manager, CoffeeFactory, Menu로 가는 선은 그대로다. CouponPayment와 Payment 사이의 선은 하나로 겹쳐 보이는데, 위쪽 끝은 삼각형(구현), 아래쪽 끝은 마름모(품고 있음)다.
 
 CouponPayment를 만들다가 재밌는 걸 발견했다. 쿠폰은 Payment를 구현하면서 다른 Payment를 품고 있다. 커피에서 쓴 데코레이터와 똑같은 모양이 결제 쪽에도 생긴 것이다. 그래서 "쿠폰 + 현금", "쿠폰 + 카드"처럼 조합이 자유롭다. 쿠폰 두 장을 겹쳐 쓰는 것도 `new CouponPayment(1000, new CouponPayment(500, new CardPayment()))`로 가능하다. 패턴을 한 번 이해하니 다른 곳에서도 같은 모양이 보였다.
 

@@ -201,11 +201,11 @@ public void drive(Moveable m) {
 
 교수님께서 올려주신 코드가 ANSI(MS949)로 저장돼 있어서, 이클립스가 UTF-8로 설정된 사람은 가져오면 한글 주석이 전부 깨진다.
 
-- 확인하는 곳: 프로젝트 우클릭 → `Properties → Resource → Text file encoding`, 또는 `Window → Preferences → General → Workspace`
+- 확인하는 곳: 프로젝트 우클릭 → `Properties → Resource → Text file encoding`, 또는 `Window → Preferences → General → Workspace`. 내 이클립스 인코딩이 뭔지 몰라서 서너 시간 날리지 말고 여기부터 확인하라고 하셨다.
 - 해결: 그 프로젝트만 인코딩을 `MS949`로 바꾼다. 목록에 없으면 직접 쳐서 넣으면 된다.
 - 그래도 안 되면 메모장으로 열어서 복사해 붙여넣기
 
-파일을 드래그해서 가져올 때는 Link 말고 Copy를 골라야 한다. 이거 몰라서 서너 시간 날리지 말라고 하셨다.
+파일을 드래그해서 가져올 때는 Link 말고 Copy를 골라야 한다.
 
 ## 상속이랑 인터페이스는 왜 쓸까
 

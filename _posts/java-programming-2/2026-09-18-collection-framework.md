@@ -26,7 +26,7 @@ toc_sticky: true
 
 ## 컬렉션은 왜 쓰나
 
-컬렉션은 자바에서 자료구조를 구현해둔 클래스들이다. 객체를 효율적으로 추가, 삭제, 검색할 수 있게 해주는 라이브러리고, 전부 `java.util` 안에 있다.
+컬렉션은 자바에서 자료구조를 구현해둔 클래스들이다. 객체를 효율적으로 추가, 삭제, 검색할 수 있게 해주는 라이브러리고, 이번 주에 쓰는 것들은 전부 `java.util` 안에 있다.
 
 배열은 왜 썼을까? 쉬워서. 대신 쉬운 만큼 불편했다.
 
@@ -65,7 +65,7 @@ List<String> b = new LinkedList<>();
 
 그림에는 있지만 지금은 안 쓰는 것들이 있다. Vector, Stack, Hashtable, Properties는 컬렉션 프레임워크(JDK 1.2)가 만들어지기 전부터 있던 것들이라 이름도 컬렉션 명명법을 안 따른다. Hashtable은 `~Map`이 아니고 Properties도 그렇다. 이름만 봐도 "아, 옛날 거구나" 하면 된다.
 
-기존 코드 때문에 남겨둔 것뿐이고 사용을 권장하지 않는다(deprecated 취급). 자바가 1.0부터 지금까지 계속 발전하면서, 안 쓰는 건 엄격하게 쓰지 말라고 권한다고 하셨다.
+기존 코드 때문에 남겨둔 것이고 새 코드에서는 쓰지 말라고 한다. 다만 JDK에 공식적으로 `@Deprecated`가 붙은 건 아니라서 써도 경고는 안 뜬다. Properties는 설정 파일을 읽을 때 지금도 쓴다. 자바가 1.0부터 지금까지 계속 발전하면서, 안 쓰는 건 엄격하게 쓰지 말라고 권한다고 하셨다.
 
 ### Map은 Collection의 자식이 아니다
 
@@ -139,7 +139,7 @@ List<String> list = new ArrayList<>(Arrays.asList(ar));   // 공지 예제는 �
 List<String> list = new LinkedList<>();   // 바뀌는 건 여기뿐
 ```
 
-양방향 포인터로 앞뒤를 체인처럼 연결한 리스트다. 중간에 넣거나 지울 때 바로 앞뒤 링크만 바꾸면 되니까, 삽입과 삭제가 자주 일어나는 곳에서는 ArrayList보다 성능이 좋다. List랑 Queue를 둘 다 구현해서 스택, 큐로도 쓸 수 있다.
+양방향 포인터로 앞뒤를 체인처럼 연결한 리스트다. 넣거나 지울 자리를 이미 잡고 있으면 앞뒤 링크만 바꾸면 된다. 그래서 맨 앞이나 맨 뒤에서 넣고 빼는 일이 많으면 ArrayList보다 빠르다. 다만 인덱스로 중간 자리를 찾아갈 때는 처음부터 따라가야 해서, 삽입과 삭제가 많다고 무조건 ArrayList보다 빠른 건 아니다. List랑 Queue를 둘 다 구현해서 스택, 큐로도 쓸 수 있다.
 
 코드는 생성하는 부분만 다르고 나머지는 똑같다. List 인터페이스로 접근하니까.
 
@@ -156,7 +156,7 @@ Vector는 ArrayList랑 거의 같은데 메소드가 `synchronized`로 동기화
 
 동기화가 돼 있으면 좋을 것 같은데, 제대로 안 쓰면 오히려 시스템에 해가 되는 경우가 많이 보고돼서 쓰지 말라고 한다. SingleThread에서는 쓸데없이 느리기만 하다. 대신 `Collections.synchronizedList(list)`처럼 동기화를 따로 걸어서 쓴다. Thread는 나중에 다룬다고 하셨다.
 
-C++의 vector는 지금도 쓴다. 이름만 같고 완전히 다른 거다.
+C++의 vector는 지금도 쓴다. 자바의 Vector는 옛날 동기화 방식 때문에 안 쓰는 것이고, C++의 vector처럼 쓰는 가변 배열은 자바에서는 ArrayList다.
 
 ## 반복하는 방법들
 
@@ -182,8 +182,8 @@ Iterator는 반복자 패턴이라는 이름이 붙은 정식 패턴이다. `has
 
 수학의 집합이다.
 
-- 저장 순서가 유지되지 않는다
-- 중복을 허용하지 않는다. null도 하나만
+- 저장 순서가 유지되지 않는다(기본인 HashSet 기준. LinkedHashSet, TreeSet은 아래 표 참고)
+- 중복을 허용하지 않는다. null도 하나만(TreeSet은 null을 넣으면 NullPointerException이 난다)
 - 순서가 없으니 `get(index)`가 없다
 
 MILK, BREAD, APPLE, BUTTER가 있는 Set에 BUTTER를 또 넣으면 에러가 나는 게 아니라 그냥 안 들어간다. `add`가 false를 돌려줄 뿐이다.
@@ -236,7 +236,7 @@ HashSet은 `hashCode()`와 `equals()`로 같은 객체인지 판단한다. 이�
 - 키는 중복 불가. 아이디 같은 거니까 겹치면 큰일 난다. 그래서 키만 모아서 꺼내는 `keySet()`의 리턴 타입이 Set이다
 - 값은 중복 허용
 - 같은 키로 다시 넣으면 마지막에 넣은 값으로 대체된다
-- 저장 순서를 유지하지 않는다
+- 저장 순서를 유지하지 않는다(HashMap 기준. LinkedHashMap, TreeMap은 아래 표 참고)
 
 | 기능 | 메소드 | 설명 |
 | --- | --- | --- |
@@ -257,7 +257,7 @@ for (Map.Entry<Integer, String> entry : map.entrySet()) {
 map.forEach((k, v) -> System.out.println(k + " : " + v));   // 람다식은 인자가 두 개
 ```
 
-List나 Set은 값이 하나라 람다식 인자도 하나인데, Map은 키와 값 두 개를 받는다. 100 짱구, 200 유리, 300 맹구 같은 게 한 줄로 찍힌다. 인덱스가 없는 자료구조에서는 이게 제일 편하다고 하셨다.
+List나 Set은 값이 하나라 람다식 인자도 하나인데, Map은 키와 값 두 개를 받는다. 100 짱구, 200 유리, 300 맹구 같은 게 코드 한 줄로 찍힌다. 인덱스가 없는 자료구조에서는 이게 제일 편하다고 하셨다.
 
 ### Map 구현 클래스 고르기
 
@@ -266,7 +266,7 @@ List나 Set은 값이 하나라 람다식 인자도 하나인데, Map은 키와 
 | `HashMap` | 제일 많이 쓴다. 성능 제일 좋음. 순서 보장 안 함 |
 | `LinkedHashMap` | 넣은 순서를 유지한다 |
 | `TreeMap` | 키를 기준으로 정렬한다. 숫자, 알파벳 대문자, 소문자, 한글 순 |
-| `Hashtable`, `Properties` | 옛날 것. Vector처럼 동기화돼 있지만 사용 비권장 |
+| `Hashtable`, `Properties` | 옛날 것. Vector처럼 동기화돼 있다. Hashtable은 비권장이고 Properties는 설정 파일용으로만 쓴다 |
 
 수업 때 좋아하는 메뉴를 넣어보라고 해서 메가커피 할메가미숫커피, 녹차라떼 같은 걸 넣어봤다. HashMap은 순서가 뒤죽박죽이고 LinkedHashMap은 넣은 순서 그대로 나온다. 같은 키에 값을 또 넣으면 앞의 값이 지워지고 새 값으로 바뀐다. 키가 중복이 안 된다는 점은 Set이랑 같은데, Set은 새로 넣은 쪽이 안 들어가고 Map은 값이 새것으로 바뀐다는 점이 다르다.
 
@@ -313,8 +313,8 @@ Arrays.asList로 `85.5, 90.0, 78.5, null`을 넣으면 null이 들어갈까? 들
 ## 정리
 
 - 컬렉션은 제네릭으로 만든 자바 표준 자료구조다. 인터페이스로 참조하고 구현 클래스로 생성한다
-- List는 순서 O, 중복 O, 인덱스 O. 보통 ArrayList, 삽입/삭제가 잦으면 LinkedList
-- Set은 순서 X, 중복 X, 인덱스 X. HashSet, 순서가 필요하면 LinkedHashSet, 정렬이 필요하면 TreeSet
+- List는 순서 O, 중복 O, 인덱스 O. 보통 ArrayList, 맨 앞뒤에서 삽입/삭제가 잦으면 LinkedList
+- Set은 중복 X, 인덱스 X. 기본인 HashSet은 순서도 보장하지 않는다. 순서가 필요하면 LinkedHashSet, 정렬이 필요하면 TreeSet
 - Map은 키-값 쌍. 키 중복 X, 값 중복 O. Collection의 자식은 아니지만 keySet, values, entrySet으로 가져온다
-- Vector, Stack, Hashtable, Properties는 옛날 것이라 안 쓴다
+- Vector, Stack, Hashtable은 옛날 것이라 새 코드에서는 안 쓴다. Properties는 설정 파일을 읽을 때만 쓴다
 - 인덱스가 없는 컬렉션은 for-each, Iterator, 람다식으로 돈다

@@ -58,6 +58,7 @@ public class 관우 extends Player {
 	public 관우(String 이름, int hp, int power, int mp, String imgFile1, String imgFile2, 무기 전용무기) {
 		super(이름, hp, power, mp, imgFile1, imgFile2, 전용무기);
 	}
+	// 빈 생성자 관우()는 생략
 
 	public void 무기로공격(Player target) {
 		int 운장mp = this.getMP();
@@ -222,6 +223,7 @@ public class Harry extends Player {
 	public Harry (String name, int hp, int power) {
 		super("Harry", 100, 50);
 	}
+	// 기본 생성자 Harry()는 생략
 
 	@Override
 	public void attack(Player attacker, Player target) {
@@ -232,7 +234,7 @@ public class Harry extends Player {
 
 ### 코드 읽으면서 이상했던 부분
 
-- `Harry(String name, int hp, int power)`가 받은 값을 버리고 `super("Harry", 100, 50)`으로 넘긴다. Hermione, Ron, Fluffy도 똑같다. `Main`에서는 `new Harry("Harry", 500, 30)`으로 만들고 있어서 의도한 값이랑 실제 값이 다를 것 같았다.
+- `Harry(String name, int hp, int power)`가 받은 값을 버리고 `super("Harry", 100, 50)`으로 넘긴다. Hermione, Ron도 100, 50이고 Fluffy는 1000, 50으로, 넷 다 받은 값 대신 정해둔 값을 넘긴다. `Main`에서는 `new Harry("Harry", 500, 30)`으로 만들고 있어서 의도한 값이랑 실제 값이 다를 것 같았다.
 - 이미지 파일 이름 `imgFile`이 `public static`이다. static은 모든 객체가 같이 쓰는 값이라 Harry와 Fluffy가 같은 이미지를 가질 수밖에 없다. 그런데 이 값을 넣어주는 곳도 없다.
 - `Attackable`의 `attack(attacker, target)`은 모든 캐릭터가 TODO로 비워뒀고, 실제로는 `Player`의 `attack(target)`을 쓴다. 게다가 `View`의 `Main`까지 `Attackable`을 구현하고 있다. Main은 공격하는 캐릭터가 아니니까 is-a가 안 맞는다.
 - `Weapon`도 `Attackable`을 구현하는데, `wand`, `gun`, `flute`는 `Weapon`을 상속하지 않은 빈 클래스다. `weapons` 리스트는 선언만 있고 한 번도 안 쓴다.
@@ -294,7 +296,7 @@ public class Wand extends Weapon {
 
 ![리팩토링한 해리포터 배틀 게임 창]({{ '/assets/images/java-programming-2/battle2-refactor-game.png' | relative_url }})
 
-두 캐릭터 이미지가 다 보이고, Harry에 넣은 값 그대로 hp 500, power 30으로 시작한다. 공격한 쪽 버튼은 비활성화돼서 번갈아 누르게 된다.
+두 캐릭터 이미지가 다 보이고, Harry는 기본 생성자에 정해둔 hp 500, power 30으로 시작한다. 공격한 쪽 버튼은 비활성화돼서 번갈아 누르게 된다.
 
 실행 전에 예상한 것:
 

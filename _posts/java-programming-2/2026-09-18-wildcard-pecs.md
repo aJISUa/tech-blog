@@ -102,13 +102,13 @@ print(appleBasket);   // 에러! List<Apple>은 List<Fruit>가 아니니까
 
 ```text
 Person
- ├ Worker                 ← ? super Worker   : Worker, Person
+ ├ Worker                 ← ? super Worker   : Worker, Person, Object
  └ Student                ← ? extends Student : Student, HighStudent, MiddleStudent
      ├ HighStudent
      └ MiddleStudent
 ```
 
-`? super Worker`는 Worker를 포함해서 Person까지, `? extends Student`는 Student를 포함해서 HighStudent, MiddleStudent까지다.
+`? super Worker`는 Worker를 포함해서 Person, 그리고 맨 위의 Object까지, `? extends Student`는 Student를 포함해서 HighStudent, MiddleStudent까지다.
 
 한 친구가 와일드카드가 여러 개를 덮는 용도냐고 물어봤는데, 그게 아니라 상위, 하위, 전부 이 세 가지를 나타내는 거라고 하셨다.
 
@@ -195,7 +195,7 @@ printFruits(appleBasket);            // 이제 된다
 | | `? extends T` | `? super T` |
 | --- | --- | --- |
 | 역할 | Producer (생산자) | Consumer (소비자) |
-| 용도 | 읽기 전용 | 쓰기 전용 |
+| 용도 | 꺼내기용(add는 못 한다) | 넣기용(꺼내면 Object) |
 | 예시 | `List<? extends Number>` | `List<? super Integer>` |
 | 읽기(get) | T 타입으로 안전하게 읽기 가능 | Object로만 가능 |
 | 쓰기(add) | 불가능 (null만 가능) | T 타입 데이터 쓰기 가능 |
@@ -205,7 +205,7 @@ printFruits(appleBasket);            // 이제 된다
 
 용어가 좀 헷갈렸는데, "리스트 입장에서" 생각하니까 이해가 됐다. `? extends` 리스트는 나한테 데이터를 생산해서 주는 쪽이라 꺼내기만 하고, `? super` 리스트는 내가 주는 데이터를 소비하는 쪽이라 넣기만 한다.
 
-컬렉션 API가 전부 이 원칙을 따른다. Collection의 `addAll(Collection<? extends E> c)`가 딱 그 모양이다. c에서 꺼내서(Producer) 나한테 넣으니까 extends다.
+컬렉션 API도 이 원칙을 많이 따른다. Collection의 `addAll(Collection<? extends E> c)`가 딱 그 모양이다. c에서 꺼내서(Producer) 나한테 넣으니까 extends다.
 
 ### Lab: PECS로 과일 복사하기
 

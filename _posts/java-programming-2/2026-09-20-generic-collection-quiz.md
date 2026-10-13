@@ -202,7 +202,7 @@ System.out.println("4) Map 크기 = " + score.size() + ", 짱구 = " + score.get
 
 **4) 크기 2, 짱구 = 90, put이 돌려준 값 = 30.** 같은 키로 put하면 칸이 늘어나는 게 아니라 값이 대체된다. 그리고 put은 원래 있던 값(30)을 돌려준다. 처음 넣을 때는 원래 값이 없으니 null을 돌려준다.
 
-2번 질문의 답: Set의 "중복"은 내가 생각하는 중복이 아니라 `hashCode()`와 `equals()`가 판단하는 중복이다. 슬라이드 HashSet 쪽에 "hashcode로 동등 객체 여부를 판단한다", HashMap 쪽에 "다른 기준을 사용할 경우 hashCode()와 equals()를 재정의해 동등 객체가 될 조건을 정해야 한다"고 나온 게 이거다. 내가 만든 클래스를 Set에 넣거나 Map의 키로 쓸 거면 둘 다 오버라이딩해야 한다.
+2번 질문의 답: HashSet의 "중복"은 내가 생각하는 중복이 아니라 `hashCode()`와 `equals()`가 판단하는 중복이다(TreeSet은 `compareTo()`나 Comparator로 판단한다). 슬라이드 HashSet 쪽에 "hashcode로 동등 객체 여부를 판단한다", HashMap 쪽에 "다른 기준을 사용할 경우 hashCode()와 equals()를 재정의해 동등 객체가 될 조건을 정해야 한다"고 나온 게 이거다. 내가 만든 클래스를 Set에 넣거나 Map의 키로 쓸 거면 둘 다 오버라이딩해야 한다.
 
 ### 출제 의도
 
@@ -281,5 +281,5 @@ Lab#7 코드를 읽으면서 "LinkedList를 넣으면 어떻게 되지?"가 궁�
 - 요소에는 상속이 통하지만 바구니끼리는 안 통한다. 넓게 받고 싶으면 와일드카드. 꺼낼 땐 extends, 넣을 땐 super
 - `Arrays.asList`는 ArrayList가 아니라 배열을 감싼 고정 크기 리스트다. 늘리고 싶으면 `new ArrayList<>(...)`
 - 컴파일러는 변수 타입만 본다. 내가 캐스팅을 쓰면 그 말을 믿고 넘어가서 실행할 때 터진다
-- Set과 Map의 "같다"는 `hashCode()`와 `equals()`가 정한다
+- HashSet과 HashMap의 "같다"는 `hashCode()`와 `equals()`가 정한다
 - 파라미터는 인터페이스 타입으로 넓게 받자. 오버로딩은 null 앞에서 모호해질 수 있다

@@ -38,7 +38,7 @@ public class Main {
 }
 ```
 
-제일 쉬운 방법이다. 이미 있는 `Thread` 클래스를 상속받고 `run()`만 오버라이딩하면 된다. 반드시 구현해야 하는 메소드는 `run()` 하나뿐이다.
+제일 쉬운 방법이다. 이미 있는 `Thread` 클래스를 상속받고 `run()`만 오버라이딩하면 된다. 오버라이딩할 메소드는 `run()` 하나뿐이다. (Thread의 `run()`은 추상 메소드가 아니라서 안 써도 컴파일은 되지만, 그러면 아무 일도 안 하는 Thread가 된다.)
 
 언제 쓸까? 지금 아무것도 상속받고 있지 않을 때.
 
@@ -75,10 +75,10 @@ Thread t = new Thread(new Runnable() {
 t.start();
 
 // 람다식: Runnable은 추상 메소드가 run() 하나뿐이라 이렇게 줄일 수 있다
-Thread t = new Thread(() -> {
+Thread t2 = new Thread(() -> {
     System.out.println("람다식 쓰레드 실행!");
 });
-t.start();
+t2.start();
 ```
 
 [람다식 글]({{ site.baseurl }}{% post_url java-programming-2/2026-09-11-lambda-expression %})에서 배운 게 여기서 나왔다. Runnable은 구현할 메소드가 `run()` 하나뿐이라 함수형 인터페이스고, 그래서 `() -> { ... }`로 쓸 수 있다.
@@ -119,10 +119,10 @@ a.start();   // Thread-0이 출력된다. 새 실행 흐름이 시작돼서 그 
 | `void start()` | Thread 시작. run()을 호출해준다 |
 | `void run()` | Thread에서 실행될 코드 |
 | `static void sleep(long millis)` | 현재 실행 중인 Thread를 밀리초 단위로 일시 정지 |
-| `void join()` | 다른 Thread가 끝날 때까지 현재 Thread를 기다리게 한다 |
+| `void join()` | 이 Thread가 끝날 때까지, join()을 부른 Thread를 기다리게 한다 |
 | `void interrupt()` | Thread에 중단하라는 신호를 보낸다 |
 | `boolean isInterrupted()` | 인터럽트 신호가 왔는지 검사 |
-| `Thread currentThread()` | 지금 실행 중인 Thread 객체를 가져온다 |
+| `static Thread currentThread()` | 지금 이 코드를 실행 중인 Thread 객체를 가져온다 |
 | `getName()` / `setName()` | Thread 이름 가져오기 / 정하기 |
 | `getPriority()` / `setPriority()` | 우선순위 가져오기 / 정하기 (1~10) |
 | `stop()`, `resume()`, `suspend()` | 안전성 문제로 사용하지 않는다 |
@@ -147,9 +147,9 @@ try {
 
 여기서 재밌는 걸 배웠다. Thread를 상속한 클래스에서 이름 필드를 또 만들 필요가 없다. 부모인 Thread에 이미 `name` 속성이 있으니까 `setName()`으로 넣거나 `super(name)`으로 넘기면 된다. `getName()`을 구현하지 않아도 부모 것이 불린다.
 
-반대로 Runnable을 구현한 클래스는 Thread를 물려받은 게 아니라서 name이 없다. 그래서 이름을 직접 필드로 가져야 한다. 배틀 리팩토링에서 본 "부모에 있는데 자식이 또 선언한" 문제가 여기서도 나올 뻔했다.
+반대로 Runnable을 구현한 클래스는 Thread를 물려받은 게 아니라서 name이 없다. 그래서 이름이 필요하면 직접 필드로 갖거나, `new Thread(runnable, "이름")`처럼 Thread 쪽에 이름을 줘야 한다. 배틀 리팩토링에서 본 "부모에 있는데 자식이 또 선언한" 문제가 여기서도 나올 뻔했다.
 
-`this.`을 찍어보면 name, priority, state 같은 속성이 get/set으로 보이는데, 보인다는 건 그 속성이 Thread에 있다는 뜻이라고 하셨다. 안 보인다고 없는 게 아니다.
+`this.`을 찍어보면 `getName()`/`setName()`, `getPriority()`/`setPriority()`, `getState()` 같은 메소드가 보이는데, 보인다는 건 그 속성이 Thread에 있다는 뜻이라고 하셨다. 안 보인다고 없는 게 아니다.
 
 ## 우선순위는 믿으면 안 된다
 
@@ -162,15 +162,15 @@ th3.setPriority(Thread.MIN_PRIORITY);   // 1
 th1.start(); th2.start(); th3.start();
 ```
 
-우선순위 10짜리가 먼저 다 끝날 것 같은데 그렇지 않다. 직접 돌려봤더니 실행할 때마다 순서가 달랐고, 우선순위 1인 Thread가 중간에 몰아서 출력되기도 했다. 결과는 [실습#3 글]({{ site.baseurl }}{% post_url java-programming-2/2026-09-26-week4-assignment %})에 정리했다.
+우선순위 10짜리가 먼저 다 끝날 것 같은데 그렇지 않다. 직접 돌려봤더니 실행할 때마다 순서가 달랐고, 우선순위 1인 Thread가 우선순위 5인 Thread 사이에 끼어들어 출력되기도 했다. 결과는 [실습#3 글]({{ site.baseurl }}{% post_url java-programming-2/2026-09-26-week4-assignment %})에 정리했다.
 
-이유는 제어권이 자바한테 100% 있는 게 아니라서다. JVM은 OS의 스케줄러에 의존한다. 우선순위 값은 OS의 Thread 스케줄러에게 전달되지만, OS가 이 값을 무시하거나 약하게 반영할 수 있다. 우선순위가 최대여도 다른 Thread보다 먼저 실행된다는 보장은 없다.
+이유는 제어권이 자바한테 100% 있는 게 아니라서다. JVM은 OS의 스케줄러에 의존한다. 우선순위 값은 OS의 Thread 스케줄러에게 힌트로 전달될 뿐이고, OS가 이 값을 무시하거나 약하게 반영할 수 있다. 우선순위가 최대여도 다른 Thread보다 먼저 실행된다는 보장은 없다.
 
 > 우선순위라는 개념은 존재하지만 기대하는 대로 항상 반영되지 않는다
 
 ## 기억할 주의사항
 
-중간 정리 슬라이드에 있던 내용이다.
+중간 정리 슬라이드에 있던 내용인데, 두 군데(다시 start()하는 것, 다른 Thread를 멈추는 것)는 실제 동작에 맞게 고쳐 적었다.
 
 - `run()` 메소드가 끝나면 Thread도 끝난다. 계속 살아있게 하려면 `run()` 안에 반복문을 써야 한다
 - **한 번 start()한 Thread는 다시 시작시킬 수 없다.** 끝났든 아직 돌고 있든 마찬가지다. 다시 쓰려면 객체를 새로 만들고 `start()`를 불러야 한다
@@ -182,6 +182,6 @@ th1.start(); th2.start(); th3.start();
 - Thread를 만드는 방법은 Thread 상속, Runnable 구현, 익명 클래스/람다식 세 가지다
 - 공통은 `run()`에 할 일을 쓰고 `start()`로 실행하는 것. `run()`을 직접 부르면 새 실행 흐름이 시작되지 않는다
 - 다중 상속이 안 되니까 Runnable 구현이 더 유연하다
-- Thread를 상속하면 name을 물려받고, Runnable을 구현하면 이름을 직접 가져야 한다
+- Thread를 상속하면 name을 물려받고, Runnable에는 name이 없어서 필드로 갖거나 Thread 생성자에 이름을 넘긴다
 - 우선순위는 줄 수 있지만 OS 스케줄러에 달려 있어서 믿으면 안 된다
 - 한 번 start()한 Thread는 다시 start()할 수 없다

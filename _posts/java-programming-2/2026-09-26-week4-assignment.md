@@ -15,7 +15,7 @@ toc: true
 toc_sticky: true
 ---
 
-이번 주 과제는 Thread 핵심 이론 정리와 Lab#1~#3 복기다. 금요일부터 추석 연휴라서 교수님께서 부담 없는 범위로 정해주셨다. 퀴즈 만들기는 4장을 끝내고 다음 주에 한다.
+이번 주 과제는 Thread 핵심 이론 정리와 Lab#1~#3 복기다. 목요일부터 추석 연휴라서 교수님께서 부담 없는 범위로 정해주셨다. 퀴즈 만들기는 4장을 끝내고 다음 주에 한다.
 
 이론은 [MultiThread 기초]({{ site.baseurl }}{% post_url java-programming-2/2026-09-23-thread-concepts %})와 [Thread 생성과 실행]({{ site.baseurl }}{% post_url java-programming-2/2026-09-23-thread-create-run %})에 정리했고, 이 글은 실습 부분이다.
 
@@ -139,10 +139,11 @@ a.run();     // 새 쓰레드가 안 생기고 main이 그냥 실행한다
 Thread b = new Thread(() -> System.out.println("  실행한 쓰레드: " + Thread.currentThread().getName()));
 b.start();   // 새 쓰레드가 생겨서 그 쓰레드가 실행한다
 
+// 한 번 start()한 쓰레드는 다시 start() 할 수 없다 (끝났든 아직 돌고 있든)
 try {
-    b.start();   // 한 번 끝난 쓰레드를 다시 start() 하면?
+    b.start();
 } catch (IllegalThreadStateException e) {
-    System.out.println("=== 끝난 쓰레드를 다시 start()하면: " + e.getClass().getSimpleName());
+    System.out.println("=== 이미 start()한 쓰레드를 다시 start()하면: " + e.getClass().getSimpleName());
 }
 ```
 
@@ -156,9 +157,9 @@ try {
 
 ![start()와 run() 비교 실행 결과]({{ '/assets/images/java-programming-2/t4-lab1-startvsrun.png' | relative_url }})
 
-`run()`은 `main`, `start()`는 `Thread-1`로 찍혔다. 다시 start()하면 `IllegalThreadStateException`이 난다. 그런데 출력 순서를 보니 내가 주석에 "끝난 쓰레드"라고 쓴 건 틀렸다. 예외가 났을 때 b는 아직 자기 줄을 출력하지도 않았다. 끝났는지와 상관없이 한 번 start()한 Thread는 다시 start()할 수 없는 거였다.
+`run()`은 `main`, `start()`는 `Thread-1`로 찍혔다. 다시 start()하면 `IllegalThreadStateException`이 난다. 그런데 출력 순서를 보면 예외가 났을 때 b는 아직 자기 줄을 출력하지도 않았다. 슬라이드 문장만 보고 끝난 Thread라서 안 되는 줄 알았는데, 끝났는지와 상관없이 한 번 start()한 Thread는 다시 start()할 수 없는 거였다. 처음에 "끝난 쓰레드"라고 써뒀던 주석과 출력 문구도 그래서 고쳤다.
 
-b의 출력이 예외 메시지보다 늦게 나온 이유도 따져봤다. 메인이 `b.start()`를 부르고 바로 다음 줄로 넘어가버려서, 새 Thread가 출력할 틈도 없이 메인이 먼저 진행한 거다. `start()`는 "실행해줘"라고 부탁만 하고 끝난다는 걸 알 수 있었다.
+b의 출력이 예외 메시지보다 늦게 나온 이유도 따져봤다. 메인이 `b.start()`를 부르고 바로 다음 줄로 넘어가버려서, 새 Thread가 출력할 틈도 없이 메인이 먼저 진행한 거다. 터미널에서 여러 번 돌려보니 b의 출력이 먼저 나올 때도 있었는데, 그때도 예외는 똑같이 났다. `start()`는 "실행해줘"라고 부탁만 하고 끝난다는 걸 알 수 있었다.
 
 ### 실습 후기
 
@@ -271,7 +272,7 @@ public class Player1 extends Thread {
 ```
 
 ```java
-// 방법 2(Runnable 구현). Runnable에는 name이 없어서 이름을 직접 필드로 가져야 한다
+// 방법 2(Runnable 구현). Runnable에는 name이 없어서 여기서는 이름을 직접 필드로 가졌다
 public class Player2 implements Runnable {
     private String name;
     private String sound;
@@ -315,9 +316,9 @@ public class Lab3_Jjanggu {
 
 이름은 예상대로였다. Thread를 상속한 쪽은 내가 준 이름이 그대로 나오고, Runnable로 만든 쪽은 `Thread-0`, `Thread-1`, `Thread-2`가 나왔다. `setName()`으로 바꾸니 `**짱구`로 바뀌었다.
 
-그런데 출력이 예상과 달랐다. 여섯이 골고루 섞일 줄 알았는데, 짱구가 20줄을 다 찍고 나서 다음 Thread로 넘어가는 식으로 덩어리째 나왔다. Lab#1에서는 잘만 섞였는데.
+그런데 출력이 예상과 달랐다. 여섯이 골고루 섞일 줄 알았는데, 한 Thread가 여러 줄을 몰아서 찍고 다음 Thread로 넘어가는 식으로 덩어리째 나왔다. 캡처에서도 \*\*흰둥이 10줄이 통째로 나오고, 짱구의 13번부터 20번까지가 그 뒤에 몰아서 나온다. Lab#1에서는 잘만 섞였는데.
 
-차이는 `sleep()`이었다. Lab#1은 한 줄 찍고 0.5초씩 쉬니까 그사이 다른 Thread가 끼어들 수 있는데, Lab#3은 쉬지 않고 20줄을 찍는다. 한 번 CPU를 잡으면 20줄 정도는 순식간에 끝나버려서 중간에 끼어들 틈이 없었던 것 같다.
+차이는 `sleep()`이었다. Lab#1은 한 줄 찍고 0.5초씩 쉬니까 그사이 다른 Thread가 끼어들 수 있는데, Lab#3은 쉬지 않고 20줄을 찍는다. 한 번 CPU를 잡으면 여러 줄을 순식간에 찍어버려서 중간에 끼어들 틈이 없었던 것 같다.
 
 그래서 여러 번 실행해봤다. 아래는 다시 실행한 화면인데, 끝나는 순서가 첫 번째와 다르다.
 
@@ -337,14 +338,14 @@ public class Lab3_Jjanggu {
 
 ### 실습 후기
 
-- 같은 동작인데 만드는 방법만 다른 두 클래스를 나란히 두니까 차이가 확실했다. Thread를 상속하면 이름을 물려받고, Runnable은 직접 들고 있어야 한다.
+- 같은 동작인데 만드는 방법만 다른 두 클래스를 나란히 두니까 차이가 확실했다. Thread를 상속하면 이름을 물려받고, Runnable은 직접 들고 있거나 Thread 생성자에 이름을 넘겨야 한다.
 - 실행 순서가 매번 다른 걸 직접 보니까 "결과가 한 번 맞게 나왔다고 맞는 코드가 아니다"라는 말이 이해됐다. 2주차 리팩토링 때와 비슷한 교훈인데 이유는 완전히 다르다.
 - 출력이 섞이냐 덩어리로 나오냐가 sleep 하나로 갈렸다. 순서를 확인하고 싶을 때는 일부러 sleep을 넣어보는 게 방법이겠다.
 - 궁금한 점: 덩어리로 나오는 게 정말 "너무 빨리 끝나서"인지, 아니면 출력 자체가 한 번에 밀려 나오는 건지 확실하지 않다. 반복 횟수를 아주 크게 하면 중간에 섞일지 다음에 실험해보고 싶다.
 
 ## 4. 우선순위 테스트
 
-슬라이드에서 "우선순위를 믿지 말라"고 한 부분을 직접 확인해봤다.
+슬라이드에서 우선순위에 의존하지 않는 것이 좋다고 한 부분을 직접 확인해봤다.
 
 ```java
 Thread th1 = new Thread(new PriorityRunner("Thread-1"));
@@ -384,6 +385,6 @@ th1.start(); th2.start(); th3.start();
 
 이번 주에 제일 크게 바뀐 생각은 "지금까지 짠 코드가 전부 SingleThread였다"는 것이다. main이 Thread라는 걸 몰랐는데, `activeCount()`가 5로 나오는 걸 보고 확실히 알았다.
 
-그리고 MultiThread에서는 같은 코드를 돌려도 결과가 매번 다르다. 테스트로 한 번 맞게 나왔다고 안심하면 안 되고, 순서를 맞춰야 한다면 별도로 제어해야 한다. 그 제어 방법(`synchronized`, `wait()`, `notify()`, `join()`)이 연휴 뒤에 배울 Lab#4부터의 내용이다.
+그리고 MultiThread에서는 같은 코드를 돌려도 결과가 매번 다르다. 테스트로 한 번 맞게 나왔다고 안심하면 안 되고, 순서를 맞춰야 한다면 별도로 제어해야 한다. 그 제어 방법(`interrupt()`, `synchronized`, `join()`, `wait()`, `notify()`)이 연휴 뒤에 배울 Lab#4부터의 내용이다.
 
 다음 주 Lab#4는 자동차 경주인데, Thread를 안전하게 멈추는 방법을 `stop()` 대신 `interrupt()`, `break`, `return`으로 다룬다고 하셨다. 슬라이드를 미리 보고 오라고 하셔서 코드는 읽어뒀다.

@@ -153,7 +153,7 @@ Coffee myDrink3 = new ChocolateDecorator(myDrink2);
 
 > 클래스의 인스턴스가 오직 하나만 존재하도록 보장하는 패턴
 
-생성자를 `private`으로 막고, 미리 만들어둔 하나를 `getInstance()`로만 꺼내 쓰게 한다. 2주차에 [하늘 객체 예제]({{ site.baseurl }}{% post_url java-programming-2/2026-09-09-static-singleton-interface-remote %})로 이미 해봤다. 스프링이 관리하는 객체(Bean)도 기본적으로 싱글톤으로 동작한다.
+생성자를 `private`으로 막고, 딱 하나만 만든 객체를 `getInstance()`로만 꺼내 쓰게 한다. 2주차에 [하늘 객체 예제]({{ site.baseurl }}{% post_url java-programming-2/2026-09-09-static-singleton-interface-remote %})로 이미 해봤다. 스프링이 관리하는 객체(Bean)도 기본적으로 싱글톤으로 동작한다.
 
 교수님께서 지난 학기 일화를 들려주셨다. 학생들이 소켓으로 게임 채팅을 만들면서 싱글톤 객체가 네트워크 전체에 하나라고 오해했다는 것이다. 싱글톤은 **그 프로그램의 메모리 안에서** 하나다. 컴퓨터 세 대에서 실행하면 세 개가 생긴다. 운영체제 수업에서 배운 대로 프로세스는 각자 메모리 공간을 따로 가지니까 당연한 결과다. 여러 컴퓨터가 정말 하나를 공유하려면 서버가 그 역할을 맡아야 한다.
 
@@ -173,6 +173,8 @@ UI, 데이터, 처리 로직을 Model, View, Controller로 나누는 아키텍�
 | Factory Method | 생성 로직을 맡김 | LSP, DIP |
 | Observer | 상태 변화를 여러 객체에 알림 | OCP, DIP |
 | Dependency Injection | 의존 객체를 밖에서 넣어줌 | DIP, ISP |
+
+Template Method와 Factory Method는 기존 코드를 안 고치고 하위 클래스로 확장한다는 점에서 OCP와도 자주 묶인다. 둘 다 상속을 쓰기 때문에 LSP는 이 패턴이 채워주는 원칙이라기보다 쓸 때 지켜야 하는 조건에 가깝다.
 
 완벽한 1:1 대응은 아니다. 한 패턴이 여러 원칙을 만족하기도 하고, 상황에 따라 여러 패턴을 조합하기도 한다. 교수님께서도 본인 생각으로 정리한 표라 다른 관점이 있는지 찾아보라고 하셨다. 수많은 패턴을 다 외우기보다는, 공식처럼 쓸 일이 생겼을 때 쓰다 보면 익혀진다고.
 

@@ -20,7 +20,7 @@ toc_sticky: true
 
 이론은 [Thread 상태제어와 동기화]({{ site.baseurl }}{% post_url java-programming-2/2026-09-30-thread-sync-control %}) 글에 정리했다.
 
-실습 전에 Lab마다 궁금한 걸 먼저 적어뒀다.
+실습 전에 Lab마다 확인할 질문을 먼저 적어뒀다.
 
 - Lab#4: Thread를 어떻게 멈춰야 안전할까? interrupt(), return, break는 각각 어디서 쓰일까?
 - Lab#5: 출력문을 넣으면 왜 괜찮아 보일까? 정말 괜찮은 걸까?
@@ -112,7 +112,7 @@ public class Lab4_CarRace {
 }
 ```
 
-슬라이드 코드를 치다가 세 가지가 눈에 띄었다. 슬라이드 main에는 `int goal = 100;`이라는 지역 변수가 있는데, Car는 `자동차경주.goal`(static, 30)을 쓴다. main의 100은 아무도 안 쓰는 변수다. 그리고 Car의 `volatile boolean stop=false;` 필드도 선언만 되어 있고 쓰이지 않는다. 그리고 Car가 speed를 받아놓고 sleep은 300으로 고정이라 차마다 속도가 같았다. 헷갈려서 나는 `GOAL` 상수 하나로 정리하고, 안 쓰는 필드는 빼고, `sleep(speed)`로 바꿔서 차마다 속도가 다르게 했다. 아무도 안 쓰는 변수와 필드가 남아 있으면 읽는 사람만 헷갈린다.
+슬라이드 코드를 치다가 세 가지가 눈에 띄었다. 슬라이드 main에는 `int goal = 100;`이라는 지역 변수가 있는데, Car는 `자동차경주.goal`(static, 30)을 쓴다. main의 100은 아무도 안 쓰는 변수다. Car의 `volatile boolean stop=false;` 필드도 선언만 되어 있고 쓰이지 않는다. 마지막으로 Car가 speed를 받아놓고 sleep은 300으로 고정이라 차마다 속도가 같았다. 헷갈려서 나는 `GOAL` 상수 하나로 정리하고, 안 쓰는 필드는 빼고, `sleep(speed)`로 바꿔서 차마다 속도가 다르게 했다. 아무도 안 쓰는 변수와 필드가 남아 있으면 읽는 사람만 헷갈린다.
 
 #### 실행 전에 예상한 것
 
@@ -211,7 +211,7 @@ public class SyncBankAccount extends BankAccount {
 	public synchronized void deposit(int amount) {
 		super.deposit(amount);
 	}
-	// withdraw, getBalance도 똑같이 synchronized로 덮었다
+	// 생성자는 생략. withdraw, getBalance도 똑같이 synchronized로 덮었다
 }
 ```
 
@@ -486,7 +486,7 @@ System.out.println("엄마: 모두 도착! (" + (System.currentTimeMillis() - st
 
 ![Lab#7 join 실험 결과]({{ '/assets/images/java-programming-2/t4-lab7-jointest.png' | relative_url }})
 
-join이 없으면 엄마가 몇 ms 만에 "모두 도착!"을 외친다. 돼지들이 "집 짓는 중" 인사를 하기도 전이다. main은 start()로 일을 맡겨두기만 하고 자기 갈 길을 가니까. Lab#1에서 본 "start()는 부탁만 하고 끝난다"가 여기서 문제가 된다.
+join이 없으면 엄마가 십몇 ms 만에 "모두 도착!"을 외친다. 돼지들이 "집 짓는 중" 인사를 하기도 전이다. main은 start()로 일을 맡겨두기만 하고 자기 갈 길을 가니까. Lab#1에서 본 "start()는 부탁만 하고 끝난다"가 여기서 문제가 된다.
 
 join 순서를 거꾸로 해도 걸린 시간은 가장 오래 걸린 돼지의 시간과 거의 같았다. 셋째를 기다리는 동안 첫째와 둘째도 같이 집을 짓고 있으니까. 셋째가 오면 둘째와 첫째는 이미 와 있거나 곧 오고, 이미 끝난 Thread의 join()은 기다리지 않고 바로 통과한다. 그래서 join 순서는 결과에 영향이 없다. 교수님께서 join 세 줄은 "1, 2, 3이 다 끝나면 알려줘"라는 뜻이라고 하신 게 이 말이었다.
 
@@ -500,4 +500,4 @@ join 순서를 거꾸로 해도 걸린 시간은 가장 오래 걸린 돼지의 
 
 Lab#1~#3이 "Thread는 순서를 보장하지 않는다"를 보여줬다면, Lab#4~#7은 "그래서 뭘 해야 하는가"였다. 멈출 때는 interrupt로 부탁하고, 공유 자원은 synchronized로 지키고, 결과를 모을 때는 join으로 기다린다. 그래도 순서까지 맞추려면 wait/notify가 필요하다.
 
-보통은 이 실습을 먼저 하고 나중에 운영체제에서 "아, 그때 그거였구나" 하게 된다는데, 나는 반대로 운영체제에서 배운 race condition, 임계 구역, 시그널이 실습 속에서 하나씩 보였다. 순서는 달라도 연결되는 경험은 같은 것 같다.
+보통은 이 실습을 먼저 하고 나중에 운영체제에서 "아, 그때 그거였구나" 하게 된다는데, 나는 반대로 운영체제에서 배운 race condition, 임계 영역, 시그널이 실습 속에서 하나씩 보였다. 순서는 달라도 연결되는 경험은 같은 것 같다.
