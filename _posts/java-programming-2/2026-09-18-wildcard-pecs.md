@@ -195,7 +195,7 @@ printFruits(appleBasket);            // 이제 된다
 | | `? extends T` | `? super T` |
 | --- | --- | --- |
 | 역할 | Producer (생산자) | Consumer (소비자) |
-| 용도 | 꺼내기용(add는 못 한다) | 넣기용(꺼내면 Object) |
+| 용도 | 꺼내기용(add, set은 못 한다) | 넣기용(꺼내면 Object) |
 | 예시 | `List<? extends Number>` | `List<? super Integer>` |
 | 읽기(get) | T 타입으로 안전하게 읽기 가능 | Object로만 가능 |
 | 쓰기(add) | 불가능 (null만 가능) | T 타입 데이터 쓰기 가능 |
