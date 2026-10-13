@@ -21,7 +21,7 @@ toc_sticky: true
 2. 실습: Lab#1~#8 중 3개 이상. 실습마다 목표, 코드, 결과 캡처, 후기
 3. 퀴즈 만들고 풀어보기 3개 이상
 
-이론은 주제별로 나눠서 [제네릭 기초]({{ site.baseurl }}{% post_url java-programming-2/2026-09-16-generic-basics %}), [와일드카드와 PECS]({{ site.baseurl }}{% post_url java-programming-2/2026-09-18-wildcard-pecs %}), [컬렉션 프레임워크]({{ site.baseurl }}{% post_url java-programming-2/2026-09-18-collection-framework %})에 정리했고, 퀴즈는 [3주차 퀴즈 글]({{ site.baseurl }}{% post_url java-programming-2/2026-09-20-generic-collection-quiz %})에 따로 썼다. 이 글은 실습 부분이다.
+이론은 주제별로 나눠서 [제네릭 기초]({{ site.baseurl }}{% post_url java-programming-2/2026-09-16-generic-basics %}), [와일드카드와 PECS]({{ site.baseurl }}{% post_url java-programming-2/2026-09-18-wildcard-pecs %}), [컬렉션 프레임워크]({{ site.baseurl }}{% post_url java-programming-2/2026-09-18-collection-framework %})에 정리했고, 퀴즈는 [제네릭과 컬렉션 퀴즈 글]({{ site.baseurl }}{% post_url java-programming-2/2026-09-20-generic-collection-quiz %})에 따로 썼다. 이 글은 실습 부분이다.
 
 실습은 이렇게 골랐다.
 

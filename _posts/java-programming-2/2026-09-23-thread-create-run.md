@@ -184,4 +184,4 @@ th1.start(); th2.start(); th3.start();
 - 다중 상속이 안 되니까 Runnable 구현이 더 유연하다
 - Thread를 상속하면 name을 물려받고, Runnable을 구현하면 이름을 직접 가져야 한다
 - 우선순위는 줄 수 있지만 OS 스케줄러에 달려 있어서 믿으면 안 된다
-- 끝난 Thread는 다시 start()할 수 없다
+- 한 번 start()한 Thread는 다시 start()할 수 없다

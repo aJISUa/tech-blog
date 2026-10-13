@@ -112,8 +112,8 @@ Thread를 안 쓰면 블록이 다 떨어질 때까지 키를 못 누른다. JVM
 | 객체 생성 | `NEW` | 객체는 만들었지만 아직 start()를 안 부른 상태 |
 | 실행 준비 | `RUNNABLE` | start()가 호출돼서 실행 가능한 상태. 실제로 실행 중일 수도, CPU를 기다리는 중일 수도 있다 |
 | 일시 정지 | `BLOCKED` | 다른 Thread가 가진 락(lock)을 기다리는 중 |
-| | `WAITING` | wait()를 호출한 상태. 다른 Thread가 notify 해줄 때까지 무한 대기 |
-| | `TIMED_WAITING` | 정해진 시간 동안만 대기. `sleep(ms)`, `join(ms)` |
+| | `WAITING` | 시간을 정하지 않고 기다리는 상태. `wait()`는 다른 Thread가 notify 해줄 때까지, `join()`은 상대가 끝날 때까지 무한 대기 |
+| | `TIMED_WAITING` | 정해진 시간 동안만 대기. `sleep(ms)`, `join(ms)`, `wait(ms)` |
 | 종료 | `TERMINATED` | 실행이 끝난 상태. 정상 종료든 예외든 |
 
 교수님께서 짱구가 놀이터에서 그네 타는 걸로 설명해주셨는데 이걸로 한 번에 이해됐다.

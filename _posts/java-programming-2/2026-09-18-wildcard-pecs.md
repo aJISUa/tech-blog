@@ -347,4 +347,4 @@ public void put_sub(ArrayList<? extends T> t) { ... }
 - 컴파일러는 참조 변수의 타입만 보고 판단한다. 실제로 뭘 new 했는지는 안 본다
 - `? extends`는 꺼내기(get)만, `? super`는 넣기(add)만 안전하다. PECS, 또는 PEG_CSA
 - `T extends`는 되지만 `T super`는 없다. 아래쪽 제한은 와일드카드로
-- 퀴즈로도 만들어봤다: [3주차 퀴즈 글]({{ site.baseurl }}{% post_url java-programming-2/2026-09-20-generic-collection-quiz %})
+- 퀴즈로도 만들어봤다: [제네릭과 컬렉션 퀴즈 글]({{ site.baseurl }}{% post_url java-programming-2/2026-09-20-generic-collection-quiz %})
