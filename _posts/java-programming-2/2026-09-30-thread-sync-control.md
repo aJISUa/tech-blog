@@ -22,7 +22,7 @@ toc_sticky: true
 
 나는 운영체제를 먼저 들어서 race condition, 임계 영역, 모니터 같은 말이 익숙하다. 교수님께서 운영체제를 먼저 들은 학생한테 "이걸 하고 나서 운영체제를 들었으면 어땠을까?" 하고 물어보셨는데, 3학년 때는 이론만 하니까 여기서 미리 맛보게 하려는 의도라고 하셨다. 나는 거꾸로 OS를 듣고 자바로 직접 해보니 이론이 코드로 보이는 느낌이었다.
 
-실습(Lab#4~#7)은 [4주차 과제 2]({{ site.baseurl }}{% post_url java-programming-2/2026-10-01-week4-assignment2 %})에, 퀴즈는 [Thread 퀴즈]({{ site.baseurl }}{% post_url java-programming-2/2026-10-01-thread-quiz %})에 정리했다.
+실습(Lab#4~#7)은 [실습#3+]({{ site.baseurl }}{% post_url java-programming-2/2026-10-01-week4-assignment2 %})에, 퀴즈는 [Thread 퀴즈]({{ site.baseurl }}{% post_url java-programming-2/2026-10-01-thread-quiz %})에 정리했다.
 
 ## Thread 상태도 다시 보기
 

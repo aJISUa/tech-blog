@@ -1,5 +1,5 @@
 ---
-title: "[자프실2] 4주차 과제: Thread 만들기 Lab#1~#3과 우선순위 테스트"
+title: "[자프실2] 실습#3: Thread 만들기 Lab#1~#3과 우선순위 테스트"
 date: 2026-09-26 20:00:00 +0900
 series: "JAVA프로그래밍및실습II"
 categories:

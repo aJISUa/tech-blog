@@ -1,5 +1,5 @@
 ---
-title: "[자프실2] 3주차 과제: 제네릭 주사위, HashSet, HashMap, PrettyPrinter"
+title: "[자프실2] 실습#2: 제네릭 주사위, HashSet, HashMap, PrettyPrinter"
 date: 2026-09-20 20:00:00 +0900
 series: "JAVA프로그래밍및실습II"
 categories:

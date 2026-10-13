@@ -1,5 +1,5 @@
 ---
-title: "[자프실2] 4주차 과제 2: 자동차 경주, MyBank, FamilyAccount, 아기돼지삼형제"
+title: "[자프실2] 실습#3+: 자동차 경주, MyBank, FamilyAccount, 아기돼지삼형제"
 date: 2026-10-01 20:00:00 +0900
 series: "JAVA프로그래밍및실습II"
 categories:
@@ -16,7 +16,7 @@ toc: true
 toc_sticky: true
 ---
 
-[4주차 과제 1]({{ site.baseurl }}{% post_url java-programming-2/2026-09-26-week4-assignment %})에서 Lab#1~#3으로 Thread를 만들고 돌려봤다면, 이번엔 Lab#4~#7로 Thread를 멈추고, 기다리고, 공유 자원을 지키는 실습이다. 운영체제에서 이론으로만 배운 race condition과 동기화를 자바로 직접 재현해볼 수 있는 부분이라 제일 기대했던 실습이다.
+[실습#3]({{ site.baseurl }}{% post_url java-programming-2/2026-09-26-week4-assignment %})에서 Lab#1~#3으로 Thread를 만들고 돌려봤다면, 이번엔 Lab#4~#7로 Thread를 멈추고, 기다리고, 공유 자원을 지키는 실습이다. 운영체제에서 이론으로만 배운 race condition과 동기화를 자바로 직접 재현해볼 수 있는 부분이라 제일 기대했던 실습이다.
 
 이론은 [Thread 상태제어와 동기화]({{ site.baseurl }}{% post_url java-programming-2/2026-09-30-thread-sync-control %}) 글에 정리했다.
 

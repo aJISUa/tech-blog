@@ -131,7 +131,7 @@ List<String> slist = Arrays.asList(ar);
 List<String> list = new ArrayList<>(Arrays.asList(ar));   // 공지 예제는 이렇게 한 번 더 감쌌다
 ```
 
-왜 한 번 더 감싸는지는 수업 때 직접 에러를 겪어서 알게 됐다. [3주차 과제 글]({{ site.baseurl }}{% post_url java-programming-2/2026-09-20-week3-assignment %})에 정리했다.
+왜 한 번 더 감싸는지는 수업 때 직접 에러를 겪어서 알게 됐다. [실습#2 글]({{ site.baseurl }}{% post_url java-programming-2/2026-09-20-week3-assignment %})에 정리했다.
 
 ### LinkedList
 

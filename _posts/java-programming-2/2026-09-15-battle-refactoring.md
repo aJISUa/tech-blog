@@ -15,7 +15,7 @@ toc: true
 toc_sticky: true
 ---
 
-2주차 과제 중 리팩토링 부분이다. 과제 전체(Vehicle-Driver 리팩토링, 짱구네 집, 하늘 싱글톤)는 [2주차 과제 글]({{ site.baseurl }}{% post_url java-programming-2/2026-09-15-week2-assignment %})에 정리했다.
+실습#1 중 리팩토링 부분이다. 과제 전체(Vehicle-Driver 리팩토링, 짱구네 집, 하늘 싱글톤)는 [실습#1 글]({{ site.baseurl }}{% post_url java-programming-2/2026-09-15-week2-assignment %})에 정리했다.
 
 교수님께서 리팩토링하라고 주신 코드는 지난 학기 자프실1 배틀 과제 코드 세 개였다. 폴더 이름에 힌트가 붙어 있었다.
 

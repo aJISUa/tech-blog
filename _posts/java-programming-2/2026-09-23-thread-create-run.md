@@ -162,7 +162,7 @@ th3.setPriority(Thread.MIN_PRIORITY);   // 1
 th1.start(); th2.start(); th3.start();
 ```
 
-우선순위 10짜리가 먼저 다 끝날 것 같은데 그렇지 않다. 직접 돌려봤더니 실행할 때마다 순서가 달랐고, 우선순위 1인 Thread가 중간에 몰아서 출력되기도 했다. 결과는 [4주차 과제 글]({{ site.baseurl }}{% post_url java-programming-2/2026-09-26-week4-assignment %})에 정리했다.
+우선순위 10짜리가 먼저 다 끝날 것 같은데 그렇지 않다. 직접 돌려봤더니 실행할 때마다 순서가 달랐고, 우선순위 1인 Thread가 중간에 몰아서 출력되기도 했다. 결과는 [실습#3 글]({{ site.baseurl }}{% post_url java-programming-2/2026-09-26-week4-assignment %})에 정리했다.
 
 이유는 제어권이 자바한테 100% 있는 게 아니라서다. JVM은 OS의 스케줄러에 의존한다. 우선순위 값은 OS의 Thread 스케줄러에게 전달되지만, OS가 이 값을 무시하거나 약하게 반영할 수 있다. 우선순위가 최대여도 다른 Thread보다 먼저 실행된다는 보장은 없다.
 

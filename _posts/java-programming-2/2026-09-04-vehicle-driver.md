@@ -146,7 +146,7 @@ public class 버스 extends Vehicle {
 
 `(Driveable)d.drive(m)`이라고 쓰면 점(.)이 먼저 계산돼서 `d.drive(m)`의 결과를 형변환하는 게 된다. `drive`는 리턴 타입이 void라 형변환할 것도 없어서 항상 컴파일 에러다. "Driveable한 d"까지가 주어니까 괄호로 한 번 더 감싸야 한다.
 
-단, 괄호를 맞게 써도 이 코드가 바로 돌아가는 건 아니다. 솔루션의 `Driveable`에는 인자 없는 `drive()`만 있어서, Driveable 타입으로 보면 `drive(m)`이 안 보인다. 인터페이스에 `drive(Moveable m)`을 적어둬야 컴파일이 된다. 이건 2주차 과제에서 직접 확인했다.
+단, 괄호를 맞게 써도 이 코드가 바로 돌아가는 건 아니다. 솔루션의 `Driveable`에는 인자 없는 `drive()`만 있어서, Driveable 타입으로 보면 `drive(m)`이 안 보인다. 인터페이스에 `drive(Moveable m)`을 적어둬야 컴파일이 된다. 이건 실습#1에서 직접 확인했다.
 
 ### 8번. 꼭 static이어야 하는 메소드
 

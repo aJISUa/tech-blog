@@ -158,7 +158,7 @@ public class MyDice<T> {
 
 `T[]`로 선언까지는 되는데 `new T[10]`으로 만들 수가 없다. 직접 해보니까 `generic array creation`이라는 에러가 났다. 그래서 제네릭은 거의 항상 컬렉션이랑 같이 쓰인다고 하셨다. 배열이 익숙하고 쉽다고 제네릭 안에서 배열을 쓰면 안 된다.
 
-주사위는 직접 만들어봤고, [3주차 과제 글]({{ site.baseurl }}{% post_url java-programming-2/2026-09-20-week3-assignment %})에 정리했다.
+주사위는 직접 만들어봤고, [실습#2 글]({{ site.baseurl }}{% post_url java-programming-2/2026-09-20-week3-assignment %})에 정리했다.
 
 ## 멀티 타입 파라미터
 

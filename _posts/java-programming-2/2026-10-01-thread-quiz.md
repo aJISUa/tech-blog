@@ -19,7 +19,7 @@ toc_sticky: true
 
 Thread 문제는 실행할 때마다 결과가 바뀌어서 "실행 결과를 예측하라"고 내기가 까다로웠다. 그래서 순서가 아니라 **걸린 시간**, **멈추는지 안 멈추는지**, **최종 값**처럼 매번(Quiz #4의 잔액은 거의 매번) 같은 답이 나오는 것을 묻도록 만들었다. 문제 코드는 `JAVA2` 프로젝트 `quiz` 패키지에 넣고 전부 실제로 실행해서 확인했다.
 
-이론은 [Thread 상태제어와 동기화]({{ site.baseurl }}{% post_url java-programming-2/2026-09-30-thread-sync-control %}), 실습은 [4주차 과제 2]({{ site.baseurl }}{% post_url java-programming-2/2026-10-01-week4-assignment2 %})에 있다.
+이론은 [Thread 상태제어와 동기화]({{ site.baseurl }}{% post_url java-programming-2/2026-09-30-thread-sync-control %}), 실습은 [실습#3+]({{ site.baseurl }}{% post_url java-programming-2/2026-10-01-week4-assignment2 %})에 있다.
 
 | 번호 | 유형 | 연결되는 것 |
 | --- | --- | --- |

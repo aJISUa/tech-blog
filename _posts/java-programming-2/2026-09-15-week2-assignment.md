@@ -1,5 +1,5 @@
 ---
-title: "[자프실2] 2주차 과제: Vehicle-Driver, 배틀 리팩토링, 짱구네 집, 하늘 싱글톤"
+title: "[자프실2] 실습#1: Vehicle-Driver, 배틀 리팩토링, 짱구네 집, 하늘 싱글톤"
 date: 2026-09-15 20:00:00 +0900
 series: "JAVA프로그래밍및실습II"
 categories:
