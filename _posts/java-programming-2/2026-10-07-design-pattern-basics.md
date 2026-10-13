@@ -83,7 +83,7 @@ public class PaymentService {
 }
 ```
 
-구조는 Context(PaymentService)가 Strategy 인터페이스를 갖고 있고, 그 아래에 구체 전략들이 매달린 모양이다. 네이버페이가 추가되어도 `NaverPayStrategy` 클래스만 새로 만들면 된다. PaymentService가 구체 클래스가 아니라 인터페이스에 의존하니 DIP도 만족한다.
+구조는 Context(PaymentService)가 Strategy 인터페이스를 사용하고, 그 아래에 구체 전략들이 매달린 모양이다. 전략을 쓰는 방법은 두 가지가 있다. 위 코드처럼 메소드를 부를 때마다 매개변수로 받을 수도 있고, Context가 전략을 필드로 갖고 있다가 setter로 바꿔 끼울 수도 있다. 어느 쪽이든 Context는 인터페이스만 안다. 네이버페이가 추가되어도 `NaverPayStrategy` 클래스만 새로 만들면 된다. PaymentService가 구체 클래스가 아니라 인터페이스에 의존하니 DIP도 만족한다.
 
 [SOLID 글]({{ site.baseurl }}{% post_url java-programming-2/2026-10-02-solid-ioc-di %})의 OCP 예제와 코드가 거의 같다. OCP를 설명할 때 이미 전략 패턴을 쓰고 있었던 거다. 교수님께서 OCP 설명 때 "전략 패턴에 딱 들어맞는다"고 하신 이유를 여기서 알았다.
 

@@ -229,7 +229,7 @@ class Robot implements Workable {
 
 노션에는 복합기 예제가 하나 더 있다. `MultiFunctionDevice`에 `print()`, `scan()`, `fax()`가 다 있으면, 프린트만 되는 `SimplePrinter`도 `scan()`과 `fax()`를 구현해서 예외를 던져야 한다. 이건 ISP 위반이면서 LSP 위반이기도 하다. 상위 타입으로 쓰다가 `scan()`을 부르면 터지니까. 하나의 문제가 여러 원칙에 같이 걸린다는 게 "원칙들이 서로 연결되어 있다"는 말의 의미 같다.
 
-분리한 버전을 직접 쳐보다가 하나 발견했다.
+분리한 버전을 직접 쳐보다가 하나 발견했다(10/3에 받은 노션 문서 기준이다).
 
 ```java
 interface Printer { void print(String content); }
