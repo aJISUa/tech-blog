@@ -97,12 +97,12 @@ t.start();
 
 ## start()와 run()의 차이
 
-제일 많이 하는 실수라고 해서 직접 확인해봤다.
+노션 코드에도 "run()이 아닌 start() 호출!"이라고 주석이 달려 있어서 직접 확인해봤다.
 
 ```java
 Thread a = new Thread(() -> System.out.println(Thread.currentThread().getName()));
-a.run();     // main이 출력된다. 새 스레드가 안 생긴다
-a.start();   // Thread-0이 출력된다. 새 스레드가 생겨서 그 스레드가 실행한다
+a.run();     // main이 출력된다. 새 실행 흐름이 안 생기고 main이 그냥 실행한다
+a.start();   // Thread-0이 출력된다. 새 실행 흐름이 시작돼서 그 Thread가 run()을 실행한다
 ```
 
 `run()`을 직접 부르면 그냥 평범한 메소드 호출이라 메인 Thread가 실행한다. `start()`를 불러야 새 실행 흐름이 시작되고, 그 Thread가 `run()`을 실행한다. 정확히 말하면 Thread 객체를 만드는 건 `new`이고, `start()`는 이미 만들어둔 Thread를 시작시키는 것이다.
@@ -173,8 +173,8 @@ th1.start(); th2.start(); th3.start();
 중간 정리 슬라이드에 있던 내용이다.
 
 - `run()` 메소드가 끝나면 Thread도 끝난다. 계속 살아있게 하려면 `run()` 안에 반복문을 써야 한다
-- **한 번 종료한 Thread는 다시 시작시킬 수 없다.** 다시 쓰려면 객체를 새로 만들고 `start()`를 불러야 한다
-- 한 Thread에서 다른 Thread를 강제 종료할 수 있는데, 이건 다음 주 Lab#4(자동차 경주)에서 `interrupt()`로 다룬다
+- **한 번 start()한 Thread는 다시 시작시킬 수 없다.** 끝났든 아직 돌고 있든 마찬가지다. 다시 쓰려면 객체를 새로 만들고 `start()`를 불러야 한다
+- 한 Thread에서 다른 Thread한테 그만하라고 신호를 보낼 수 있다. 강제로 끄는 게 아니라 `interrupt()`로 알려주는 방식이고, 다음 주 Lab#4(자동차 경주)에서 다룬다
 - MultiThread를 만들기 전에 몇 개의 작업을 병렬로 실행할지부터 정한다
 
 ## 정리

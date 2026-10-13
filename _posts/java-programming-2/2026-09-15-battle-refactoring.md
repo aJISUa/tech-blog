@@ -204,7 +204,7 @@ public 결과 한턴(boolean 무기사용) {
 
 ![원본 해리포터 배틀 실행 화면]({{ '/assets/images/java-programming-2/battle2-original-game.png' | relative_url }})
 
-원본 `Main`을 그대로 실행한 화면이다. 창이 뜨다가 콘솔에 Exception이 나고 Harry 이미지 자리는 비어 있다(문제3). 가운데 능력치도 `Main`에서 넣은 500, 30이 아니라 100, 50이다(문제1).
+원본 `Main`을 그대로 실행한 화면이다. 창이 뜨다가 콘솔에 Exception이 나고(문제3), 화면도 그리다 만 상태로 멈춰서 Harry 이미지 자리가 비어 있다. 가운데 능력치도 `Main`에서 넣은 500, 30이 아니라 100, 50이다(문제1).
 
 ```java
 public abstract class Player implements Attackable {
@@ -338,7 +338,7 @@ else if(r==1) {
 
 ### 코드 읽으면서 이상했던 부분
 
-- **복사된 비교문:** `Player.attack`에 6개, `Jester`에 10개, `BoneCourtier`에 6개, `Vestal`에 6개. 전부 숫자 하나만 다르다.
+- **복사된 비교문:** `Player.attack`에 6개, `Jester`에 10개, `BoneCourtier`에 6개, `Vestal`에 6개. Player와 BoneCourtier는 더하는 숫자 하나만 다르고, Jester와 Vestal은 r을 그대로 써서 가지 내용이 아예 똑같다.
 - **화면에 묶인 캐릭터:** 캐릭터 클래스가 화면 클래스의 `static` 텍스트창 `Mywin.ta`에 직접 글을 쓴다. `playerStress`는 `JLabel`을 받아서 이미지까지 바꾼다. 창 없이는 캐릭터 코드를 돌려볼 수가 없어 보였다.
 - **제한 없는 값:** 성녀 치료는 최대 hp를 확인하지 않고, 광대 연주는 스트레스를 0 밑으로도 뺀다.
 - **상속 문제도 있다:** `Heroes`가 부모 `Player`에 있는 `stress`를 `private int stress`로 또 선언했고, `Heroes.playerStress(Player)`는 어디서도 안 불린다. `Monster` 생성자는 `super(...)`를 안 쓰고 필드를 하나씩 다시 넣는다.
@@ -353,7 +353,7 @@ else if(r==1) {
 - **문제2:** 최대 hp 33인 Crusader를 30번 치료하면 한 번에 0~5씩 계속 올라가서 33을 훨씬 넘을 것 같다.
 - **문제3:** 스트레스 0인 영웅에게 10번 연주하면 음수가 될 것 같다.
 - **문제4:** `Player`와 `Heroes` 둘 다에 stress 필드가 선언돼 있다.
-- **문제5:** 영웅 한 명이 죽으면 랜덤 범위는 0~2인데 버튼 목록은 4개 그대로라, 죽은 영웅 버튼이 3번에 1번꼴로 눌리고 마지막 Crusader 버튼은 아예 안 눌릴 것 같다.
+- **문제5:** 맨 앞의 Highwayman이 죽으면 랜덤 범위는 0~2인데 버튼 목록은 4개 그대로라, 죽은 Highwayman 버튼이 3번에 1번꼴로 눌리고 마지막 Crusader 버튼은 아예 안 눌릴 것 같다.
 - **문제6:** 같은 몬스터가 스트레스 30인 영웅 두 명에게 차례로 판정을 하면, 첫 번째 영웅이 붕괴한 순간(4번 중 3번) 몬스터 쪽 횟수가 1이 돼서 두 번째 영웅은 판정을 건너뛸 것 같다.
 
 ### 실제 결과

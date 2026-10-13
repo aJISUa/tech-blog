@@ -304,7 +304,7 @@ synchronized void withdraw(String who, int amount) {
 
 한 명은 성공하고 한 명은 "잔액 부족"이 나오고, 최종 잔액은 0원이다.
 
-`volatile`로는 **해결 안 된다.** volatile은 다른 Thread가 쓴 최신 값을 보게 해줄 뿐이다. 짱아가 확인할 때 짱구는 아직 안 뺐으니 최신 값을 봐도 1000원이다. 문제는 값이 오래된 게 아니라 두 동작 사이에 끼어들 수 있다는 것이라서, 끼어들기를 막는 synchronized가 필요하다. [과제 글]({{ site.baseurl }}{% post_url java-programming-2/2026-10-01-week4-assignment2 %})의 MyBank 실험에서 volatile을 붙였는데도 오류가 계속 났던 것과 같은 이유다.
+`volatile`로는 **해결 안 된다.** volatile은 다른 Thread가 쓴 최신 값을 보게 해줄 뿐이다. 짱아가 확인할 때 짱구는 아직 안 뺐으니 최신 값을 봐도 1000원이다. 문제는 값이 오래된 게 아니라 두 동작 사이에 끼어들 수 있다는 것이라서, 끼어들기를 막는 synchronized가 필요하다. [과제 글]({{ site.baseurl }}{% post_url java-programming-2/2026-10-01-week4-assignment2 %})의 MyBank 실험에서 volatile을 붙였는데도 오류가 계속 났던 것과 뿌리가 같다. 여러 단계가 한 덩어리로 실행되지 않는다는 점이다.
 
 설계 측면에서 하나 더. 잔액 확인을 `withdraw()` 밖에서 하는 구조, 예를 들어 `if (acc.getBalance() >= 1000) acc.withdraw(1000);`처럼 쓰면 메소드 두 개에 각각 synchronized를 붙여도 그 사이에 틈이 생긴다. 확인과 실행은 계좌 클래스가 한 메소드 안에서 책임지는 게 맞다. "인출해도 되는지 판단하는 것"도 계좌가 할 일이다.
 

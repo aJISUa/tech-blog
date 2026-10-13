@@ -128,7 +128,7 @@ class EmailSender {
 
 > 확장에는 열려 있고, 수정에는 닫혀 있어야 한다.
 
-교수님 비유가 정확했다. **수정**은 납땜을 풀고 본드를 떼서 내부를 바느질하고 꿰매는 것이다. **확장**은 파일 하나 붙이는 정도로, 새 코드를 추가하고 연결고리만 맺는 것이다.
+수정과 확장의 차이는 이렇게 설명하셨다. **수정**은 납땜을 풀고 본드를 떼서 내부를 바느질하고 꿰매는 것이다. **확장**은 파일 하나 붙이는 정도로, 새 코드를 추가하고 연결고리만 맺는 것이다.
 
 ```java
 // Before: 결제 수단이 늘 때마다 이 if문을 열어서 고쳐야 한다
@@ -229,7 +229,7 @@ class Robot implements Workable {
 
 노션에는 복합기 예제가 하나 더 있다. `MultiFunctionDevice`에 `print()`, `scan()`, `fax()`가 다 있으면, 프린트만 되는 `SimplePrinter`도 `scan()`과 `fax()`를 구현해서 예외를 던져야 한다. 이건 ISP 위반이면서 LSP 위반이기도 하다. 상위 타입으로 쓰다가 `scan()`을 부르면 터지니까. 하나의 문제가 여러 원칙에 같이 걸린다는 게 "원칙들이 서로 연결되어 있다"는 말의 의미 같다.
 
-분리한 버전을 직접 쳐보다가 하나 발견했다(10/3에 받은 노션 문서 기준이다).
+분리한 버전을 직접 쳐보다가 하나 발견했다(글을 쓸 때 받아둔 노션 문서 기준이다).
 
 ```java
 interface Printer { void print(String content); }
@@ -245,7 +245,28 @@ class SimplePrinter2 implements Printer, Scanner {
 error: SimplePrinter2 is not abstract and does not override abstract method scan() in Scanner
 ```
 
-인터페이스는 `scan()`인데 구현은 `scan(String content)`이라서, 오버라이딩이 아니라 오버로딩이 됐다. 그러니 `scan()`은 구현 안 한 셈이다. `@Override`를 붙였다면 그 줄에서 바로 잡혔을 거다. 교수님께서 커피메이커 노션 주석을 두고 AI 점검을 받은 것도 있고 안 받은 것도 있다고 하셨는데, 이 코드도 그대로 복붙했으면 몰랐을 거다. 하나 더, `Scanner`라는 이름은 `java.util.Scanner`와 겹쳐서 import하면 헷갈리겠다.
+인터페이스는 `scan()`인데 구현은 `scan(String content)`이라서, 오버라이딩이 아니라 오버로딩이 됐다. 그러니 `scan()`은 구현 안 한 셈이다. `@Override`를 붙였다면 그 줄에서 바로 잡혔을 거다. 교수님께서 노션 주석에 오타가 좀 있다고 미리 말씀하셨는데, 코드도 눈으로만 읽지 말고 직접 쳐봐야 한다는 걸 여기서 알았다. 그대로 복붙만 했으면 몰랐을 거다. 하나 더, `Scanner`라는 이름은 `java.util.Scanner`와 겹쳐서 import하면 헷갈리겠다.
+
+덧붙임. 글을 올린 뒤에 노션을 다시 보니 이 예제가 고쳐져 있었다. 인터페이스 이름이 `Printable`, `Scannable`, `Faxable`로 바뀌어서 `java.util.Scanner`와 겹치던 문제가 없어졌고, `Scannable`의 메소드도 `void scan(String content)`가 되어 매개변수가 맞춰졌다. 그런데 이번에는 구현 쪽 반환형이 달랐다.
+
+```java
+interface Scannable {
+    void scan(String content);
+}
+
+class SimplePrinter2 implements Printable, Scannable {
+    public void print(String content) { System.out.println("프린트: " + content); }
+    public String scan(String content) { System.out.println("스캔: " + content); }
+}
+```
+
+```text
+error: SimplePrinter2 is not abstract and does not override abstract method scan(String) in Scannable
+error: scan(String) in SimplePrinter2 cannot implement scan(String) in Scannable
+  return type String is not compatible with void
+```
+
+처음 판은 매개변수가 달라서 오버로딩이 되어버린 경우였고, 고쳐진 판은 매개변수는 같은데 반환형이 달라서 구현이 성립하지 않는 경우다. 구현의 반환형을 `void`로 바꾸면 컴파일된다. 메소드 이름만 같다고 오버라이딩이 되는 게 아니라 매개변수가 같고 반환형도 호환돼야 한다는 걸, 같은 예제에서 두 번 확인한 셈이다.
 
 ## D: 의존성 역전 원칙(DIP)
 
@@ -325,7 +346,7 @@ DIP 비유는 듣자마자 이해됐다. 옛날 핸드폰은 기종마다 전용
 | ISP | 인터페이스 분리 | 거대 인터페이스가 안 쓰는 메소드를 강요 | 결합도↓, 불필요한 의존 제거 |
 | DIP | 추상화에 의존 | 상위 모듈이 하위 구현에 묶임 | 유연성↑, 재사용성↑, 테스트 용이성↑ |
 
-이론이 아니라 실제 개발 현장의 문제를 푸는 실용적인 도구라고 하셨다.
+표로 놓고 보니 원칙마다 "이런 문제가 있어서 이렇게 한다"가 짝지어져 있다. 그래서 이론이 아니라 실용적인 도구라고 하신 것 같다.
 
 ## IoC와 DI
 
@@ -377,7 +398,7 @@ IoC는 이 제어의 흐름을 뒤집는다. 객체의 생성부터 생명주기
 
 스프링에서는 `@Component`로 클래스를 등록하면 스프링 컨테이너가 객체를 만들어서 관리하고, `@Autowired`(생성자가 하나면 생략 가능)를 붙인 곳에 알아서 넣어준다. 슬라이드 21쪽에도 "Device를 @Component로 등록하고 @Autowired로 주입"이라고 되어 있다. 우리가 main에서 손으로 하던 생성과 연결을 어노테이션 한 줄로 프레임워크가 대신하는 거다.
 
-DI는 IoC를 구현하는 대표적인 방법이지만 유일한 방법은 아니다. 이벤트 처리 방식이나 팩토리 패턴으로도 IoC를 구현할 수 있다고 슬라이드에 나와 있다. GUI에서 버튼을 누르면 내가 등록한 리스너를 시스템이 불러주는 것도 제어가 뒤집힌 구조다. 운영체제의 인터럽트 핸들러도 비슷하다고 느꼈다. 내가 부르는 게 아니라, 일이 생기면 OS가 등록된 핸들러를 부른다.
+DI는 IoC를 구현하는 대표적인 방법이지만 유일한 방법은 아니다. 이벤트 처리 방식이나 팩토리 패턴으로도 IoC를 구현할 수 있다고 슬라이드에 나와 있다. GUI에서 버튼을 누르면 내가 등록한 리스너를 시스템이 불러주는 것도 제어가 뒤집힌 구조다. 운영체제의 인터럽트 핸들러도 비슷하다고 느꼈다. 핸들러를 미리 등록만 해두면, 내가 부르는 게 아니라 인터럽트가 걸렸을 때 등록된 핸들러가 불려 나온다.
 
 ### 주입 방법 세 가지
 

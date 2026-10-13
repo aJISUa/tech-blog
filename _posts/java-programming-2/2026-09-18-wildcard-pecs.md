@@ -232,7 +232,7 @@ copy(apples, objects);        // 사과 -> 최상위(Object) 바구니: OK
 // copy(fruits, goldenApples); // 컴파일 에러
 ```
 
-마지막 줄은 과일(Fruit)을 황금사과 바구니에 담으려는 거라 안 된다. src의 요소는 T이거나 T의 자식이어야 하고 dest의 요소는 T이거나 T의 조상이어야 하는데, 여기서는 오히려 src(과일)가 dest(황금사과)보다 위에 있다. 과일 중에는 배도 있으니까 황금사과 바구니에 넣으면 안 되는 게 맞다. 주석을 풀고 컴파일해보니까 `inference variable T has incompatible bounds`라는 에러가 났다. T가 Fruit보다 아래이면서 동시에 GoldenApple보다 위여야 하는데, 그런 T는 없다는 뜻이다.
+마지막 줄은 과일(Fruit)을 황금사과 바구니에 담으려는 거라 안 된다. src의 요소는 T이거나 T의 자식이어야 하고 dest의 요소는 T이거나 T의 조상이어야 하는데, 여기서는 오히려 src(과일)가 dest(황금사과)보다 위에 있다. 과일 중에는 배도 있으니까 황금사과 바구니에 넣으면 안 되는 게 맞다. 주석을 풀고 컴파일해보니까 `inference variable T has incompatible bounds`라는 에러가 났다. T가 Fruit이거나 그 위이면서 동시에 GoldenApple이거나 그 아래여야 하는데, 그런 T는 없다는 뜻이다.
 
 ## 냉장고 사고 실험
 

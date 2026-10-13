@@ -38,7 +38,7 @@ final은 "최종"이라는 뜻이고, 한 번 정하면 못 바꾸게 막는다.
 
 - 클래스에 붙이면 상속을 못 한다. "나 건드리지 마"
 - 메소드에 붙이면 오버라이딩을 못 한다. "나 그냥 내버려 둬"
-- 필드에 붙이면 상수가 된다. 선언할 때 값을 넣어야 하고 실행 중에는 못 바꾼다.
+- 필드에 붙이면 한 번 넣은 값을 못 바꾼다. 선언할 때 넣거나 생성자에서 딱 한 번 넣을 수 있고, static final로 선언할 때 값을 넣어두면 상수가 된다.
 
 ```java
 class SharedClass {
@@ -105,7 +105,7 @@ public class Main {
 
 (@ 뒤의 값은 실행할 때마다 달라진다. 위 값은 예시다.)
 
-"하늘 객체를 만듭니다."는 한 번만 찍히고, @ 뒤에 나오는 해시코드도 셋 다 같다. 객체마다 붙는 식별값(hashCode)이라 메모리 주소는 아니지만, 이 값이 같으면 같은 객체로 봐도 된다. `getInstance()`를 몇 번을 불러도 새로 안 만든다.
+"하늘 객체를 만듭니다."는 한 번만 찍히고, @ 뒤에 나오는 해시코드도 셋 다 같다. 객체마다 붙는 식별값(hashCode)이라 메모리 주소는 아니다. 값이 같다고 꼭 같은 객체인 건 아니라서 확실히 하려면 ==로 비교해야 하는데, 여기서는 셋 다 같은 객체가 맞다. `getInstance()`를 몇 번을 불러도 새로 안 만든다.
 
 처음부터 하나 만들어두고 절대 안 바꾸고 싶으면 `private static final 하늘 instance = new 하늘();`처럼 final을 붙이기도 한다. 싱글톤 만드는 방법은 여러 가지고, 오늘 한 건 그중 흔한 방법 하나다. 4~5주차에 디자인 패턴을 배우는데 그중 제일 쉬운 게 싱글톤이라고 하셨다.
 
@@ -163,18 +163,21 @@ rc.turnOn();    // Audio의 turnOn()
 ```java
 interface A { void a(); }
 interface B { void b(); }
-interface C extends A, B { void c(); }   // 인터페이스는 여러 개 상속 가능
+interface C extends A, B {               // 인터페이스는 여러 개 상속 가능
+    default void c() { System.out.println("인터페이스에서 바디가 있는 디폴트 메소드를 가질 수 있다."); }
+}
 
-class E { void e() { System.out.println("E"); } }
+abstract class E { public abstract void e(); }
 
 class D extends E implements C {         // E를 상속하고 C를 구현
     public void a() { System.out.println("A 기능"); }
     public void b() { System.out.println("B 기능"); }
-    public void c() { System.out.println("C 기능"); }
+    public void c() { System.out.println("C 기능"); }   // default라 안 만들어도 된다
+    public void e() { System.out.println("E 기능"); }
 }
 ```
 
-C가 A랑 B를 상속하고 있으니까 D는 A, B, C의 메소드를 전부 구현해야 한다.
+C가 A랑 B를 상속하고 있으니까 D는 a(), b()를 구현해야 하고, E의 추상 메소드 e()도 구현해야 한다. c()는 default라서 그대로 써도 되고 오버라이딩해도 된다.
 
 현실로 바꿔보면 D는 스마트폰이다. 전화, MP3, 이메일 기능(인터페이스)을 구현하고, 컴퓨터나 전자기기(클래스 E)를 상속받은 것. D를 학생이라고 하면 사람(E)을 상속받고, 공부하기, 질문하기(인터페이스)를 꼭 구현하라고 정해둘 수 있다.
 
@@ -198,7 +201,7 @@ C가 A랑 B를 상속하고 있으니까 D는 A, B, C의 메소드를 전부 구
   - 모든 기기가 똑같이 동작하는 기능은 자식마다 복붙하지 말고 default 메소드로 만든다
   - 최대 볼륨, 최소 볼륨 같은 값은 상수로 둔다
 - `Television`, `Audio`, `Car`가 `RemoteControl`을 구현한다
-- `MyRemoteControl` 클래스는 리모컨 하나로 여러 기기를 조작해야 하니까 `RemoteControl rc` 필드를 갖는다
+- `MyRemoteControl` 클래스는 리모컨 하나로 여러 기기를 조작해야 하니까 `RemoteControl rc` 필드를 갖는다(솔루션 코드에서는 인터페이스 이름이 `RemoteRole`이고 기기는 TV, Audio, Car다. 여기서는 앞 슬라이드 예시 이름으로 맞춰 적었다)
 
 ### 기기 바꾸는 메소드는 어떻게 만들까
 

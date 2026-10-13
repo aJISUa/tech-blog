@@ -144,7 +144,7 @@ public class 버스 extends Vehicle {
 ((Driveable) d).drive(m)
 ```
 
-`(Driveable)d.drive(m)`이라고 쓰면 점(.)이 먼저 계산돼서 `d.drive(m)`의 결과를 형변환하는 게 된다. `drive`는 리턴 타입이 void라 형변환할 것도 없어서 항상 컴파일 에러다. "Driveable한 d"까지가 주어니까 괄호로 한 번 더 감싸야 한다.
+`(Driveable)d.drive(m)`이라고 쓰면 점(.)이 먼저 계산돼서 `d.drive(m)`의 결과를 형변환하는 게 된다. `drive`는 리턴 타입이 void라 형변환할 값이 없고, 형변환식은 그것만으로 문장이 될 수도 없어서 어느 쪽으로 봐도 컴파일 에러다. "Driveable한 d"까지가 주어니까 괄호로 한 번 더 감싸야 한다.
 
 단, 괄호를 맞게 써도 이 코드가 바로 돌아가는 건 아니다. 솔루션의 `Driveable`에는 인자 없는 `drive()`만 있어서, Driveable 타입으로 보면 `drive(m)`이 안 보인다. 인터페이스에 `drive(Moveable m)`을 적어둬야 컴파일이 된다. 이건 실습#1에서 직접 확인했다.
 
@@ -193,7 +193,7 @@ public void drive(Moveable m) {
 }
 ```
 
-`if (m instanceof 버스)`, `else if (m instanceof 비행기)` 이런 식으로 타입을 하나하나 비교할 필요가 없었다. 코드 주석에 "비교문이 있어야 코드 같다는 생각은 버려라"라고 적혀 있었다.
+`if (m instanceof 버스)`, `else if (m instanceof 비행기)` 이런 식으로 타입을 하나하나 비교할 필요가 없었다. 코드 주석에 "비교문이 있어야 코드스럽지?! 라는 생각은 버려주세요"라고 적혀 있었다.
 
 운전자 입장에서는 차를 버스, 탱크로 볼 필요 없이 "움직일 수 있는 것"으로만 보면 되니까 `drive(버스)`, `drive(탱크)`도 사실 없어도 된다. 그리고 `distance += ms[i].move()`도 동작은 하지만, 운전자가 운전한다는 의미를 살리려면 `drive(ms[i])`로 부르는 게 더 맞다.
 

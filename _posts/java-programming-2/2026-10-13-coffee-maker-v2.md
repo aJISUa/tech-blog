@@ -18,7 +18,7 @@ toc_sticky: true
 
 [커피메이커 V1]({{ site.baseurl }}{% post_url java-programming-2/2026-10-06-coffee-maker-v1 %})을 만들고 나서 "다음에 고치고 싶은 것" 세 가지를 적어뒀다. `prepare()`에서 출력 분리하기, 메뉴 이름으로 커피를 만들어주는 쪽 따로 두기, 공통 속성이 생기면 구조 바꾸기. 마침 6주차에 [디자인 패턴]({{ site.baseurl }}{% post_url java-programming-2/2026-10-07-design-pattern-basics %})을 배워서, 그때 적어둔 걸 패턴으로 고쳐보기로 했다.
 
-수업에서 교수님께서 V1을 너무 자연스럽게 받아들이고 넘어간 학생이 많다고 하셨다. "이건 왜 이렇게 됐지? 이러면 뭐가 불편하지?"를 의심해보라고. 노션 문서 맨 아래에 흰 글씨로 숨겨둔 힌트도 있었다고 하셨는데, 네이밍과 주입 방식이었다. 그래서 V1을 다시 열어서 불편한 점부터 찾았다.
+수업에서 교수님께서 V1을 너무 자연스럽게 받아들이고 넘어간 학생이 많다고 하셨다. "이건 왜 이렇게 됐지? 이러면 뭐가 불편하지?"를 의심해보라고. 노션 문서 맨 아래에 흰 글씨로 숨겨뒀던 힌트도 있었다고 하셨다. 네이밍, SRP, 주입 방식, 그리고 플러스 알파였다. 그래서 V1을 다시 열어서 불편한 점부터 찾았다.
 
 코드는 `JAVA2` 프로젝트에 `coffee2` 패키지를 새로 만들어 넣었다. V1(`coffee` 패키지)은 비교하려고 그대로 뒀다.
 
@@ -43,7 +43,7 @@ V1을 다시 읽으면서 걸리는 곳을 하나씩 적고, 각각 설계상 �
 | ⑤ | 샷 추가, 바닐라 시럽, 얼음 같은 옵션을 넣으려면 `IceVanillaLatte` 같은 조합별 클래스가 필요하다 | 클래스 폭발 |
 | ⑥ | 메뉴, 가격, 주문, 결제가 없다. 카페라고 하기엔 커피만 만든다 | 기능 부족 |
 
-②는 V1 실험에서 드립 머신으로 아메리카노를 만들었을 때 발견했던 거다. 그때는 "조립 책임이 main으로 넘어갔다" 정도로 정리했는데, 다시 보니 근본 원인은 Americano가 받는 것의 이름과 타입이 실제 의도와 맞지 않는 데 있었다. 아메리카노에 필요한 건 머신이 아니라 이미 뽑아둔 에스프레소다.
+②는 V1 실험에서 드립 머신으로 아메리카노를 만들었을 때 발견했던 거다. 그때는 "조립 책임이 main으로 넘어갔다" 정도로 정리했는데, 다시 보니 근본 원인은 Americano가 받는 것의 이름과 타입이 실제 의도와 맞지 않는 데 있었다. 아메리카노에 필요한 건 머신이 아니라 이미 뽑아둔 커피라고 보고, V2에서는 Coffee를 받게 했다.
 
 ## 2. V2 설계
 
@@ -55,9 +55,9 @@ V1의 문제를 하나씩 보면서 어떤 패턴이 맞을지 골랐다.
 | --- | --- | --- |
 | ② ⑤ 음료와 옵션 조합 | 에스프레소를 아메리카노, 라떼, 샷, 시럽, 얼음이 한 겹씩 감싼다 | **데코레이터**, OCP |
 | ④ 조립 순서를 main이 다 앎 | "Latte"라는 이름만 주면 조립된 커피를 돌려주는 공장 | **팩토리**, SRP |
-| ⑥ 결제 수단이 여러 개 | 카드, 현금, 포인트가 Payment 인터페이스를 구현 | **전략**, OCP, DIP |
-| ① 출력과 반환이 섞임 | Coffee는 이름과 레시피 문자열만 돌려주고 출력은 CoffeeMaker만 한다 | SRP |
-| ③ setter 주입 | Manager, Factory 등 필요한 것은 전부 생성자로 받는다 | DI, DIP |
+| ⑥ 메뉴, 주문, 결제가 없음 | Menu(가격표), Order(주문서)를 따로 두고, 카드, 현금, 포인트가 Payment 인터페이스를 구현 | **전략**, OCP, DIP |
+| ① 출력과 반환이 섞임 | Coffee는 이름과 레시피 문자열만 돌려주고, 커피를 내보내는 출력은 CoffeeMaker가 맡는다 | SRP |
+| ③ setter 주입 | Manager는 필요한 것을 전부 생성자로 받고, CoffeeMaker는 만들 커피를 메소드 매개변수로 받는다 | DI |
 
 슬라이드의 V2 예시도 팩토리와 데코레이터를 썼다. 다만 예시의 CoffeeFactory는 switch문이라 메뉴가 늘면 Factory를 고쳐야 했다. [디자인 패턴 글]({{ site.baseurl }}{% post_url java-programming-2/2026-10-07-design-pattern-basics %})을 정리하면서 이게 걸려서, V2에서는 레시피를 밖에서 등록받는 방식으로 바꿨다. 교수님께서도 노션 코드는 "솔루션 중 하나"일 뿐이라고 하셨다.
 
@@ -93,7 +93,7 @@ After는 V2다.
 
 ![V2 클래스 다이어그램]({{ '/assets/images/java-programming-2/coffee2-after-uml.png' | relative_url }})
 
-클래스는 9개에서 23개로 늘었다. 대신 화살표 방향이 정리됐다. Manager는 Menu, CoffeeFactory, CoffeeMaker와 Payment 인터페이스만 알고, 음료 쪽은 모두 Coffee 인터페이스로 모인다. 구체 클래스끼리 직접 연결된 곳은 머신과 거품기를 쓰는 부분 정도다.
+다이어그램 기준으로(인터페이스 포함, 테스트 제외) 9개에서 23개로 늘었다. 대신 화살표 방향이 정리됐다. Manager는 Order, Menu, CoffeeFactory, CoffeeMaker와 Payment 인터페이스만 알고, 음료 쪽은 모두 Coffee 인터페이스로 모인다. 구체 클래스에 직접 기대는 곳은 Manager가 쓰는 Menu, CoffeeFactory, CoffeeMaker와 Latte의 MilkFrother 정도다. 이 넷은 아직 인터페이스로 빼지 않았다.
 
 ## 3. Before / After 핵심 코드
 
@@ -237,7 +237,7 @@ public class CoffeeFactory {
 }
 ```
 
-`Supplier<Coffee>`는 "부르면 커피를 하나 만들어주는 것", `UnaryOperator<Coffee>`는 "커피를 받아서 커피를 돌려주는 것"이다. 둘 다 메소드 하나짜리 함수형 인터페이스라 [람다식]({{ site.baseurl }}{% post_url java-programming-2/2026-09-11-lambda-expression %})으로 등록할 수 있다. 특히 `UnaryOperator<Coffee>`는 "커피를 받아 커피를 돌려준다"는 점에서 데코레이터 자체를 함수로 표현한 것과 같다. [클린코드 글]({{ site.baseurl }}{% post_url java-programming-2/2026-10-02-clean-code-refactoring %})의 "if문 줄이기 3단계: Map에 동작 등록하기"를 팩토리에 적용했다.
+`Supplier<Coffee>`는 "부르면 커피를 하나 만들어주는 것", `UnaryOperator<Coffee>`는 "커피를 받아서 커피를 돌려주는 것"이다. 둘 다 추상 메소드가 하나뿐인 함수형 인터페이스라 [람다식]({{ site.baseurl }}{% post_url java-programming-2/2026-09-11-lambda-expression %})으로 등록할 수 있다. 특히 `UnaryOperator<Coffee>`는 "커피를 받아 커피를 돌려준다"는 점에서 데코레이터 자체를 함수로 표현한 것과 같다. [클린코드 글]({{ site.baseurl }}{% post_url java-programming-2/2026-10-02-clean-code-refactoring %})의 "if문 줄이기 3단계: Map에 동작 등록하기"를 팩토리에 적용했다.
 
 ### CoffeeMaker와 Manager: setter 대신 생성자(③)
 
@@ -287,7 +287,7 @@ public class Manager {
 
 CoffeeMaker는 이제 커피를 필드로 들고 있지 않고, 만들 커피를 매번 매개변수로 받는다. 그러니 "커피를 안 넣고 만들기"가 아예 불가능하다. Manager가 쓰는 세 객체는 `final`로 생성자에서만 받는다. Manager는 결제 수단이 카드인지 현금인지 모르고 `pay()`만 부른다.
 
-결제는 전략 패턴이다. Payment 인터페이스에 `boolean pay(int amount)` 하나만 두고, 현금은 낸 돈이 모자라면 실패하고 거스름돈을 주고, 포인트는 잔액이 줄어드는 식으로 각자 구현했다. 결제에 실패하면 커피를 만들지 않도록 성공 여부를 돌려받게 했다.
+결제는 전략 패턴이다. Payment 인터페이스에 `boolean pay(int amount)` 하나만 두고, 현금은 낸 돈이 모자라면 실패하고 남으면 거스름돈을 주고, 포인트는 쓸 때마다 잔액이 줄어드는 식으로 각자 구현했다. 결제에 실패하면 커피를 만들지 않도록 성공 여부를 돌려받게 했다.
 
 ## 4. V2 실행
 
@@ -363,15 +363,15 @@ manager.takeOrder(new Order("Latte", "샷추가"), new PointPayment(3000));
 
 ![커피메이커 V2 실행 결과]({{ '/assets/images/java-programming-2/coffee2-run.png' | relative_url }})
 
-예상대로였다. V1처럼 출력이 뒤섞이는 일도 없다. 출력은 Manager와 CoffeeMaker, 그리고 결제 클래스에서 각자 한 줄씩만 하기 때문이다.
+예상대로였다. V1처럼 출력이 뒤섞이는 일도 없다. Coffee 쪽에서는 아무것도 출력하지 않고, Manager, 결제 클래스, CoffeeMaker가 순서대로 자기 줄만 찍기 때문이다. 결제 클래스의 `pay()`는 아직 출력과 성공 여부 반환을 같이 하고 있어서, 다음에 손본다면 여기다.
 
-예상과 조금 달랐던 건 레시피 순서였다. "샷추가, 바닐라, 얼음" 라떼의 레시피를 보면 우유 거품 다음에 추가 샷이 들어간다. 실제 카페라면 샷을 먼저 넣고 우유를 부을 텐데, 데코레이터는 감싼 순서 그대로 쌓인다. 라떼가 먼저 만들어지고 그 위에 샷을 감쌌으니 당연한 결과다. [디자인 패턴 글]({{ site.baseurl }}{% post_url java-programming-2/2026-10-07-design-pattern-basics %})에 데코레이터의 단점으로 적은 "순서에 따라 결과가 달라진다"를 직접 본 셈이다. 순서가 정말 중요해지면 Factory가 옵션 순서를 정리해서 감싸면 된다.
+예상대로 나오긴 했는데, 막상 결과를 보니 레시피 순서가 어색했다. "샷추가, 바닐라, 얼음" 라떼의 레시피를 보면 우유 거품 다음에 추가 샷이 들어간다. 실제 카페라면 샷을 먼저 넣고 우유를 부을 텐데, 데코레이터는 감싼 순서 그대로 쌓인다. 라떼가 먼저 만들어지고 그 위에 샷을 감쌌으니 당연한 결과다. [디자인 패턴 글]({{ site.baseurl }}{% post_url java-programming-2/2026-10-07-design-pattern-basics %})에 데코레이터의 단점으로 적은 "순서에 따라 결과가 달라진다"를 직접 본 셈이다. 순서가 정말 중요해지면 Factory가 옵션 순서를 정리해서 감싸면 된다.
 
 VanillaLatte는 새 클래스 없이 `Syrup(Latte(Espresso))`를 조합하고 NamedCoffee로 이름만 붙였는데, 거기에 얼음 옵션을 또 감싸도 잘 동작했다. 시그니처 메뉴도 결국 커피라 옵션을 얹을 수 있다.
 
 ### 실습 후기
 
-- V1의 문제 ①~⑥이 다 해결됐다. 특히 ⑤ 클래스 폭발이 사라진 게 컸다. 샷, 바닐라, 얼음 세 클래스로 조합 8가지(2의 3제곱)를 다 만들 수 있다.
+- V1에서 적어둔 ①~⑥은 일단 다 손을 댔다. 특히 ⑤ 클래스 폭발이 사라진 게 컸다. 샷, 바닐라, 얼음 세 클래스로 조합 8가지(2의 3제곱)를 다 만들 수 있다.
 - 결제 실패 시 커피를 안 만드는 흐름을 넣으면서, Manager가 "순서를 지휘하는 역할"이라는 게 실감 났다. 결제 방식이 뭐든 Manager의 흐름은 똑같다.
 
 ## 5. OCP 검증: 기존 코드를 안 고치고 확장하기
@@ -472,7 +472,7 @@ public class CafeExtensionTest {
 
 ![OCP 검증 실행 결과]({{ '/assets/images/java-programming-2/coffee2-extension.png' | relative_url }})
 
-예상대로 세 주문이 다 됐다. 처음 V2 테스트에서 "휘핑 옵션은 없습니다"로 거절됐던 주문이, 파일 하나 추가하고 등록 한 줄을 넣자 바로 됐다. 바뀐 파일을 정리하면 이렇다.
+예상대로 세 주문이 다 됐다. 처음 V2 테스트에서 "휘핑 옵션은 없습니다"로 거절됐던 주문이, 파일 하나 추가하고 등록 두 줄(레시피와 가격)을 넣자 바로 됐다. 바뀐 파일을 정리하면 이렇다.
 
 | 요구사항 | 새로 만든 것 | 고친 기존 파일 |
 | --- | --- | --- |
@@ -486,7 +486,7 @@ Manager, CoffeeFactory, Menu, Coffee 쪽 어느 파일도 열지 않았다. V1�
 
 ![AmaterasUML로 그린 확장 후 coffee2 패키지]({{ '/assets/images/java-programming-2/coffee2-amateras.png' | relative_url }})
 
-WhippedCream은 CoffeeDecorator 아래에, CouponPayment는 Payment 아래에 붙었다. 2절의 After 그림과 비교하면 새 상자 두 개가 인터페이스 쪽에 매달렸을 뿐이고, Manager, CoffeeFactory, Menu로 가는 선은 그대로다. CouponPayment에서 Payment로 가는 선이 두 개(구현, 그리고 품고 있음)인 것도 보인다.
+WhippedCream은 CoffeeDecorator 아래에, CouponPayment는 Payment 아래에 붙었다. 2절의 After 그림과 비교하면 새 상자 두 개가 CoffeeDecorator와 Payment 밑에 매달렸을 뿐이고(테스트 클래스 둘은 따로 떠 있다), Manager, CoffeeFactory, Menu로 가는 선은 그대로다. CouponPayment와 Payment 사이의 선은 하나로 겹쳐 보이는데, 위쪽 끝은 삼각형(구현), 아래쪽 끝은 마름모(품고 있음)다.
 
 CouponPayment를 만들다가 재밌는 걸 발견했다. 쿠폰은 Payment를 구현하면서 다른 Payment를 품고 있다. 커피에서 쓴 데코레이터와 똑같은 모양이 결제 쪽에도 생긴 것이다. 그래서 "쿠폰 + 현금", "쿠폰 + 카드"처럼 조합이 자유롭다. 쿠폰 두 장을 겹쳐 쓰는 것도 `new CouponPayment(1000, new CouponPayment(500, new CardPayment()))`로 가능하다. 패턴을 한 번 이해하니 다른 곳에서도 같은 모양이 보였다.
 
@@ -497,7 +497,7 @@ CouponPayment를 만들다가 재밌는 걸 발견했다. 쿠폰은 Payment를 �
 
 ## 마치며
 
-V1에서 V2로 오면서 클래스가 9개에서 23개로 늘었다. [클린코드 글]({{ site.baseurl }}{% post_url java-programming-2/2026-10-02-clean-code-refactoring %})에서 정리한 오버 엔지니어링이 계속 마음에 걸렸다. 커피 세 잔만 만드는 거라면 V1으로 충분하다. 그런데 이번처럼 옵션, 시그니처 메뉴, 결제 방식이 계속 늘어나는 카페라면 이야기가 다르다. 실제로 확장 요구사항 세 개를 붙일 때 기존 파일을 한 번도 안 열었다. 현업 판단 기준에서 본 "정책이 수시로 바뀌는 비즈니스 코어는 유연하게"가 이런 경우였다.
+V1에서 V2로 오면서 클래스가 9개에서 23개로 늘었다. [클린코드 글]({{ site.baseurl }}{% post_url java-programming-2/2026-10-02-clean-code-refactoring %})에서 정리한 오버 엔지니어링이 계속 마음에 걸렸다. 커피 세 잔만 만드는 거라면 V1으로 충분하다. 그런데 이번처럼 옵션, 시그니처 메뉴, 결제 방식이 계속 늘어나는 카페라면 이야기가 다르다. 실제로 확장 요구사항 세 개를 붙일 때 기존 파일을 한 번도 안 열었다. 클린코드 글에 적어둔 "정책이 수시로 바뀌는 핵심 로직은 패턴과 추상화로"가 이런 경우였다.
 
 알게 된 점과 느낀 점을 정리하면 이렇다.
 
@@ -506,6 +506,6 @@ V1에서 V2로 오면서 클래스가 9개에서 23개로 늘었다. [클린코�
 - 패턴끼리 섞인다. CoffeeDecorator는 템플릿 메소드의 모양을 빌렸고, 쿠폰 결제는 전략이면서 데코레이터 모양이다
 - 데코레이터의 순서 문제처럼, 패턴에도 비용이 있다. 장점만 보고 쓰면 안 된다
 - 내 CoffeeFactory에도 대가가 있다. 수업의 switch 공장은 모르는 이름이 오면 `default`로 에스프레소를 돌려주는데, 등록 방식인 내 공장은 등록 안 된 이름으로 `create()`를 직접 부르면 NullPointerException이 난다. 지금은 Manager가 Menu로 먼저 걸러줘서 문제가 안 되지만, Menu에는 넣고 Factory 등록을 빠뜨리면 터진다. 가격표와 레시피 등록이 따로라서 생기는 약점이다
-- 네이밍이 설계를 드러낸다. 교수님 힌트대로 Americano가 받는 것의 이름(espressoMachine)과 실제 타입(CoffeeMachine)이 어긋난 곳이 설계 문제의 신호였다
+- 네이밍이 설계를 드러낸다. 교수님 힌트가 네이밍이었는데, 내가 찾은 곳은 Americano였다. 받는 것의 이름(espressoMachine)과 실제 타입(CoffeeMachine)이 어긋난 곳이 설계 문제의 신호였다
 
-다음 주에는 전략 패턴과 템플릿 메소드를 직접 구현하는 실습을 한다. 이번에 V2를 만들면서 결제(전략)와 CoffeeDecorator(템플릿 메소드와 닮은 구조)에서 두 패턴을 이미 조금씩 맛봤으니, 실습에서 제대로 비교해볼 생각이다.
+7주차에는 전략 패턴과 템플릿 메소드를 직접 구현하는 실습을 한다. 이번에 V2를 만들면서 결제(전략)와 CoffeeDecorator(템플릿 메소드와 닮은 구조)에서 두 패턴을 이미 조금씩 맛봤으니, 실습에서 제대로 비교해볼 생각이다.
