@@ -17,7 +17,7 @@ toc_sticky: true
 
 3주차 [제네릭과 컬렉션 퀴즈]({{ site.baseurl }}{% post_url java-programming-2/2026-09-20-generic-collection-quiz %})에 이어 4주차 Thread 범위로 퀴즈를 만들었다. 실습하다가 헷갈렸거나 직접 돌려보고 놀랐던 것들을 문제로 바꿨다. 이번에도 괄호 채우기 대신 실행 결과 예측, 에러 이유, 고치는 방법을 묻는 문제로 만들었다.
 
-Thread 문제는 실행할 때마다 결과가 바뀌어서 "실행 결과를 예측하라"고 내기가 까다로웠다. 그래서 순서가 아니라 **걸린 시간**, **멈추는지 안 멈추는지**, **최종 값**처럼 매번(Quiz #4의 잔액은 거의 매번) 같은 답이 나오는 것을 묻도록 만들었다. 문제 코드는 `JAVA2` 프로젝트 `quiz` 패키지에 넣고 전부 실제로 실행해서 확인했다.
+Thread 문제는 실행할 때마다 결과가 바뀌어서 "실행 결과를 예측하라"고 내기가 까다로웠다. 그래서 순서가 아니라 걸린 시간, 멈추는지 안 멈추는지, 최종 값처럼 매번(Quiz #4의 잔액은 거의 매번) 같은 답이 나오는 것을 묻도록 만들었다. 문제 코드는 `JAVA2` 프로젝트 `quiz` 패키지에 넣고 전부 실제로 실행해서 확인했다.
 
 이론은 [Thread 상태제어와 동기화]({{ site.baseurl }}{% post_url java-programming-2/2026-09-30-thread-sync-control %}), 실습은 [실습#3+]({{ site.baseurl }}{% post_url java-programming-2/2026-10-01-week4-assignment2 %})에 있다.
 
@@ -95,7 +95,7 @@ public static void main(String[] args) throws InterruptedException {
 
 ### 출제 의도
 
-Lab#7을 하면서 join 세 줄의 순서가 상관없다는 건 알았는데, join을 **언제** 부르느냐는 생각을 안 해봤다. join은 "여기서 기다린다"는 뜻이라서 위치에 따라 병렬이 순차로 바뀐다. 아기돼지로 치면 엄마가 첫째를 내보내고 돌아올 때까지 문 앞에서 기다렸다가 둘째를 내보내는 셈이다. 실제로 반복문 안에서 start와 join을 같이 쓰는 실수를 하기 쉬울 것 같아서 냈다.
+Lab#7을 하면서 join 세 줄의 순서가 상관없다는 건 알았는데, join을 언제 부르느냐는 생각을 안 해봤다. join은 "여기서 기다린다"는 뜻이라서 위치에 따라 병렬이 순차로 바뀐다. 아기돼지로 치면 엄마가 첫째를 내보내고 돌아올 때까지 문 앞에서 기다렸다가 둘째를 내보내는 셈이다. 실제로 반복문 안에서 start와 join을 같이 쓰는 실수를 하기 쉬울 것 같아서 냈다.
 
 ## Quiz #2: 멈추라고 했는데 왜 안 멈출까
 
@@ -130,7 +130,7 @@ car.interrupt();
 
 **8km**에서 종료된다. "고장 신호 받음!"은 찍히는데 그 뒤로도 계속 달리다가 안전장치(`km == 8`)에 걸려서야 끝난다.
 
-1초면 300ms씩 세 번 자고 네 번째 sleep 중일 때다. 그래서 4km를 찍고 자다가 신호를 받는다. 여기까지는 의도대로다. 문제는 `sleep()`이 `InterruptedException`을 던지면서 **interrupt 신호를 지운다**는 것이다. catch에서 메시지만 찍고 넘어가니 while 조건에서 `isInterrupted()`를 다시 검사해도 false다. 안전장치가 없었다면 영원히 달렸을 거다.
+1초면 300ms씩 세 번 자고 네 번째 sleep 중일 때다. 그래서 4km를 찍고 자다가 신호를 받는다. 여기까지는 의도대로다. 문제는 `sleep()`이 `InterruptedException`을 던지면서 interrupt 신호를 지운다는 것이다. catch에서 메시지만 찍고 넘어가니 while 조건에서 `isInterrupted()`를 다시 검사해도 false다. 안전장치가 없었다면 영원히 달렸을 거다.
 
 고치는 방법은 이렇다.
 
@@ -154,7 +154,7 @@ car.interrupt();
 
 ### 출제 의도
 
-Lab#4에서 "catch에서 return을 안 하면?"을 실험하다가 신호 상태가 false로 찍히는 걸 보고 놀랐다. interrupt는 강제 종료가 아니라 신호라서, 받는 쪽이 처리를 안 하면 그냥 사라진다. `catch (InterruptedException e) { e.printStackTrace(); }`로 대충 넘기는 습관이 Thread에서는 "안 멈추는 Thread"라는 버그가 된다.
+Lab#4에서 "catch에서 return을 안 하면?"을 실험하다가 신호 상태가 false로 찍히는 걸 보고 놀랐다. interrupt는 강제 종료가 아니라 신호라서, 받는 쪽이 처리를 안 하면 그냥 사라진다. `catch (InterruptedException e) { e.printStackTrace(); }`로 대충 넘기면 Thread에서는 그게 바로 "안 멈추는 Thread"가 된다.
 
 ## Quiz #3: 잠에서 못 깨는 공주
 
@@ -193,7 +193,7 @@ error: unreported exception InterruptedException; must be caught or declared to 
 
 ![Quiz #3 실행 결과]({{ '/assets/images/java-programming-2/t4-quiz3-result.png' | relative_url }})
 
-`IllegalMonitorStateException: current thread is not owner`. 지금 Thread가 castle의 주인(lock을 가진 Thread)이 아니라는 뜻이다. `wait()`는 "이 객체의 lock을 **내려놓고** 기다린다"는 메소드라서, 내려놓을 lock을 먼저 쥐고 있어야 한다. 화장실 열쇠를 반납하려면 먼저 열쇠를 받아야 하는 것처럼. 그래서 `synchronized (castle)` 안에서만 부를 수 있다. 이 에러는 컴파일러가 못 잡고 실행해봐야 안다는 점이 무섭다.
+`IllegalMonitorStateException: current thread is not owner`. 지금 Thread가 castle의 주인(lock을 가진 Thread)이 아니라는 뜻이다. `wait()`는 "이 객체의 lock을 내려놓고 기다린다"는 메소드라서, 내려놓을 lock을 먼저 쥐고 있어야 한다. 화장실 열쇠를 반납하려면 먼저 열쇠를 받아야 하는 것처럼. 그래서 `synchronized (castle)` 안에서만 부를 수 있다. 이 에러는 컴파일러가 못 잡고 실행해봐야 안다는 점이 무섭다.
 
 **3.** 공주와 왕자가 같은 castle의 lock을 쓰게 한다.
 
@@ -280,7 +280,7 @@ public static void main(String[] args) throws InterruptedException {
 
 다만 최종 잔액이 항상 -1000원인 것은 아니다. 40번 돌려보니 둘 다 성공한 것은 40번 모두였지만, 잔액은 38번이 -1000원이고 2번은 0원이었다. `balance -= amount`도 읽기, 빼기, 쓰기 세 단계라서, 두 Thread가 같은 값(1000)을 읽고 각자 0을 쓰면 빼기 한 번이 사라지기 때문이다. 그러니 이 문제에서 매번 같은 것은 "둘 다 성공한다"이고, 잔액은 "대부분 -1000원, 드물게 0원"이다.
 
-짱구가 잔액을 확인하고(1000원, 충분) 100ms 쉬는 동안, 짱아도 잔액을 확인한다. 아직 짱구가 안 뺐으니 짱아가 봐도 1000원이다. 둘 다 "충분하네"를 보고 들어가서 각자 뺀다. **확인(check)과 실행(act) 사이에 틈**이 있어서 생기는 문제라 check-then-act 경쟁 조건이라고 부른다. sleep은 그 틈을 눈에 보이게 벌려놓은 것뿐이고, sleep이 없어도 타이밍이 맞으면 똑같이 일어난다.
+짱구가 잔액을 확인하고(1000원, 충분) 100ms 쉬는 동안, 짱아도 잔액을 확인한다. 아직 짱구가 안 뺐으니 짱아가 봐도 1000원이다. 둘 다 "충분하네"를 보고 들어가서 각자 뺀다. 확인(check)과 실행(act) 사이에 틈이 있어서 생기는 문제라 check-then-act 경쟁 조건이라고 부른다. sleep은 그 틈을 눈에 보이게 벌려놓은 것뿐이고, sleep이 없어도 타이밍이 맞으면 똑같이 일어난다.
 
 고치려면 확인과 빼기를 하나로 묶어서, 한 사람이 끝날 때까지 다른 사람이 못 들어오게 해야 한다.
 
@@ -314,4 +314,4 @@ Lab#6 슬라이드에 "잔고를 확인하는 조건 + synchronized 키워드를
 
 ## 만들면서 느낀 점
 
-Thread 문제는 정답이 하나로 안 나와서 출제가 어려웠다. 출력 순서를 물으면 매번 달라지니까 문제가 안 된다. 그래서 "순서는 몰라도 확실한 것"을 찾아야 했는데, 생각해보면 MultiThread 코드를 짤 때도 "어떤 순서로 돌든 이건 보장된다"를 먼저 따져야 하니까 같은 연습이었다.
+Thread 문제는 정답이 하나로 안 나와서 출제가 어려웠다. 출력 순서를 물으면 매번 달라지니까 문제가 안 된다. 그래서 "순서는 몰라도 확실한 것"을 찾아야 했다. Quiz #4도 40번을 돌려보니 2번은 잔액이 0원이라, 답을 "대부분 -1000원"으로 적을 수밖에 없었다.

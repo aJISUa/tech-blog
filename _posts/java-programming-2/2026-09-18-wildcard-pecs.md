@@ -80,7 +80,7 @@ public static void print(List<Fruit> basket) {
 print(appleBasket);   // 에러! List<Apple>은 List<Fruit>가 아니니까
 ```
 
-사과 바구니든 배 바구니든 과일 바구니면 다 출력해주고 싶은데, 과일을 꺼내서 보여주기만 하는 메소드에 사과 바구니조차 못 넘긴다. 이 유연성의 한계를 풀려고 나온 게 와일드카드다. 자바가 추론할 수 있는 데까지 추론하고, 허용할 수 있는 데까지만 허용하려고 위쪽 경계(extends)랑 아래쪽 경계(super)를 쓴다.
+사과 바구니든 배 바구니든 과일 바구니면 다 출력해주고 싶은데, 과일을 꺼내서 보여주기만 하는 메소드에 사과 바구니조차 못 넘긴다. 이 불편함을 풀려고 나온 게 와일드카드다. 자바가 추론할 수 있는 데까지 추론하고, 허용할 수 있는 데까지만 허용하려고 위쪽 경계(extends)랑 아래쪽 경계(super)를 쓴다.
 
 ## 와일드카드 `?`의 세 가지 모양
 
@@ -153,7 +153,7 @@ Integer num = list.get(0);        // 에러! 꺼낸 값이 Integer라는 보장�
 Object obj = list.get(0);         // 오직 Object로만 받을 수 있다
 ```
 
-이번엔 반대다. Integer의 조상 리스트라는 건 확실하니까 Integer는 어느 쪽이든 넣을 수 있다. 그런데 꺼낼 때는 이게 Integer 리스트인지 Number 리스트인지 Object 리스트인지 모르니까 Object로밖에 못 받는다. 그래서 읽기에는 활용도가 매우 떨어진다.
+이번엔 반대다. Integer의 조상 리스트라는 건 확실하니까 Integer는 어느 쪽이든 넣을 수 있다. 그런데 꺼낼 때는 이게 Integer 리스트인지 Number 리스트인지 Object 리스트인지 모르니까 Object로밖에 못 받는다. 그래서 꺼내 쓰는 데는 별로 쓸모가 없다.
 
 ### 과일 바구니에 적용하면
 
@@ -184,7 +184,7 @@ appleBasket.add(new Apple());
 printFruits(appleBasket);            // 이제 된다
 ```
 
-`printFruits` 안에서 `(Fruit)`나 `(Apple)`로 위험하게 형변환할 필요가 없다. `?` 자리에 뭐가 들어왔는지는 몰라도 최소한 Fruit이거나 Fruit의 자식이니까 Fruit로 업캐스팅해서 받으면 된다. `addFruits`에서 사과랑 배를 넣을 때도 알아서 업캐스팅된다. 조회용 메소드에는 `? extends`, 추가용 메소드에는 `? super`를 걸면 된다.
+`printFruits` 안에서 `(Fruit)`나 `(Apple)`로 위험하게 형변환할 필요가 없다. `?` 자리에 뭐가 들어왔는지는 몰라도 최소한 Fruit이거나 Fruit의 자식이니까 Fruit로 업캐스팅해서 받으면 된다. `addFruits`에서 사과랑 배를 넣을 때도 알아서 업캐스팅된다.
 
 ## PECS 원칙
 
@@ -201,7 +201,7 @@ printFruits(appleBasket);            // 이제 된다
 | 쓰기(add) | 불가능 (null만 가능) | T 타입 데이터 쓰기 가능 |
 | 입장 | 만들어둔 걸 꺼내 쓰는 쪽 | 값을 받아서 담는 쪽 |
 
-교수님께서는 더 외우기 쉽게 **PEG_CSA**라고 외우라고 하셨다. Producer는 Extends로 Get, Consumer는 Super로 Add.
+교수님께서는 더 외우기 쉽게 PEG_CSA라고 외우라고 하셨다. Producer는 Extends로 Get, Consumer는 Super로 Add.
 
 용어가 좀 헷갈렸는데, "리스트 입장에서" 생각하니까 이해가 됐다. `? extends` 리스트는 나한테 데이터를 생산해서 주는 쪽이라 꺼내기만 하고, `? super` 리스트는 내가 주는 데이터를 소비하는 쪽이라 넣기만 한다.
 
@@ -303,7 +303,7 @@ RefrigeratorExample.<Fruit>moveItems(appleBox, fruitBasket);   // T를 Fruit로 
 
 내가 쓰는 JDK에서는 T가 Apple로 추론됐다. 황금사과 복사에서도 GoldenApple로 추론됐다. 그런데 T를 Fruit로 직접 정해줘도 컴파일이 된다. 조건이 "Apple ≤ T ≤ Fruit"이라서 그 사이에 있는 타입이면 다 맞고, 따로 정해주지 않으면 컴파일러가 제일 구체적인 쪽(src 쪽)을 고르는 것 같다.
 
-그래서 노션처럼 T를 Fruit로 놓고 설명해도 틀린 건 아니라고 이해했다. 중요한 건 T가 딱 하나로 정해지는 게 아니라 "src 요소 타입보다 위, dest 요소 타입보다 아래"라는 범위만 맞으면 된다는 점이다. 이 부분은 교수님께 한번 여쭤보려고 한다.
+그래서 노션처럼 T를 Fruit로 놓고 설명해도 틀린 건 아니라고 이해했다. T가 꼭 하나로 정해지는 건 아니고, "src 요소 타입보다 위, dest 요소 타입보다 아래"라는 범위만 맞으면 된다. 이 부분은 교수님께 한번 여쭤보려고 한다.
 
 ### 헤더만 써보기: moveBasket
 

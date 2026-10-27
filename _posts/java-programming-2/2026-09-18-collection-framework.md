@@ -22,7 +22,7 @@ toc_sticky: true
 
 > 제네릭을 이해하자가 아니라, 제네릭으로 구현한 컬렉션을 잘 쓰자.
 
-"욕심을 버렸더니 마음이 편안하다"고 하셨다. 핵심은 List, Set, Map 잘 쓰기다.
+"욕심을 버렸더니 마음이 편안하다"고 하셨다. 그러니까 List, Set, Map만 잘 쓰면 된다.
 
 ## 컬렉션은 왜 쓰나
 
@@ -139,7 +139,7 @@ List<String> list = new ArrayList<>(Arrays.asList(ar));   // 공지 예제는 �
 List<String> list = new LinkedList<>();   // 바뀌는 건 여기뿐
 ```
 
-양방향 포인터로 앞뒤를 체인처럼 연결한 리스트다. 넣거나 지울 자리를 이미 잡고 있으면 앞뒤 링크만 바꾸면 된다. 그래서 맨 앞이나 맨 뒤에서 넣고 빼는 일이 많으면 ArrayList보다 빠르다. 다만 인덱스로 중간 자리를 찾아갈 때는 처음부터 따라가야 해서, 삽입과 삭제가 많다고 무조건 ArrayList보다 빠른 건 아니다. List랑 Queue를 둘 다 구현해서 스택, 큐로도 쓸 수 있다.
+양방향 포인터로 앞뒤를 체인처럼 연결한 리스트다. 넣거나 지울 자리를 이미 잡고 있으면 앞뒤 링크만 바꾸면 된다. 그래서 맨 앞에서 넣고 빼는 일이 많으면 ArrayList보다 빠르다. 맨 뒤에서 넣고 빼는 건 ArrayList도 빠르다. 다만 인덱스로 중간 자리를 찾아갈 때는 처음부터 따라가야 해서, 삽입과 삭제가 많다고 무조건 ArrayList보다 빠른 건 아니다. List랑 Queue를 둘 다 구현해서 스택, 큐로도 쓸 수 있다.
 
 코드는 생성하는 부분만 다르고 나머지는 똑같다. List 인터페이스로 접근하니까.
 
@@ -156,7 +156,7 @@ Vector는 ArrayList랑 거의 같은데 메소드가 `synchronized`로 동기화
 
 동기화가 돼 있으면 좋을 것 같은데, 제대로 안 쓰면 오히려 시스템에 해가 되는 경우가 많이 보고돼서 쓰지 말라고 한다. SingleThread에서는 쓸데없이 느리기만 하다. 대신 `Collections.synchronizedList(list)`처럼 동기화를 따로 걸어서 쓴다. Thread는 나중에 다룬다고 하셨다.
 
-C++의 vector는 지금도 쓴다. 자바의 Vector는 옛날 동기화 방식 때문에 안 쓰는 것이고, C++의 vector처럼 쓰는 가변 배열은 자바에서는 ArrayList다.
+C++의 vector는 지금도 쓴다. 자바의 Vector는 옛날 동기화 방식 때문에 안 쓰는 거고, C++ vector 같은 가변 배열이 필요하면 자바에서는 ArrayList를 쓰면 된다.
 
 ## 반복하는 방법들
 
@@ -313,7 +313,7 @@ Arrays.asList로 `85.5, 90.0, 78.5, null`을 넣으면 null이 들어갈까? 들
 ## 정리
 
 - 컬렉션은 제네릭으로 만든 자바 표준 자료구조다. 인터페이스로 참조하고 구현 클래스로 생성한다
-- List는 순서 O, 중복 O, 인덱스 O. 보통 ArrayList, 맨 앞뒤에서 삽입/삭제가 잦으면 LinkedList
+- List는 순서 O, 중복 O, 인덱스 O. 보통 ArrayList, 맨 앞에서 삽입/삭제가 잦으면 LinkedList
 - Set은 중복 X, 인덱스 X. 기본인 HashSet은 순서도 보장하지 않는다. 순서가 필요하면 LinkedHashSet, 정렬이 필요하면 TreeSet
 - Map은 키-값 쌍. 키 중복 X, 값 중복 O. Collection의 자식은 아니지만 keySet, values, entrySet으로 가져온다
 - Vector, Stack, Hashtable은 옛날 것이라 새 코드에서는 안 쓴다. Properties는 설정 파일을 읽을 때만 쓴다

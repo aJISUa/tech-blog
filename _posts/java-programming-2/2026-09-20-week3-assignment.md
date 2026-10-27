@@ -59,7 +59,7 @@ public class ArrayList {      // 내가 만든 클래스 이름도 ArrayList
 
 import 줄과 `new ArrayList<>()`가 있는 9번 줄에 바로 빨간 줄이 생겼다. `java.util.ArrayList`를 가져오겠다고 했는데 이 파일 안에 이미 `ArrayList`라는 클래스(내가 만든 것)가 있으니까, 컴파일러 입장에서는 `ArrayList`가 둘 중 뭔지 알 수가 없다. javac로 따로 컴파일해보니까 `ArrayList is already defined in this compilation unit`이라고 나왔다.
 
-import를 지워도 문제다. 그러면 `new ArrayList<>()`가 내가 만든 `generic.ArrayList`를 가리키는데, 이건 제네릭 클래스도 아니고 List를 구현하지도 않는다. 자바가 이미 쓰는 이름(ArrayList, List, String 같은)은 클래스 이름으로 쓰지 말아야 한다는 걸 이번에 확실히 알았다.
+import를 지워도 문제다. 그러면 `new ArrayList<>()`가 내가 만든 `generic.ArrayList`를 가리키는데, 이건 제네릭 클래스도 아니고 List를 구현하지도 않는다. 앞으로 자바가 이미 쓰는 이름(ArrayList, List, String 같은)은 클래스 이름으로 안 쓰려고 한다.
 
 ### (ArrayList) Arrays.asList(...)로 캐스팅했더니
 
@@ -631,11 +631,11 @@ seat은 null 키가 `"1번"`보다 먼저 나왔다. HashMap에서 null 키는 �
 
 ### 실습 후기
 
-- **제네릭:** `show` 하나에 `<E>`를 붙이니까 요소가 Integer든 Student든 전부 받는다. 타입마다 메소드를 따로 안 만들어도 된다.
-- **오버로딩:** Set, Map, List는 모양이 달라서 show를 세 개로 오버로딩했다. 대신 null처럼 셋 다 될 수 있는 값을 넘기면 모호해진다.
-- **다형성:** 인터페이스 타입 하나로 구현체를 갈아 끼웠다. 나중에 표 모양으로 출력하는 `TablePrinter`를 만들어도 테스트 코드는 `printers` 배열에 하나만 추가하면 된다.
-- **파라미터 타입은 인터페이스로:** `ArrayList<E>` 대신 `List<E>`로 받으니까 LinkedList도, Arrays.asList도 다 들어왔다. 받는 쪽은 최대한 넓게 받는 게 좋다.
-- **default 메소드:** 두 구현체가 똑같이 쓰는 `text()`를 인터페이스에 default로 올려두니까 중복이 없어졌다.
+- `show` 하나에 `<E>`를 붙이니까 요소가 Integer든 Student든 전부 받는다. 타입마다 메소드를 따로 안 만들어도 된다.
+- Set, Map, List는 모양이 달라서 show를 세 개로 오버로딩했다. 대신 null처럼 셋 다 될 수 있는 값을 넘기면 모호해진다.
+- 인터페이스 타입 하나로 구현체를 갈아 끼웠다(다형성). 나중에 표 모양으로 출력하는 `TablePrinter`를 만들어도 테스트 코드는 `printers` 배열에 하나만 추가하면 된다.
+- `ArrayList<E>` 대신 `List<E>`로 받으니까 LinkedList도, Arrays.asList도 다 들어왔다. 파라미터 타입은 인터페이스로 받아두는 게 편하겠다.
+- 두 구현체가 똑같이 쓰는 `text()`를 인터페이스에 default로 올려두니까 중복이 없어졌다.
 - 궁금한 점: `show(List<E>)`와 `show(Set<E>)`를 합쳐서 `show(Collection<?> c)` 하나로 만들어도 될 것 같은데, 그러면 Set이랑 List 제목을 다르게 찍기가 어려워진다. 어느 쪽이 더 좋은 설계일까?
 
 ## 마치며

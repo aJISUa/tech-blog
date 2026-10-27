@@ -126,7 +126,7 @@ public class MilkFrother {
 }
 ```
 
-음료 쪽. 핵심은 어떤 머신을 쓸지 음료가 직접 `new`로 고르지 않는다는 점이다.
+음료 쪽. 여기서는 어떤 머신을 쓸지 음료가 직접 `new`로 고르지 않는다.
 
 ```java
 // 커피 메뉴의 역할. 데이터(이름, 가격)가 아니라 "스스로 준비할 줄 안다"는 기능만 약속한다
@@ -247,8 +247,8 @@ public class CoffeeMakerTest {
 이유를 따라가보니 Latte가 `espresso.prepare()`를 부르기 때문이었다. 순서는 이렇다.
 
 1. `System.out.println(latte.prepare())`에서 println은 괄호 안을 먼저 계산한다
-2. Latte의 `prepare()`가 "라떼 준비 : "를 **print로 바로** 출력한다
-3. 이어서 `espresso.prepare()`를 부르면 Espresso가 "에스프레소 준비 : "를 또 바로 출력하고, "Extracting espresso"를 **돌려준다**
+2. Latte의 `prepare()`가 "라떼 준비 : "를 print로 바로 출력한다
+3. 이어서 `espresso.prepare()`를 부르면 Espresso가 "에스프레소 준비 : "를 또 바로 출력하고, "Extracting espresso"를 돌려준다
 4. Latte가 받은 문자열에 " + Frothing milk"를 붙여서 돌려준다
 5. 그제야 println이 그 문자열을 출력한다
 
@@ -410,7 +410,7 @@ public class DiIocTest {
 
 ![DI, IoC 효과 테스트 실행 결과]({{ '/assets/images/java-programming-2/coffee1-diioc.png' | relative_url }})
 
-1번이 예상과 달랐다. 컴파일 에러 없이 드립 커피에 물을 탄 아메리카노가 나왔다. 생각해보니 당연했다. `espressoMachine`은 그냥 변수 이름이고, 타입은 `CoffeeMachine`이다. Americano가 약속받은 건 "`brew()`를 할 줄 아는 무언가"뿐이라 드립 머신도 자격이 된다. DI 덕분에 바꿔 끼우기는 자유로워졌지만, **올바르게 조립할 책임은 main으로 넘어갔다.** 이게 제어가 역전됐다는 말의 다른 면 같다. Americano가 스스로 고르던 걸 이제 조립하는 쪽이 고르니까, 조립하는 쪽이 실수하면 이상한 커피가 나온다. 막으려면 생성자 타입을 `EspressoMachine`으로 좁힐 수도 있지만, 그러면 구체 클래스에 의존하게 되어 DIP가 깨진다. 에스프레소 추출만 약속하는 인터페이스를 하나 더 두면 둘 다 지킬 수 있을 것 같은데, 그러면 파일이 또 늘어난다. 유연하게 열어둘지 안전하게 좁힐지는 결국 골라야 하는 문제였다.
+1번이 예상과 달랐다. 컴파일 에러 없이 드립 커피에 물을 탄 아메리카노가 나왔다. 생각해보니 당연했다. `espressoMachine`은 그냥 변수 이름이고, 타입은 `CoffeeMachine`이다. Americano가 약속받은 건 "`brew()`를 할 줄 아는 무언가"뿐이라 드립 머신도 자격이 된다. DI 덕분에 바꿔 끼우기는 자유로워졌지만, 올바르게 조립할 책임은 main으로 넘어갔다. 이게 제어가 역전됐다는 말의 다른 면 같다. Americano가 스스로 고르던 걸 이제 조립하는 쪽이 고르니까, 조립하는 쪽이 실수하면 이상한 커피가 나온다. 막으려면 생성자 타입을 `EspressoMachine`으로 좁힐 수도 있지만, 그러면 구체 클래스에 의존하게 되어 DIP가 깨진다. 에스프레소 추출만 약속하는 인터페이스를 하나 더 두면 둘 다 지킬 수 있을 것 같은데, 그러면 파일이 또 늘어난다.
 
 2번은 예상대로였다. 드립 커피와 핸드드립 기계를 추가하면서 기존 파일은 하나도 열지 않았다. CoffeeMaker도, DripCoffee도 그대로다. OCP를 "확장에는 파일 하나 붙이는 정도"라고 설명하신 게 이런 느낌이었다.
 
@@ -428,7 +428,7 @@ public class DiIocTest {
 
 Amateras도 기존 코드를 불러와 그릴 수 있고 저장하면 알아서 갱신되지만, 자동 배치는 교수님 말씀대로 좀 제멋대로라 상자를 손으로 잡아주게 된다. PlantUML은 코드를 읽어서 배치까지 균형 있게 해준다. 처음 설계할 때는 Amateras처럼 손으로 놓아보는 게 생각 정리에 좋고, 클래스가 많아진 뒤 한눈에 볼 때는 PlantUML이 편하다는 교수님 말씀이 두 그림을 나란히 놓으니 이해됐다.
 
-1번 설계 그림과 비교하면 DripCoffee는 Coffee를, HandDripper와 FakeMachine은 CoffeeMachine을 구현하는 선이 하나씩 늘었고, DripCoffee에서 CoffeeMachine으로 가는 선이 하나 생겼을 뿐이다. 원래 있던 화살표는 그대로다. SafeCoffeeMaker도 CoffeeMaker처럼 Coffee 하나만 가리킨다. 재밌는 건 모든 new를 하는 CoffeeMakerTest와 DiIocTest가 두 그림 모두에서 아무 선 없이 떨어져 있다는 거다. main 안에서 지역 변수로만 만들고 연결하니 필드 관계로 안 잡히는 것 같다. 조립을 제일 많이 하는 클래스가 그림에서는 제일 안 보인다.
+1번 설계 그림과 비교하면 DripCoffee는 Coffee를, HandDripper와 FakeMachine은 CoffeeMachine을 구현하는 선이 하나씩 늘었고, DripCoffee에서 CoffeeMachine으로 가는 선이 하나 생겼을 뿐이다. 원래 있던 화살표는 그대로다. SafeCoffeeMaker도 CoffeeMaker처럼 Coffee 하나만 가리킨다. 재밌는 건 모든 new를 하는 CoffeeMakerTest와 DiIocTest가 두 그림 모두에서 아무 선 없이 떨어져 있다는 거다. main 안에서 지역 변수로만 만들고 연결하니 필드 관계로 안 잡히는 것 같다. 조립을 다 하는 클래스가 정작 그림에는 안 나와서 좀 신기했다.
 
 ### 실습 후기
 
@@ -456,9 +456,9 @@ Amateras도 기존 코드를 불러와 그릴 수 있고 저장하면 알아서 
 
 CoffeeMaker는 `Coffee` 타입의 필드 하나만 갖고, `setCoffee()`로 들어온 객체를 거기 담는다. `makeCoffee()`는 그 필드에 `prepare()`를 요청할 뿐이다. 라떼가 들어오면 라떼가, 드립 커피가 들어오면 드립 커피가 자기 방식대로 만든다.
 
-교수님께서 앞으로 `.뭐뭐`를 "~에게 ~를 요청한다"로 읽으라고 하셨다. `coffee.prepare()`는 "커피에게 준비를 요청한다"다. 노션 주석에도 "makeCoffee를 보면 제어권이 커피메이커에 있는 듯하지만, 결국 coffee.prepare()를 호출하고 제어권은 커피 구현체로 넘어간다"고 되어 있다. CoffeeMaker가 주문을 의뢰하고 Coffee가 스스로 만든다는 게 이 구조에서의 IoC다.
+교수님께서 앞으로 `.뭐뭐`를 "~에게 ~를 요청한다"로 읽으라고 하셨다. `coffee.prepare()`는 "커피에게 준비를 요청한다"다. 노션 주석에도 "makeCoffee를 보면 제어권이 커피메이커에 있는 듯하지만, 결국 coffee.prepare()를 호출하고 제어권은 커피 구현체로 넘어간다"고 되어 있다. 이 구조에서는 CoffeeMaker가 주문을 의뢰하고 Coffee가 스스로 만드는 게 IoC다.
 
-setter 방식이라 메뉴를 바꾸기 쉽다는 장점이 있지만, 4번 실험에서 본 것처럼 안 부르면 null이 된다는 단점도 있다.
+setter 방식이라 메뉴는 쉽게 바꿀 수 있다. 대신 4번 실험에서 본 것처럼 안 부르면 null이다.
 
 ### main의 실행 흐름 따라가기
 
