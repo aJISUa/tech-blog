@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 428" width="660" height="428" role="img">
+  <title>메뉴 설계 단계와 UX 플래닝·UI 디자인 영역</title>
+  <style>
+    text { font-family: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; }
+    .h   { font-size: 14px; fill: #222; font-weight: 600; }
+    .ha  { font-size: 14px; fill: #2b5797; font-weight: 700; }
+    .t   { font-size: 13px; fill: #3a3a3a; }
+    .sm  { font-size: 12px; fill: #8a8a8a; }
+    .en  { font-size: 11px; fill: #8a8a8a; }
+    .box { fill: #ffffff; stroke: #d8d8d8; stroke-width: 1; }
+    .soft{ fill: #f7f7f5; stroke: #d8d8d8; stroke-width: 1; }
+    .bxa { fill: #eef3fb; stroke: #2b5797; stroke-width: 1.5; }
+    .dsh { fill: none; stroke: #b8b8b8; stroke-width: 1; stroke-dasharray: 4 3; }
+    .ln  { stroke: #b8b8b8; stroke-width: 1.2; fill: none; }
+    .lna { stroke: #2b5797; stroke-width: 1.6; fill: none; }
+    .nd  { fill: #2b5797; }
+  </style>
+  <rect x="0" y="0" width="660" height="428" fill="#ffffff"/>
+  <rect class="dsh" x="60" y="20" width="404" height="230" rx="8"/>
+  <rect class="dsh" x="196" y="156" width="404" height="226" rx="8"/>
+  <text class="h" x="76" y="96">UX 플래닝</text>
+  <text class="h" x="490" y="316">UI 디자인</text>
+  <rect class="box" x="210" y="30" width="240" height="34" rx="5"/>
+  <text class="t" x="330.0" y="52" text-anchor="middle">1. 사용자 요구 분석</text>
+  <path class="ln" d="M330.0 64 L330.0 74"/>
+  <rect class="box" x="210" y="74" width="240" height="34" rx="5"/>
+  <text class="t" x="330.0" y="96" text-anchor="middle">2. 기능과 서비스의 개발 및 선정</text>
+  <path class="ln" d="M330.0 108 L330.0 118"/>
+  <rect class="box" x="210" y="118" width="240" height="34" rx="5"/>
+  <text class="t" x="330.0" y="140" text-anchor="middle">3. 정보 구조 설계</text>
+  <path class="ln" d="M330.0 152 L330.0 162"/>
+  <rect class="bxa" x="210" y="162" width="240" height="34" rx="5"/>
+  <text class="ha" x="330.0" y="184" text-anchor="middle">4. 라벨링과 UX 라이팅</text>
+  <path class="ln" d="M330.0 196 L330.0 206"/>
+  <rect class="bxa" x="210" y="206" width="240" height="34" rx="5"/>
+  <text class="ha" x="330.0" y="228" text-anchor="middle">5. 내비게이션 규칙 설정</text>
+  <path class="ln" d="M330.0 240 L330.0 250"/>
+  <rect class="box" x="210" y="250" width="240" height="34" rx="5"/>
+  <text class="t" x="330.0" y="272" text-anchor="middle">6. UI 디자인</text>
+  <path class="ln" d="M330.0 284 L330.0 294"/>
+  <rect class="box" x="210" y="294" width="240" height="34" rx="5"/>
+  <text class="t" x="330.0" y="316" text-anchor="middle">7. 프로토타이핑과 테스트</text>
+  <path class="ln" d="M330.0 328 L330.0 338"/>
+  <rect class="box" x="210" y="338" width="240" height="34" rx="5"/>
+  <text class="t" x="330.0" y="360" text-anchor="middle">8. 최종 구현 및 모니터링</text>
+  <text class="sm" x="40" y="412">4·5단계는 UX 플래닝과 UI 디자인 영역에 모두 걸쳐 있다.</text>
+</svg>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 360" width="660" height="360" role="img">
+  <title>인터랙티브 시스템의 구성 요소</title>
+  <style>
+    text { font-family: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; }
+    .h   { font-size: 14px; fill: #222; font-weight: 600; }
+    .ha  { font-size: 14px; fill: #2b5797; font-weight: 700; }
+    .t   { font-size: 13px; fill: #3a3a3a; }
+    .sm  { font-size: 12px; fill: #8a8a8a; }
+    .en  { font-size: 11px; fill: #8a8a8a; }
+    .box { fill: #ffffff; stroke: #d8d8d8; stroke-width: 1; }
+    .soft{ fill: #f7f7f5; stroke: #d8d8d8; stroke-width: 1; }
+    .bxa { fill: #eef3fb; stroke: #2b5797; stroke-width: 1.5; }
+    .dsh { fill: none; stroke: #b8b8b8; stroke-width: 1; stroke-dasharray: 4 3; }
+    .ln  { stroke: #b8b8b8; stroke-width: 1.2; fill: none; }
+    .lna { stroke: #2b5797; stroke-width: 1.6; fill: none; }
+    .nd  { fill: #2b5797; }
+  </style>
+  <rect x="0" y="0" width="660" height="360" fill="#ffffff"/>
+  <rect class="soft" x="20" y="20" width="460" height="300" rx="8"/>
+  <rect class="box" x="40" y="44" width="130" height="252" rx="6"/>
+  <rect class="box" x="186" y="44" width="130" height="252" rx="6"/>
+  <rect class="box" x="332" y="44" width="130" height="252" rx="6"/>
+  <circle class="nd" cx="251" cy="70" r="6"/>
+  <rect x="54" y="104" width="44" height="50" rx="3" fill="#ffffff" stroke="#b8b8b8"/>
+  <rect x="108" y="104" width="44" height="50" rx="3" fill="#ffffff" stroke="#b8b8b8"/>
+  <rect x="54" y="166" width="44" height="50" rx="3" fill="#ffffff" stroke="#b8b8b8"/>
+  <rect x="108" y="166" width="44" height="50" rx="3" fill="#ffffff" stroke="#b8b8b8"/>
+  <rect x="54" y="228" width="44" height="50" rx="3" fill="#ffffff" stroke="#b8b8b8"/>
+  <rect x="108" y="228" width="44" height="50" rx="3" fill="#ffffff" stroke="#b8b8b8"/>
+  <rect x="200" y="104" width="44" height="50" rx="3" fill="#ffffff" stroke="#b8b8b8"/>
+  <rect x="254" y="104" width="44" height="50" rx="3" fill="#ffffff" stroke="#b8b8b8"/>
+  <rect x="200" y="166" width="44" height="50" rx="3" fill="#ffffff" stroke="#b8b8b8"/>
+  <rect x="254" y="166" width="44" height="50" rx="3" fill="#ffffff" stroke="#b8b8b8"/>
+  <rect x="200" y="228" width="44" height="50" rx="3" fill="#ffffff" stroke="#b8b8b8"/>
+  <rect x="254" y="228" width="44" height="50" rx="3" fill="#ffffff" stroke="#b8b8b8"/>
+  <rect x="346" y="104" width="44" height="50" rx="3" fill="#ffffff" stroke="#b8b8b8"/>
+  <rect x="400" y="104" width="44" height="50" rx="3" fill="#ffffff" stroke="#b8b8b8"/>
+  <rect x="346" y="166" width="44" height="50" rx="3" fill="#ffffff" stroke="#b8b8b8"/>
+  <rect x="400" y="166" width="44" height="50" rx="3" fill="#ffffff" stroke="#b8b8b8"/>
+  <rect x="346" y="228" width="44" height="50" rx="3" fill="#ffffff" stroke="#b8b8b8"/>
+  <rect x="400" y="228" width="44" height="50" rx="3" fill="#ffffff" stroke="#b8b8b8"/>
+  <path class="ln" d="M251 70 L76 104"/>
+  <path class="ln" d="M251 70 L222 104"/>
+  <path class="ln" d="M251 70 L368 104"/>
+  <path class="lna" d="M222 129 L276 129 L276 191 L276 253"/>
+  <path class="lna" d="M271 246 L276 253 L281 246"/>
+  <path class="dsh" d="M480 30 L520 30"/>
+  <text class="t" x="528" y="34">시스템</text>
+  <path class="dsh" d="M462 56 L520 52"/>
+  <text class="t" x="528" y="56">서비스(=기능)</text>
+  <path class="dsh" d="M257 70 L520 82"/>
+  <text class="t" x="528" y="86">메뉴 구조</text>
+  <path class="lna" d="M276 160 L520 160"/>
+  <text class="ha" x="528" y="164">워크플로</text>
+  <path class="dsh" d="M444 256 L520 256"/>
+  <text class="t" x="528" y="260">스크린</text>
+  <text class="sm" x="20" y="344">바깥일수록 추상적이고 안쪽일수록 구체적이다. 정보 구조는 정적이고, 메뉴 구조와 워크플로는 동적이다.</text>
+</svg>
