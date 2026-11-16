@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 410" width="680" height="410" role="img">
+  <title>사용성 테스트의 절차</title>
+  <style>
+    text { font-family: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; }
+    .h   { font-size: 14px; fill: #222; font-weight: 600; }
+    .ha  { font-size: 14px; fill: #2b5797; font-weight: 700; }
+    .t   { font-size: 13px; fill: #3a3a3a; }
+    .ta  { font-size: 13px; fill: #2b5797; font-weight: 600; }
+    .sm  { font-size: 12px; fill: #8a8a8a; }
+    .box { fill: #ffffff; stroke: #d8d8d8; stroke-width: 1; }
+    .soft{ fill: #f7f7f5; stroke: #d8d8d8; stroke-width: 1; }
+    .bxa { fill: #eef3fb; stroke: #2b5797; stroke-width: 1.5; }
+    .dsh { fill: none; stroke: #b8b8b8; stroke-width: 1; stroke-dasharray: 4 3; }
+    .ln  { stroke: #b8b8b8; stroke-width: 1.2; fill: none; }
+    .lna { stroke: #2b5797; stroke-width: 2; fill: none; }
+    .ax  { stroke: #8a8a8a; stroke-width: 1.2; fill: none; }
+  </style>
+  <rect x="0" y="0" width="680" height="410" fill="#ffffff"/>
+  <rect class="dsh" x="14" y="12" width="652" height="386" rx="8"/>
+  <text class="sm" x="650" y="32" text-anchor="end">넓은 의미의 사용성 테스트</text>
+  <rect class="soft" x="30" y="44" width="120" height="116" rx="6"/>
+  <text class="h" x="90" y="107.0" text-anchor="middle">준비 단계</text>
+  <rect class="box" x="166" y="48" width="130" height="30" rx="5"/>
+  <text class="t" x="231" y="68" text-anchor="middle">플래닝</text>
+  <text class="sm" x="310" y="68">목표, 주제, 일정, 예산 계획</text>
+  <rect class="box" x="166" y="84" width="130" height="30" rx="5"/>
+  <text class="t" x="231" y="104" text-anchor="middle">태스크 설정</text>
+  <text class="sm" x="310" y="104">태스크 시나리오, 평가 기준 수립</text>
+  <rect class="box" x="166" y="120" width="130" height="30" rx="5"/>
+  <text class="t" x="231" y="140" text-anchor="middle">참가자 모집</text>
+  <text class="sm" x="310" y="140">리크루팅과 스크리닝</text>
+  <rect class="bxa" x="30" y="172" width="120" height="116" rx="6"/>
+  <text class="ha" x="90" y="235.0" text-anchor="middle">사용성 테스트</text>
+  <rect class="bxa" x="166" y="176" width="130" height="30" rx="5"/>
+  <text class="ta" x="231" y="196" text-anchor="middle">사전 조사</text>
+  <text class="sm" x="310" y="196">테스트 설명, 사전 설문</text>
+  <rect class="bxa" x="166" y="212" width="130" height="30" rx="5"/>
+  <text class="ta" x="231" y="232" text-anchor="middle">테스트 진행</text>
+  <text class="sm" x="310" y="232">테스트 진행, 기록</text>
+  <rect class="bxa" x="166" y="248" width="130" height="30" rx="5"/>
+  <text class="ta" x="231" y="268" text-anchor="middle">사후</text>
+  <text class="sm" x="310" y="268">사후 인터뷰, 설문</text>
+  <text class="ta" x="650" y="235.0" text-anchor="end">좁은 의미의 사용성 테스트</text>
+  <rect class="soft" x="30" y="300" width="120" height="80" rx="6"/>
+  <text class="h" x="90" y="345.0" text-anchor="middle">분석</text>
+  <rect class="box" x="166" y="304" width="130" height="30" rx="5"/>
+  <text class="t" x="231" y="324" text-anchor="middle">데이터 분석</text>
+  <text class="sm" x="310" y="324">정량/정성 데이터 분석</text>
+  <rect class="box" x="166" y="340" width="130" height="30" rx="5"/>
+  <text class="t" x="231" y="360" text-anchor="middle">결론 도출</text>
+  <text class="sm" x="310" y="360">결론·이슈 도출, 리포팅</text>
+</svg>
